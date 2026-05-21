@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevFlow — Azure DevOps Client for Android</title>
+  <link rel="canonical" href="https://zhudeks.github.io/devflow-app/" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Primary meta -->
+  <meta name="description" content="DevFlow is the full-featured Android app for Azure DevOps. Manage work items, pipelines, repos, pull requests, test cases and wikis — all native, all offline-capable. Free on Google Play." />
+  <meta name="keywords" content="azure devops android app, ado mobile client, devops android, azure devops app, azure devops mobile, ado android" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="DevFlow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zhudeks.github.io/devflow-app/" />
+  <meta property="og:title" content="DevFlow — Azure DevOps Client for Android" />
+  <meta property="og:description" content="DevFlow is the full-featured Android app for Azure DevOps. Manage work items, pipelines, repos, pull requests, test cases and wikis — all native, all offline-capable." />
+  <meta property="og:image" content="https://zhudeks.github.io/devflow-app/assets/screenshots/work-items.png" />
+  <meta property="og:image:width" content="1440" />
+  <meta property="og:image:height" content="3120" />
+  <meta property="og:image:alt" content="DevFlow app showing Work Items screen" />
+  <meta property="og:site_name" content="DevFlow" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DevFlow — Azure DevOps Client for Android" />
+  <meta name="twitter:description" content="Full-featured native Android app for Azure DevOps. Work items, pipelines, repos, test cases, wikis and more. Free on Google Play." />
+  <meta name="twitter:image" content="https://zhudeks.github.io/devflow-app/assets/screenshots/work-items.png" />
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DevFlow — Azure DevOps Client",
+    "description": "Full-featured native Android app for Azure DevOps. Manage work items, pipelines, repositories, pull requests, test cases, wikis and more.",
+    "url": "https://zhudeks.github.io/devflow-app/",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.devflow.client",
+    "operatingSystem": "Android 7.0+",
+    "applicationCategory": "DeveloperApplication",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Monthly",
+        "price": "3.99",
+        "priceCurrency": "USD",
+        "billingIncrement": "P1M"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Annual",
+        "price": "29.99",
+        "priceCurrency": "USD",
+        "billingIncrement": "P1Y"
+      }
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Zhudeks Ghazaryan",
+      "url": "https://github.com/zhudeks"
+    },
+    "image": "https://zhudeks.github.io/devflow-app/assets/logo.png"
+  }
+  </script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { DEFAULT: '#0A7EA4', light: '#22B8DD', dark: '#065E7C' },
+            amber: { DEFAULT: '#B45309', light: '#F59E0B' },
+            navy: { DEFAULT: '#0F172A', light: '#1E293B', lighter: '#334155' },
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Geist Mono', 'Courier New', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* ── Base ── */
+    * { box-sizing: border-box; }
+    body {
+      background-color: #0F172A;
+      color: #F1F5F9;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── Gradient background ── */
+    .bg-hero-gradient {
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(10,126,164,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse 60% 40% at 80% 30%, rgba(180,83,9,0.15) 0%, transparent 50%),
+                  #0F172A;
+    }
+
+    /* ── Glassmorphism ── */
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .glass-dark {
+      background: rgba(15,23,42,0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ── Navbar ── */
+    #navbar {
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(15,23,42,0.85) !important;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    /* ── Scroll fade-in ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+    .fade-in-delay-5 { transition-delay: 0.5s; }
+    .fade-in-delay-6 { transition-delay: 0.6s; }
+
+    /* ── Glow button ── */
+    .btn-teal {
+      background: linear-gradient(135deg, #0A7EA4, #065E7C);
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .btn-teal:hover {
+      box-shadow: 0 0 24px rgba(10,126,164,0.6);
+      transform: translateY(-1px);
+    }
+
+    /* ── Feature card ── */
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(10,126,164,0.15);
+      border-color: rgba(10,126,164,0.4) !important;
+    }
+
+    /* ── Accordion ── */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .accordion-content.open {
+      max-height: 800px;
+    }
+    .accordion-icon {
+      transition: transform 0.3s ease;
+    }
+    .accordion-icon.open {
+      transform: rotate(45deg);
+    }
+
+    /* ── Screenshots carousel ── */
+    .screenshots-track {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 2rem 1rem 2rem;
+    }
+    .screenshots-track::-webkit-scrollbar { display: none; }
+    .screenshot-item {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+
+    /* ── Phone mockup ── */
+    .phone-mockup {
+      background: linear-gradient(145deg, #1E293B, #0F172A);
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 2rem;
+      box-shadow:
+        0 0 0 6px rgba(255,255,255,0.04),
+        0 30px 60px rgba(0,0,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-mockup::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 6px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 3px;
+    }
+
+    /* ── Tech badge ── */
+    .tech-badge {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .tech-badge:hover {
+      background: rgba(10,126,164,0.15);
+      border-color: rgba(10,126,164,0.4);
+    }
+
+    /* ── Gradient CTA section ── */
+    .bg-cta-gradient {
+      background: linear-gradient(135deg, #065E7C 0%, #0A7EA4 40%, #0F172A 100%);
+    }
+
+    /* ── Stats number ── */
+    .stat-number {
+      background: linear-gradient(135deg, #22B8DD, #0A7EA4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Teal text ── */
+    .text-teal { color: #0A7EA4; }
+    .text-teal-light { color: #22B8DD; }
+
+    /* ── Mobile menu ── */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     NAVBAR
+════════════════════════════════════ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="https://zhudeks.github.io/devflow-app/" class="flex items-center gap-2 no-underline">
+        <img src="assets/logo.png" alt="DevFlow" class="h-9 w-auto" />
+        <span class="font-sans font-bold text-lg text-white">Dev<span class="text-[#0A7EA4]">Flow</span></span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#features" class="text-sm text-slate-300 hover:text-white transition-colors">Features</a>
+        <a href="#screenshots" class="text-sm text-slate-300 hover:text-white transition-colors">Screenshots</a>
+        <a href="#pricing" class="text-sm text-slate-300 hover:text-white transition-colors">Pricing</a>
+        <a href="#security" class="text-sm text-slate-300 hover:text-white transition-colors">Security</a>
+        <a href="#download" class="text-sm text-slate-300 hover:text-white transition-colors">Download</a>
+        <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+           target="_blank" rel="noopener"
+           class="btn-teal text-white text-sm font-semibold px-4 py-2 rounded-lg">
+          Get on Google Play
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu dropdown -->
+    <div id="mobile-menu" class="glass-dark md:hidden rounded-xl mb-4 px-4 py-4 flex flex-col gap-4">
+      <a href="#features" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Features</a>
+      <a href="#screenshots" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Screenshots</a>
+      <a href="#pricing" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Pricing</a>
+      <a href="#security" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Security</a>
+      <a href="#download" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Download</a>
+      <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+         target="_blank" rel="noopener"
+         class="btn-teal text-white text-sm font-semibold px-4 py-2 rounded-lg text-center">
+        Get on Google Play
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="bg-hero-gradient min-h-screen flex flex-col justify-center pt-24 pb-16 px-4">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- Left: Copy -->
+    <div class="fade-in">
+      <!-- Badge row -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-[#22B8DD]">Material 3</span>
+        <span class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-[#22B8DD]">Jetpack Compose</span>
+        <span class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-[#22B8DD]">OAuth 2.0</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+        Your Azure DevOps.<br />
+        <span class="stat-number">In your pocket.</span>
+      </h1>
+
+      <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-lg">
+        DevFlow is the full-featured Android client for Azure DevOps — work items, pipelines, repos, test cases, wikis and more. All native. All offline-capable.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 btn-teal text-white font-semibold px-6 py-3 rounded-xl text-base">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.18 23.76c.3.17.64.24.99.2l12.6-11.25L13.7 9.64 3.18 23.76zm17.14-10.07L17.6 12l-3.07 2.71 3.07 2.71 2.73-1.69c.78-.48.78-1.26-.01-1.74zM3.03.26C2.72.05 2.35-.04 2.0.02L13.7 11.9l3.09-2.77L3.03.26zM2 .61v22.78L13.14 12 2 .61z"/>
+          </svg>
+          Get it on Google Play
+        </a>
+        <a href="#features"
+           class="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors font-medium">
+          See all features
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Real screenshot -->
+    <div class="fade-in fade-in-delay-2 flex justify-center lg:justify-end">
+      <img src="assets/screenshots/work-items.png"
+       alt="DevFlow Azure DevOps Android app — Work Items screen"
+           class="w-60 sm:w-72 rounded-3xl shadow-2xl border-2 border-white/10 object-cover" />
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="flex justify-center mt-16 fade-in fade-in-delay-4">
+    <a href="#stats" class="flex flex-col items-center gap-2 text-slate-500 hover:text-slate-300 transition-colors animate-bounce">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     STATS BAR
+════════════════════════════════════ -->
+<section id="stats" class="py-16 px-4 border-y border-white/5 bg-navy-light/30">
+  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+    <div class="fade-in">
+      <div class="stat-number text-5xl font-extrabold mb-2">40+</div>
+      <div class="text-slate-400 text-sm font-medium uppercase tracking-wider">Feature Screens</div>
+    </div>
+    <div class="fade-in fade-in-delay-2">
+      <div class="stat-number text-5xl font-extrabold mb-2">20+</div>
+      <div class="text-slate-400 text-sm font-medium uppercase tracking-wider">ADO API Areas Covered</div>
+    </div>
+    <div class="fade-in fade-in-delay-3">
+      <div class="stat-number text-5xl font-extrabold mb-2">Android 7+</div>
+      <div class="text-slate-400 text-sm font-medium uppercase tracking-wider">Minimum Android Version</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     FEATURE HIGHLIGHTS
+════════════════════════════════════ -->
+<section id="features" class="py-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">
+        Everything you need.<br/>
+        <span class="stat-number">On the go.</span>
+      </h2>
+      <p class="text-slate-400 max-w-xl mx-auto">Six core areas — one native app. DevFlow gives you full Azure DevOps power directly on your Android device.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Work Items -->
+      <div class="feature-card glass rounded-2xl p-6 fade-in fade-in-delay-1 border border-white/5">
+        <div class="text-3xl mb-4">🗂️</div>
+        <h3 class="font-bold text-lg mb-2">Work Items</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">View, edit, bulk-update, and search across all work items with advanced multi-filter search and saved filters.</p>
+      </div>
+
+      <!-- Pull Requests -->
+      <div class="feature-card glass rounded-2xl p-6 fade-in fade-in-delay-2 border border-white/5">
+        <div class="text-3xl mb-4">🔀</div>
+        <h3 class="font-bold text-lg mb-2">Pull Requests</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Browse PRs, create new ones with reviewer assignment, draft toggle, and live policy status badges.</p>
+      </div>
+
+      <!-- Pipelines -->
+      <div class="feature-card glass rounded-2xl p-6 fade-in fade-in-delay-3 border border-white/5">
+        <div class="text-3xl mb-4">⚙️</div>
+        <h3 class="font-bold text-lg mb-2">Pipelines &amp; CI/CD</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Monitor builds, queue new runs, inspect logs &amp; artifacts, browse YAML pipelines and variable groups.</p>
+      </div>
+
+      <!-- Analytics -->
+      <div class="feature-card glass rounded-2xl p-6 fade-in fade-in-delay-1 border border-white/5">
+        <div class="text-3xl mb-4">📊</div>
+        <h3 class="font-bold text-lg mb-2">Analytics &amp; Charts</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Burndown charts, Cumulative Flow Diagrams, Lead/Cycle Time, and pipeline pass-rate trends — all OData-driven.</p>
+      </div>
+
+      <!-- Repositories -->
+      <div class="feature-card glass rounded-2xl p-6 fade-in fade-in-delay-2 border border-white/5">
+        <div class="text-3xl mb-4">📁</div>
+        <h3 class="font-bold text-lg mb-2">Repositories</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Full file tree, syntax-highlighted file viewer, branch management, and side-by-side commit diff viewer.</p>
+      </div>
+
+      <!-- Test Cases -->
+      <div class="feature-card glass rounded-2xl p-6 fade-in fade-in-delay-3 border border-white/5">
+        <div class="text-3xl mb-4">📋</div>
+        <h3 class="font-bold text-lg mb-2">Test Cases</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Browse test plans &amp; suites, execute tests, attach screenshots to results, and export to CSV.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     FULL FEATURE LIST (ACCORDION)
+════════════════════════════════════ -->
+<section id="full-features" class="py-16 px-4 bg-[#0D1628]">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="text-3xl font-extrabold mb-4">The Full Feature List</h2>
+      <p class="text-slate-400">Every capability, organized by category.</p>
+    </div>
+
+    <div id="accordion-container" class="space-y-3 fade-in">
+
+      <!-- Work Management -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🗂️</span>
+            <span class="font-semibold">Work Management</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Work Items (all types)</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Bulk Operations</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Saved Filters</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> WIQL Queries</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Backlog View</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Kanban Board</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Delivery Plans</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Sprints &amp; Iterations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code & Repos -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">📁</span>
+            <span class="font-semibold">Code &amp; Repositories</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Repository Browser</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Branch Management</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Commit Diff Viewer</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Code Search</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CI/CD -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">⚙️</span>
+            <span class="font-semibold">CI/CD &amp; Pipelines</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Pipeline Monitor</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> YAML Runner</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Variable Groups</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Service Connections</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Environments</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Agent Pools</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Deployment Groups</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quality -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">📋</span>
+            <span class="font-semibold">Quality &amp; Testing</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Test Cases</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Test Execution</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Screenshot Attachments</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> CSV Export</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collaboration -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🔀</span>
+            <span class="font-semibold">Collaboration</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Pull Requests</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> PR Policies</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Wiki Browser</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Comments &amp; Replies</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Follow &amp; Notifications</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organization -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🏢</span>
+            <span class="font-semibold">Organization</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Directory</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Teams</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Projects</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Dashboards</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Extensions</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Permission Checker</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer Tools -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🛠️</span>
+            <span class="font-semibold">Developer Tools</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> WIQL Query Editor</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Field Explorer</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Process Explorer</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Profile &amp; Settings</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="glass rounded-xl overflow-hidden border border-white/5">
+        <button class="accordion-btn w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors" aria-expanded="false">
+          <div class="flex items-center gap-3">
+            <span class="text-xl">🔐</span>
+            <span class="font-semibold">Security</span>
+          </div>
+          <svg class="accordion-icon w-5 h-5 text-slate-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </button>
+        <div class="accordion-content">
+          <div class="px-6 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> OAuth 2.0</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> PAT Auth</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Encrypted Storage</div>
+            <div class="flex items-center gap-2 text-sm text-slate-300"><span class="text-[#0A7EA4]">✓</span> Play Integrity API</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /accordion-container -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     SCREENSHOTS CAROUSEL
+════════════════════════════════════ -->
+<section id="screenshots" class="py-24 overflow-hidden" style="background: radial-gradient(ellipse 100% 60% at 50% 50%, rgba(10,126,164,0.12) 0%, transparent 70%), #0F172A;">
+  <!-- top fade -->
+  <div class="pointer-events-none absolute left-0 right-0 h-24 -mt-24" style="background: linear-gradient(to bottom, #0F172A, transparent);"></div>
+
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">See it in action</h2>
+      <p class="text-slate-400">A tour of DevFlow's most-used screens — all Aero Flux dark theme.</p>
+    </div>
+  </div>
+
+  <!-- Full-width scroll track with side fade gradients -->
+  <div class="relative">
+    <!-- Left fade -->
+    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 z-10"
+         style="background: linear-gradient(to right, #0F172A, transparent);"></div>
+    <!-- Right fade -->
+    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 z-10"
+         style="background: linear-gradient(to left, #0F172A, transparent);"></div>
+
+    <div id="screenshots-track" class="screenshots-track lg:grid lg:grid-cols-4 lg:gap-8 fade-in px-8 sm:px-16 lg:px-8 lg:max-w-6xl lg:mx-auto">
+
+      <!-- Work Items -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/work-items.png"
+               alt="DevFlow Azure DevOps Android app — Work Items list"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Work Items</p>
+      </div>
+
+      <!-- Work Item Detail -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/work-item-detail.png"
+               alt="DevFlow Azure DevOps Android app — Work Item detail with comments"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Work Item Detail</p>
+      </div>
+
+      <!-- Kanban -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/kanban.png"
+               alt="DevFlow Azure DevOps Android app — Kanban board"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Kanban Board</p>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/pipeline.png"
+               alt="DevFlow Azure DevOps Android app — Pipeline monitor"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Pipeline Monitor</p>
+      </div>
+
+      <!-- Repo Diff -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/repo-diff.png"
+               alt="DevFlow Azure DevOps Android app — Repository diff viewer"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Diff Viewer</p>
+      </div>
+
+      <!-- Burndown -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/burndown.png"
+               alt="DevFlow Azure DevOps Android app — Sprint burndown chart"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Sprint Burndown</p>
+      </div>
+
+      <!-- Pull Request -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/pull-request.png"
+               alt="DevFlow Azure DevOps Android app — Pull Request creation"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Pull Requests</p>
+      </div>
+
+    </div><!-- /screenshots-track -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     SECURITY
+════════════════════════════════════ -->
+<section id="security" class="py-24 px-4 bg-[#0D1628]">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- Text -->
+    <div class="fade-in">
+      <div class="inline-flex items-center gap-2 text-[#22B8DD] text-sm font-mono font-semibold mb-4 glass px-4 py-2 rounded-full">
+        <span>🛡️</span> Enterprise-grade security
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">
+        Your data stays<br/>
+        <span class="stat-number">yours, always.</span>
+      </h2>
+      <p class="text-slate-400 mb-8 leading-relaxed">
+        DevFlow connects directly to Azure DevOps APIs. No third-party servers, no data collection, no middle man.
+      </p>
+      <div class="space-y-4">
+        <div class="flex items-start gap-4 fade-in fade-in-delay-1">
+          <div class="text-2xl flex-shrink-0">🔐</div>
+          <div>
+            <div class="font-semibold mb-1">OAuth 2.0 via Microsoft Entra ID</div>
+            <div class="text-sm text-slate-400">No app registration needed. Sign in with your existing Microsoft account.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 fade-in fade-in-delay-2">
+          <div class="text-2xl flex-shrink-0">🔑</div>
+          <div>
+            <div class="font-semibold mb-1">Personal Access Token (PAT)</div>
+            <div class="text-sm text-slate-400">Tokens stored in Android EncryptedSharedPreferences — never in plaintext.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 fade-in fade-in-delay-3">
+          <div class="text-2xl flex-shrink-0">🛡️</div>
+          <div>
+            <div class="font-semibold mb-1">Google Play Integrity API</div>
+            <div class="text-sm text-slate-400">Attestation ensures DevFlow runs on genuine, unmodified Android devices.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 fade-in fade-in-delay-4">
+          <div class="text-2xl flex-shrink-0">🔒</div>
+          <div>
+            <div class="font-semibold mb-1">Zero third-party data storage</div>
+            <div class="text-sm text-slate-400">Direct ADO API only. Your data never leaves Microsoft's infrastructure.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="fade-in fade-in-delay-2 flex justify-center">
+      <div class="glass rounded-3xl p-8 max-w-sm w-full border border-white/5">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-[#0A7EA4]/20 flex items-center justify-center text-xl">🔐</div>
+          <div>
+            <div class="font-semibold text-sm">Auth Flow</div>
+            <div class="text-xs text-green-400">● Secure connection</div>
+          </div>
+        </div>
+        <!-- Flow diagram -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="glass w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0">📱</div>
+            <div class="flex-1 text-xs text-slate-300">DevFlow App</div>
+            <div class="text-xs text-[#22B8DD] font-mono">OAuth 2.0</div>
+          </div>
+          <div class="flex justify-start ml-4">
+            <div class="w-0.5 h-4 bg-[#0A7EA4]/40"></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="glass w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0">🏢</div>
+            <div class="flex-1 text-xs text-slate-300">Microsoft Entra ID</div>
+            <div class="text-xs text-green-400 font-mono">Token</div>
+          </div>
+          <div class="flex justify-start ml-4">
+            <div class="w-0.5 h-4 bg-[#0A7EA4]/40"></div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="glass w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0">☁️</div>
+            <div class="flex-1 text-xs text-slate-300">Azure DevOps API</div>
+            <div class="text-xs text-[#22B8DD] font-mono">Direct</div>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
+          <div class="text-xs text-slate-400">No intermediate servers</div>
+          <div class="text-xs text-green-400 font-medium">✓ Verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     TECH STACK STRIP
+════════════════════════════════════ -->
+<section class="py-16 px-4 border-y border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-8 fade-in">
+      <p class="text-slate-500 text-sm font-mono uppercase tracking-widest">Built with modern Android stack</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 fade-in">
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Kotlin</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Jetpack Compose</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Material 3</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Hilt</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Retrofit</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Room</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Coroutines</span>
+      <span class="tech-badge text-sm font-mono px-4 py-2 rounded-full text-slate-300">Paging 3</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     PRICING
+════════════════════════════════════ -->
+<section id="pricing" class="py-24 px-4 bg-[#0D1628]">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 fade-in">
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Simple, transparent pricing</h2>
+      <p class="text-slate-400">Start for free. Upgrade when you need to write.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+
+      <!-- Free tier -->
+      <div class="fade-in fade-in-delay-1 glass rounded-3xl p-8 border border-white/5 flex flex-col">
+        <div class="mb-6">
+          <div class="text-sm font-mono text-slate-400 uppercase tracking-widest mb-2">Free</div>
+          <div class="text-5xl font-extrabold text-white mb-1">$0</div>
+          <div class="text-slate-500 text-sm">Forever free</div>
+        </div>
+        <ul class="space-y-3 flex-1 mb-8">
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#0A7EA4] mt-0.5 flex-shrink-0">✓</span>
+            <span>Full <strong class="text-white">read access</strong> to all Azure DevOps data</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#0A7EA4] mt-0.5 flex-shrink-0">✓</span>
+            <span>Browse work items, boards, repos, pipelines &amp; test cases</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#0A7EA4] mt-0.5 flex-shrink-0">✓</span>
+            <span>View pull requests, build logs &amp; analytics</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#0A7EA4] mt-0.5 flex-shrink-0">✓</span>
+            <span>Offline mode &amp; all navigation features</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-400">
+            <span class="text-slate-600 mt-0.5 flex-shrink-0">✗</span>
+            <span>Write &amp; edit operations</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-400">
+            <span class="text-slate-600 mt-0.5 flex-shrink-0">✗</span>
+            <span>Bulk operations</span>
+          </li>
+        </ul>
+        <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+           target="_blank" rel="noopener"
+           class="block text-center glass border border-white/10 hover:border-[#0A7EA4]/50 text-white font-semibold py-3 rounded-xl transition-all duration-300">
+          Download Free
+        </a>
+      </div>
+
+      <!-- Premium tier -->
+      <div class="fade-in fade-in-delay-2 rounded-3xl p-8 flex flex-col relative overflow-hidden"
+           style="background: linear-gradient(145deg, rgba(10,126,164,0.2), rgba(6,94,124,0.1)); border: 1px solid rgba(10,126,164,0.4);">
+        <!-- Popular badge -->
+        <div class="absolute top-4 right-4">
+          <span class="text-xs font-semibold bg-[#0A7EA4] text-white px-3 py-1 rounded-full">PREMIUM</span>
+        </div>
+        <div class="mb-6">
+          <div class="text-sm font-mono text-[#22B8DD] uppercase tracking-widest mb-2">Premium</div>
+          <div class="flex items-end gap-2 mb-1">
+            <div class="text-5xl font-extrabold text-white">$3.99</div>
+            <div class="text-slate-400 text-sm mb-2">/month</div>
+          </div>
+          <div class="text-slate-400 text-sm">or <span class="text-[#22B8DD] font-semibold">$29.99/year</span> <span class="text-green-400 text-xs">(save 37%)</span></div>
+          <div class="text-slate-500 text-xs mt-1">Free trial available · Prices may vary by region</div>
+        </div>
+        <ul class="space-y-3 flex-1 mb-8">
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#22B8DD] mt-0.5 flex-shrink-0">✓</span>
+            <span>Everything in Free</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#22B8DD] mt-0.5 flex-shrink-0">✓</span>
+            <span><strong class="text-white">Full write access</strong> — create, edit &amp; delete work items, PRs, comments</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#22B8DD] mt-0.5 flex-shrink-0">✓</span>
+            <span>Bulk operations &amp; batch updates</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#22B8DD] mt-0.5 flex-shrink-0">✓</span>
+            <span>Queue pipeline runs &amp; manage deployments</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#22B8DD] mt-0.5 flex-shrink-0">✓</span>
+            <span>Execute &amp; record test case results</span>
+          </li>
+          <li class="flex items-start gap-3 text-sm text-slate-300">
+            <span class="text-[#22B8DD] mt-0.5 flex-shrink-0">✓</span>
+            <span>All future premium features</span>
+          </li>
+        </ul>
+        <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+           target="_blank" rel="noopener"
+           class="block text-center btn-teal text-white font-semibold py-3 rounded-xl transition-all duration-300">
+          Try Free Trial
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     DOWNLOAD CTA
+════════════════════════════════════ -->
+<section id="download" class="py-24 px-4 bg-cta-gradient">
+  <div class="max-w-3xl mx-auto text-center fade-in">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 text-white">
+      Ready to manage your DevOps on the go?
+    </h2>
+    <p class="text-teal-100/80 text-lg mb-10">Free to download · Premium from $3.99/month</p>
+
+    <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+       target="_blank" rel="noopener"
+       class="inline-flex items-center gap-3 bg-black text-white font-semibold px-8 py-4 rounded-2xl text-lg
+              border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all duration-300
+              hover:shadow-2xl hover:shadow-black/50">
+      <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3.18 23.76c.3.17.64.24.99.2l12.6-11.25L13.7 9.64 3.18 23.76zm17.14-10.07L17.6 12l-3.07 2.71 3.07 2.71 2.73-1.69c.78-.48.78-1.26-.01-1.74zM3.03.26C2.72.05 2.35-.04 2.0.02L13.7 11.9l3.09-2.77L3.03.26zM2 .61v22.78L13.14 12 2 .61z"/>
+      </svg>
+      <div class="text-left">
+        <div class="text-xs opacity-70 leading-none">GET IT ON</div>
+        <div class="text-xl font-bold leading-tight">Google Play</div>
+      </div>
+    </a>
+
+    <p class="mt-8 text-sm text-teal-100/50">Android 7.0+ · Free trial available · No credit card required</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer class="py-12 px-4 bg-[#0A1120] border-t border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <!-- Brand -->
+      <div class="flex flex-col items-center sm:items-start gap-1">
+        <img src="assets/logo.png" alt="DevFlow" class="h-9 w-auto" />
+        <p class="text-xs text-slate-500">Azure DevOps Client for Android</p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://play.google.com/store/apps/details?id=com.devflow.client"
+           target="_blank" rel="noopener"
+           class="text-sm text-slate-400 hover:text-white transition-colors">Google Play</a>
+        <a href="https://zhudeks.github.io/devflow-privacy/" target="_blank" rel="noopener" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+        <a href="https://github.com/zhudeks" target="_blank" rel="noopener"
+           class="text-sm text-slate-400 hover:text-white transition-colors">GitHub</a>
+        <a href="mailto:ghazaryan.zhudeks.dev@gmail.com"
+           class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-white/5 text-center text-xs text-slate-600">
+      © 2026 DevFlow. Not affiliated with Microsoft. Azure DevOps is a trademark of Microsoft Corporation.
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════ -->
+<script>
+  // ── Navbar scroll effect ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ── Mobile menu ──
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // ── Scroll fade-in (Intersection Observer) ──
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => io.observe(el));
+
+  // ── Accordion ──
+  document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector('.accordion-icon');
+      const isOpen = content.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.accordion-content.open').forEach(c => c.classList.remove('open'));
+      document.querySelectorAll('.accordion-icon.open').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.accordion-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+      // Toggle clicked
+      if (!isOpen) {
+        content.classList.add('open');
+        icon.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ── Smooth anchor scroll (offset for fixed navbar) ──
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
