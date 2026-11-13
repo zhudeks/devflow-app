@@ -98,7 +98,7 @@ Grouped into categories. Collapsed by default, expand with "See all features" bu
 ---
 
 ### 2.6 — Screenshots / App Showcase
-- Horizontal scroll strip of phone mockups (5–7 screens)
+- Horizontal scroll strip of phone mockups (8 screens)
 - Suggested screens to show:
   1. Work Items list (dark theme)
   2. Work Item detail with comments
@@ -107,6 +107,7 @@ Grouped into categories. Collapsed by default, expand with "See all features" bu
   5. Repo diff viewer
   6. Sprint burndown chart
   7. Pull Request creation
+  8. Test Case detail with steps
 - Auto-scroll carousel on mobile, static grid on desktop
 
 ---
@@ -179,7 +180,7 @@ devflow-app/                        ← GitHub repo root (separate repo)
 - [x] **Step 3** — Build Navbar + Hero section
 - [x] **Step 4** — Stats bar + Feature cards grid
 - [x] **Step 5** — Full feature accordion
-- [x] **Step 6** — Screenshots carousel (7 real screenshots, gradient background, hover glow)
+- [x] **Step 6** — Screenshots carousel (8 real screenshots, gradient background, hover glow)
 - [x] **Step 7** — Auth/Security + Tech stack sections
 - [x] **Step 8** — Download CTA + Footer (Privacy Policy, Google Play, GitHub, Contact)
 - [x] **Step 9** — Add real screenshots + logo (`assets/screenshots/`, `assets/logo.png`)
@@ -197,7 +198,7 @@ devflow-app/                        ← GitHub repo root (separate repo)
 
 ## 6. Assets Needed
 
-- [x] App screenshots — 7 real screenshots added (`assets/screenshots/`)
+- [x] App screenshots — 8 real screenshots added (`assets/screenshots/`)
 - [x] DevFlow logo — `assets/logo.png` (512×512)
 - [ ] OG preview image (1200×630 px) — currently using work-items.png as fallback
 - [x] Google Play badge — inline SVG used directly in HTML

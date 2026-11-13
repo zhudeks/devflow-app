@@ -21,7 +21,9 @@ https://zhudeks.github.io/devflow-app
  |       +-  repo-diff.png
  |       +-  burndown.png
  |       +-  pull-request.png
+ |       +-  test-cases.png
  +-  README.md
+-  sitemap.xml      <- canonical page URL for search engines
 +-  plan.md
 ```
 
@@ -32,7 +34,7 @@ https://zhudeks.github.io/devflow-app
 3. Stats Bar (40+ screens, 20+ API areas, Android 7+)
 4. Feature Highlights (6 cards)
 5. Full Feature Accordion (8 categories)
-6. Screenshots Carousel (7 real app screenshots)
+6. Screenshots Carousel (8 real app screenshots)
 7. Security Section (OAuth 2.0, PAT, Play Integrity)
 8. Tech Stack Strip
 9. Pricing (Free vs Premium — $3.99/month or $29.99/year)
@@ -44,6 +46,13 @@ https://zhudeks.github.io/devflow-app
 1. Go to repo Settings -> Pages
 2. Source: main branch, folder /
 3. Site live at https://zhudeks.github.io/devflow-app
+
+## Search indexing
+
+After deployment, verify the site in Google Search Console and submit
+`https://zhudeks.github.io/devflow-app/sitemap.xml`. GitHub Pages project sites
+live under a path, so a `robots.txt` in this repository would not be served at
+the hostname root where search engines look for it.
 
 ## Tech
 

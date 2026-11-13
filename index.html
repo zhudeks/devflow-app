@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevFlow — Azure DevOps Client for Android</title>
+  <title>DevFlow — Azure DevOps App for Android</title>
   <link rel="canonical" href="https://zhudeks.github.io/devflow-app/" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
   <!-- Primary meta -->
-  <meta name="description" content="DevFlow is the full-featured Android app for Azure DevOps. Manage work items, pipelines, repos, pull requests, test cases and wikis — all native, all offline-capable. Free on Google Play." />
-  <meta name="keywords" content="azure devops android app, ado mobile client, devops android, azure devops app, azure devops mobile, ado android" />
+  <meta name="description" content="Manage Azure DevOps work items, pipelines, repositories, pull requests and test cases on Android with DevFlow. Download free on Google Play." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="DevFlow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zhudeks.github.io/devflow-app/" />
-  <meta property="og:title" content="DevFlow — Azure DevOps Client for Android" />
-  <meta property="og:description" content="DevFlow is the full-featured Android app for Azure DevOps. Manage work items, pipelines, repos, pull requests, test cases and wikis — all native, all offline-capable." />
+  <meta property="og:title" content="DevFlow — Azure DevOps App for Android" />
+  <meta property="og:description" content="Manage Azure DevOps work items, pipelines, repositories, pull requests and test cases on Android with DevFlow. Download free on Google Play." />
   <meta property="og:image" content="https://zhudeks.github.io/devflow-app/assets/screenshots/work-items.png" />
   <meta property="og:image:width" content="1440" />
   <meta property="og:image:height" content="3120" />
@@ -27,9 +26,10 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DevFlow — Azure DevOps Client for Android" />
-  <meta name="twitter:description" content="Full-featured native Android app for Azure DevOps. Work items, pipelines, repos, test cases, wikis and more. Free on Google Play." />
+  <meta name="twitter:title" content="DevFlow — Azure DevOps App for Android" />
+  <meta name="twitter:description" content="Manage Azure DevOps work items, pipelines, repositories, pull requests and test cases on Android with DevFlow. Download free on Google Play." />
   <meta name="twitter:image" content="https://zhudeks.github.io/devflow-app/assets/screenshots/work-items.png" />
+  <meta name="twitter:image:alt" content="DevFlow app showing Work Items screen" />
 
   <!-- JSON-LD: SoftwareApplication -->
   <script type="application/ld+json">
@@ -42,28 +42,13 @@
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.devflow.client",
     "operatingSystem": "Android 7.0+",
     "applicationCategory": "DeveloperApplication",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Free",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "name": "Premium Monthly",
-        "price": "3.99",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M"
-      },
-      {
-        "@type": "Offer",
-        "name": "Premium Annual",
-        "price": "29.99",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1Y"
-      }
-    ],
+    "offers": {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "url": "https://play.google.com/store/apps/details?id=com.devflow.client"
+    },
     "author": {
       "@type": "Person",
       "name": "Zhudeks Ghazaryan",
@@ -138,12 +123,12 @@
     }
 
     /* ── Scroll fade-in ── */
-    .fade-in {
+    .js-animations .fade-in {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .fade-in.visible {
+    .js-animations .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -182,6 +167,18 @@
     }
     .accordion-content.open {
       max-height: 800px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: rgba(10,126,164,0.035);
+    }
+    .accordion-content > div {
+      padding-top: 0.75rem;
+    }
+    .accordion-content > div > div {
+      min-height: 2.5rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 0.625rem;
+      background: rgba(255,255,255,0.025);
     }
     .accordion-icon {
       transition: transform 0.3s ease;
@@ -266,6 +263,9 @@
       display: block;
     }
   </style>
+  <noscript>
+    <style>.accordion-content { max-height: none; }</style>
+  </noscript>
 </head>
 <body>
 
@@ -319,6 +319,7 @@
   </div>
 </nav>
 
+<main>
 
 <!-- ════════════════════════════════════
      HERO
@@ -366,7 +367,8 @@
     <!-- Right: Real screenshot -->
     <div class="fade-in fade-in-delay-2 flex justify-center lg:justify-end">
       <img src="assets/screenshots/work-items.png"
-       alt="DevFlow Azure DevOps Android app — Work Items screen"
+           alt="DevFlow Azure DevOps Android app — Work Items screen"
+           width="1440" height="3120" fetchpriority="high"
            class="w-60 sm:w-72 rounded-3xl shadow-2xl border-2 border-white/10 object-cover" />
     </div>
   </div>
@@ -669,7 +671,7 @@
 
   <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-16 fade-in">
-      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">See it in action</h2>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">DevFlow Android app screenshots</h2>
       <p class="text-slate-400">A tour of DevFlow's most-used screens — all Aero Flux dark theme.</p>
     </div>
   </div>
@@ -692,6 +694,7 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/work-items.png"
                alt="DevFlow Azure DevOps Android app — Work Items list"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Work Items</p>
@@ -704,6 +707,7 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/work-item-detail.png"
                alt="DevFlow Azure DevOps Android app — Work Item detail with comments"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Work Item Detail</p>
@@ -716,6 +720,7 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/kanban.png"
                alt="DevFlow Azure DevOps Android app — Kanban board"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Kanban Board</p>
@@ -728,6 +733,7 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/pipeline.png"
                alt="DevFlow Azure DevOps Android app — Pipeline monitor"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Pipeline Monitor</p>
@@ -740,6 +746,7 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/repo-diff.png"
                alt="DevFlow Azure DevOps Android app — Repository diff viewer"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Diff Viewer</p>
@@ -752,6 +759,7 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/burndown.png"
                alt="DevFlow Azure DevOps Android app — Sprint burndown chart"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Sprint Burndown</p>
@@ -764,9 +772,23 @@
                style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
           <img src="assets/screenshots/pull-request.png"
                alt="DevFlow Azure DevOps Android app — Pull Request creation"
+               width="1440" height="3120" loading="lazy"
                class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
         </div>
         <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Pull Requests</p>
+      </div>
+
+      <!-- Test Cases -->
+      <div class="screenshot-item lg:col-span-1 flex flex-col items-center">
+        <div class="relative group">
+          <div class="absolute -inset-2 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style="background: radial-gradient(ellipse at center, rgba(10,126,164,0.35), transparent 70%);"></div>
+          <img src="assets/screenshots/test-cases.png"
+               alt="DevFlow Azure DevOps Android app — Test Case detail with steps"
+               width="1440" height="3120" loading="lazy"
+               class="relative w-48 sm:w-52 rounded-3xl shadow-2xl border-2 border-white/10 object-cover transition-transform duration-300 group-hover:-translate-y-2" />
+        </div>
+        <p class="text-center text-xs text-slate-500 mt-4 font-medium tracking-wide uppercase">Test Cases</p>
       </div>
 
     </div><!-- /screenshots-track -->
@@ -1023,6 +1045,7 @@
   </div>
 </section>
 
+</main>
 
 <!-- ════════════════════════════════════
      FOOTER
@@ -1079,16 +1102,19 @@
   }
 
   // ── Scroll fade-in (Intersection Observer) ──
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  fadeEls.forEach(el => io.observe(el));
+  if ('IntersectionObserver' in window) {
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.documentElement.classList.add('js-animations');
+    fadeEls.forEach(el => io.observe(el));
+  }
 
   // ── Accordion ──
   document.querySelectorAll('.accordion-btn').forEach(btn => {
