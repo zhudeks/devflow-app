@@ -334,6 +334,11 @@
         <span class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-[#22B8DD]">Material 3</span>
         <span class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-[#22B8DD]">Jetpack Compose</span>
         <span class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-[#22B8DD]">OAuth 2.0</span>
+        <a id="latest-version" href="https://play.google.com/store/apps/details?id=com.devflow.client"
+           target="_blank" rel="noopener"
+           class="tech-badge text-xs font-mono px-3 py-1 rounded-full text-slate-300">
+          Latest on Google Play
+        </a>
       </div>
 
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
@@ -1093,6 +1098,26 @@
   // ── Mobile menu ──
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+
+  async function showLatestPlayVersion() {
+    const versionBadge = document.getElementById('latest-version');
+    try {
+      const response = await fetch('app-version.json', { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error(`Version file request failed with status ${response.status}`);
+      }
+
+      const version = await response.json();
+      if (!/^\d+\.\d+\.\d+/.test(version.versionName)) {
+        throw new Error('Version file does not contain a valid version name');
+      }
+
+      versionBadge.textContent = `Latest on Google Play: v${version.versionName}`;
+    } catch (error) {
+      console.error('Unable to load the latest Google Play version:', error);
+    }
+  }
+  showLatestPlayVersion();
 
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');

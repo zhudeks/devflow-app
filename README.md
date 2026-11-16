@@ -54,6 +54,26 @@ After deployment, verify the site in Google Search Console and submit
 live under a path, so a `robots.txt` in this repository would not be served at
 the hostname root where search engines look for it.
 
+## Automatic Google Play version
+
+The site displays the latest published production version from
+`app-version.json`. The `Sync Google Play version` GitHub Actions workflow
+checks the production track daily and can also be started manually from the
+Actions tab. When the version changes, the workflow commits the updated JSON
+file to `main`, which updates the GitHub Pages site.
+
+To configure it:
+
+1. Enable the Google Play Android Developer API in a Google Cloud project.
+2. Create a service account and add it as a user in Play Console with
+   **View app information (read-only)** access to this app.
+3. Create a service account JSON key and add its contents as the repository
+   Actions secret `PLAY_SERVICE_ACCOUNT_JSON` under **Settings → Secrets and
+   variables → Actions**. Never commit or share the key.
+4. Ensure production release names include the version (for example,
+   `v7.6.1 to master`). The workflow ignores releases that aren't published
+   and fails rather than publishing an unrecognized version name.
+
 ## Tech
 
 Plain HTML, Tailwind CSS CDN, Vanilla JS - No build step required.
