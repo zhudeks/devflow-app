@@ -412,6 +412,42 @@
 
 
 <!-- ════════════════════════════════════
+     GOOGLE PLAY RELEASE & METRICS
+════════════════════════════════════ -->
+<section id="latest-release" class="py-20 px-4 border-b border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10 fade-in">
+      <p class="text-[#22B8DD] text-sm font-mono uppercase tracking-widest mb-3">From Google Play</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Latest release</h2>
+      <p id="release-version" class="text-slate-400">Loading release details…</p>
+      <p id="play-last-updated" hidden class="text-slate-500 text-sm mt-2"></p>
+    </div>
+
+    <div id="release-notes-card" hidden class="glass rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto fade-in">
+      <h3 class="text-lg font-bold mb-4">What’s new</h3>
+      <p id="release-notes" class="text-slate-300 text-sm leading-7 whitespace-pre-line"></p>
+    </div>
+
+    <div id="play-metrics" hidden class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+      <div id="rating-metric" hidden class="glass rounded-2xl p-6 text-center">
+        <div id="play-rating" class="text-3xl font-extrabold text-white mb-2"></div>
+        <div class="text-slate-400 text-sm">Average rating</div>
+      </div>
+      <div id="reviews-metric" hidden class="glass rounded-2xl p-6 text-center">
+        <div id="play-reviews" class="text-3xl font-extrabold text-white mb-2"></div>
+        <div class="text-slate-400 text-sm">Written reviews</div>
+      </div>
+      <div id="installs-metric" hidden class="glass rounded-2xl p-6 text-center">
+        <div id="play-installs" class="text-3xl font-extrabold text-white mb-2"></div>
+        <div class="text-slate-400 text-sm">Current installs</div>
+      </div>
+    </div>
+    <p id="play-metrics-date" hidden class="text-center text-xs text-slate-500 mt-4"></p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
      FEATURE HIGHLIGHTS
 ════════════════════════════════════ -->
 <section id="features" class="py-24 px-4">
@@ -1113,6 +1149,72 @@
       }
 
       versionBadge.textContent = `Latest on Google Play: v${version.versionName}`;
+      document.getElementById('release-version').textContent =
+        `Version ${version.versionName} · Published on Google Play`;
+
+      if (typeof version.lastUpdatedDate === 'string'
+        && /^\d{4}-\d{2}-\d{2}$/.test(version.lastUpdatedDate)) {
+        const lastUpdated = new Date(`${version.lastUpdatedDate}T00:00:00Z`);
+        if (!Number.isNaN(lastUpdated.getTime())
+          && lastUpdated.toISOString().slice(0, 10) === version.lastUpdatedDate) {
+          const date = new Intl.DateTimeFormat('en', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+            timeZone: 'UTC',
+          }).format(lastUpdated);
+          document.getElementById('play-last-updated').textContent =
+            `Last updated on Google Play: ${date}`;
+          document.getElementById('play-last-updated').hidden = false;
+        }
+      }
+
+      const releaseNotes = typeof version.releaseNotes === 'string' ? version.releaseNotes.trim() : '';
+      if (releaseNotes) {
+        document.getElementById('release-notes').textContent = releaseNotes;
+        document.getElementById('release-notes-card').hidden = false;
+      }
+
+      const metrics = version.playMetrics;
+      if (metrics && typeof metrics.reportsThrough === 'string'
+        && /^\d{6}$/.test(metrics.reportsThrough)
+        && Number(metrics.reportsThrough.slice(4)) >= 1
+        && Number(metrics.reportsThrough.slice(4)) <= 12) {
+        const formatCount = value => {
+          if (value === null || value === undefined || value === '') return null;
+          const count = Number(value);
+          return Number.isSafeInteger(count) && count >= 0 ? count.toLocaleString() : null;
+        };
+        let visibleMetrics = 0;
+        if (metrics.averageRating !== null && metrics.averageRating !== undefined
+          && metrics.averageRating !== '' && Number.isFinite(Number(metrics.averageRating))
+          && Number(metrics.averageRating) >= 0
+          && Number(metrics.averageRating) <= 5) {
+          document.getElementById('play-rating').textContent = Number(metrics.averageRating).toFixed(2);
+          document.getElementById('rating-metric').hidden = false;
+          visibleMetrics += 1;
+        }
+        const reviewCount = formatCount(metrics.reviewCount);
+        if (reviewCount !== null) {
+          document.getElementById('play-reviews').textContent = reviewCount;
+          document.getElementById('reviews-metric').hidden = false;
+          visibleMetrics += 1;
+        }
+        const currentInstalls = formatCount(metrics.currentInstalls);
+        if (currentInstalls !== null) {
+          document.getElementById('play-installs').textContent = currentInstalls;
+          document.getElementById('installs-metric').hidden = false;
+          visibleMetrics += 1;
+        }
+        if (visibleMetrics > 0) {
+          document.getElementById('play-metrics').hidden = false;
+          const month = `${metrics.reportsThrough.slice(0, 4)}-${metrics.reportsThrough.slice(4)}`;
+          const reportDate = new Date(`${month}-01T00:00:00Z`);
+          document.getElementById('play-metrics-date').textContent =
+            `Play Console reports through ${new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(reportDate)}`;
+          document.getElementById('play-metrics-date').hidden = false;
+        }
+      }
     } catch (error) {
       console.error('Unable to load the latest Google Play version:', error);
     }

@@ -1,5 +1,9 @@
 {
   "versionName": "7.7.0",
   "versionCode": "69",
-  "releaseStatus": "published"
+  "releaseStatus": "published",
+  "releaseNotes": "✨ New\n• Create/delete test plans, create suites, and open test run details.\n• Create/switch/delete wikis, preview page history, and save attachments.\n• Configure board columns, WIP limits, split settings, and team preferences; view swimlanes.\n• Added a demo profile photo on Home and Profile.\n• Improved Home work item icon visibility in dark mode.",
+  "releaseNotesLanguage": "en-US",
+  "lastUpdatedDate": "2026-11-16",
+  "playMetrics": null
 }
