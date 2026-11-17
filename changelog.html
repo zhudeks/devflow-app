@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog — DevFlow</title>
+  <link rel="canonical" href="https://zhudeks.github.io/devflow-app/changelog.html" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <meta name="description" content="Explore DevFlow release notes and improvements for the Android Azure DevOps client." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zhudeks.github.io/devflow-app/changelog.html" />
+  <meta property="og:title" content="DevFlow Changelog" />
+  <meta property="og:description" content="Explore DevFlow release notes and improvements for the Android Azure DevOps client." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(ellipse 80% 45% at 50% -10%, rgba(10,126,164,0.28), transparent 70%), #0F172A;
+      color: #F1F5F9;
+      font-family: Inter, sans-serif;
+    }
+    .release-card {
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .release-content ul, .release-content ol { list-style-position: outside; }
+    .release-content li { margin: 0.35rem 0; }
+    .release-content code {
+      color: #7DD3FC;
+      background: rgba(255,255,255,0.06);
+      border-radius: 0.25rem;
+      padding: 0.1rem 0.25rem;
+      font-family: "Geist Mono", monospace;
+      font-size: 0.9em;
+    }
+    .release-content pre {
+      overflow-x: auto;
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 0.5rem;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="max-w-5xl mx-auto px-4 sm:px-6 pt-8">
+    <a href="./" class="inline-flex items-center gap-3 text-slate-300 hover:text-white transition-colors">
+      <img src="assets/logo.png" alt="" class="h-9 w-9" />
+      <span class="font-bold text-lg">DevFlow</span>
+    </a>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 pb-24">
+    <div class="mb-12">
+      <p class="text-[#22B8DD] text-sm font-mono uppercase tracking-widest mb-3">Release archive</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-4">DevFlow Changelog</h1>
+      <p id="changelog-status" role="status" class="text-slate-400 leading-7">
+        Loading release history…
+      </p>
+      <p class="text-slate-500 text-sm mt-4 leading-6">
+        Includes release notes through the latest published Google Play version. Internal and technical-only notes are omitted.
+      </p>
+    </div>
+
+    <div id="changelog-list" class="space-y-6"></div>
+    <p class="mt-12">
+      <a href="./" class="text-[#22B8DD] hover:text-white transition-colors">← Back to DevFlow</a>
+    </p>
+  </main>
+
+  <footer class="border-t border-white/5 py-8 text-center text-xs text-slate-600">
+    © 2026 DevFlow. Not affiliated with Microsoft. Azure DevOps is a trademark of Microsoft Corporation.
+  </footer>
+
+  <script>
+    function compareVersions(left, right) {
+      const leftParts = left.split('.').map(Number);
+      const rightParts = right.split('.').map(Number);
+      const length = Math.max(leftParts.length, rightParts.length);
+      for (let index = 0; index < length; index += 1) {
+        const difference = (leftParts[index] || 0) - (rightParts[index] || 0);
+        if (difference !== 0) return difference;
+      }
+      return 0;
+    }
+
+    function formatDate(value) {
+      const date = new Date(`${value}T00:00:00Z`);
+      if (Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== value) {
+        return value;
+      }
+      return new Intl.DateTimeFormat('en', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }).format(date);
+    }
+
+    function inlineMarkdown(value) {
+      const escaped = value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+      return escaped
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/__(.+?)__/g, '<strong>$1</strong>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    }
+
+    function renderMarkdown(container, markdown) {
+      let list = null;
+      let paragraph = [];
+      let codeLines = null;
+
+      const closeList = () => {
+        list = null;
+      };
+      const flushParagraph = () => {
+        if (!paragraph.length) return;
+        const element = document.createElement('p');
+        element.className = 'text-slate-300 text-sm leading-7 mb-3';
+        element.innerHTML = inlineMarkdown(paragraph.join(' '));
+        container.append(element);
+        paragraph = [];
+      };
+
+      for (const line of markdown.split(/\r?\n/)) {
+        if (line.trim().startsWith('```')) {
+          flushParagraph();
+          closeList();
+          if (codeLines) {
+            const pre = document.createElement('pre');
+            pre.className = 'text-slate-300 text-sm leading-6 mb-4';
+            pre.textContent = codeLines.join('\n');
+            container.append(pre);
+            codeLines = null;
+          } else {
+            codeLines = [];
+          }
+          continue;
+        }
+        if (codeLines) {
+          codeLines.push(line);
+          continue;
+        }
+
+        const heading = line.match(/^(#{4,6})\s+(.+)$/);
+        if (heading) {
+          flushParagraph();
+          closeList();
+          const element = document.createElement(heading[1].length === 4 ? 'h4' : 'h5');
+          element.className = 'text-slate-200 font-semibold mt-5 mb-2';
+          element.innerHTML = inlineMarkdown(heading[2]);
+          container.append(element);
+          continue;
+        }
+
+        const bullet = line.match(/^(\s*)([-*+]|\d+\.)\s+(.+)$/);
+        if (bullet) {
+          flushParagraph();
+          const tagName = /^\d/.test(bullet[2]) ? 'ol' : 'ul';
+          if (!list || list.tagName.toLowerCase() !== tagName) {
+            closeList();
+            list = document.createElement(tagName);
+            list.className = `${tagName === 'ol' ? 'list-decimal' : 'list-disc'} text-slate-300 text-sm leading-7 pl-5 mb-3`;
+            container.append(list);
+          }
+          const item = document.createElement('li');
+          item.style.marginLeft = `${Math.min(bullet[1].length, 8) * 0.25}rem`;
+          item.innerHTML = inlineMarkdown(bullet[3]);
+          list.append(item);
+          continue;
+        }
+
+        if (!line.trim() || /^---+$/.test(line.trim())) {
+          flushParagraph();
+          closeList();
+          continue;
+        }
+        closeList();
+        paragraph.push(line.trim());
+      }
+      flushParagraph();
+      if (codeLines) {
+        const pre = document.createElement('pre');
+        pre.className = 'text-slate-300 text-sm leading-6 mb-4';
+        pre.textContent = codeLines.join('\n');
+        container.append(pre);
+      }
+    }
+
+    async function loadChangelog() {
+      const status = document.getElementById('changelog-status');
+      try {
+        const [versionResponse, changelogResponse] = await Promise.all([
+          fetch('app-version.json', { cache: 'no-store' }),
+          fetch('changelog-data.json', { cache: 'no-store' }),
+        ]);
+        if (!versionResponse.ok || !changelogResponse.ok) {
+          throw new Error('A release data file could not be loaded.');
+        }
+        const [version, changelog] = await Promise.all([
+          versionResponse.json(),
+          changelogResponse.json(),
+        ]);
+        if (version.releaseStatus !== 'published'
+          || !/^\d+(?:\.\d+){1,2}$/.test(version.versionName)
+          || !Array.isArray(changelog.releases)) {
+          throw new Error('Release data is invalid.');
+        }
+
+        const releases = changelog.releases.filter(release =>
+          /^\d+(?:\.\d+){1,2}$/.test(release.version)
+          && compareVersions(release.version, version.versionName) <= 0);
+        status.textContent = `Showing ${releases.length} releases through v${version.versionName}.`;
+
+        const list = document.getElementById('changelog-list');
+        for (const release of releases) {
+          const card = document.createElement('article');
+          card.className = 'release-card rounded-2xl p-6 sm:p-8';
+
+          const header = document.createElement('div');
+          header.className = 'flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-5';
+          const title = document.createElement('h2');
+          title.className = 'text-2xl font-bold';
+          title.textContent = `v${release.version}`;
+          if (release.version === version.versionName) {
+            const badge = document.createElement('span');
+            badge.className = 'text-xs font-medium text-[#22B8DD]';
+            badge.textContent = 'Latest on Google Play';
+            title.append(' ', badge);
+          }
+          const date = document.createElement('time');
+          date.className = 'text-sm text-slate-500';
+          date.dateTime = release.date;
+          date.textContent = formatDate(release.date);
+          header.append(title, date);
+          card.append(header);
+
+          for (const section of release.sections) {
+            const sectionTitle = document.createElement('h3');
+            sectionTitle.className = 'text-base font-semibold text-slate-100 mt-5 mb-2';
+            sectionTitle.textContent = section.title;
+            card.append(sectionTitle);
+            const content = document.createElement('div');
+            content.className = 'release-content';
+            renderMarkdown(content, section.content);
+            card.append(content);
+          }
+          list.append(card);
+        }
+
+        if (!releases.length) {
+          status.textContent = 'No published release notes are available yet.';
+        }
+      } catch (error) {
+        console.error('Unable to load the DevFlow changelog:', error);
+        status.textContent = 'Release history is temporarily unavailable. Please try again later.';
+      }
+    }
+
+    loadChangelog();
+  </script>
+</body>
+</html>

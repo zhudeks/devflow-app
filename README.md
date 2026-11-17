@@ -11,6 +11,8 @@ https://zhudeks.github.io/devflow-app
 ```
  devflow-app/
  +-  index.html       <- full one-page site (HTML + Tailwind CDN + vanilla JS)
+ +-  changelog.html   <- published release history
+ +-  changelog-data.json <- generated public release notes
  +-  assets/
  |   +-  logo.png                <- app logo (512x512)
  |   +-  screenshots/
@@ -103,6 +105,22 @@ not every star-only rating; the install figure is current user installs, not
 lifetime installs. The site labels the month through which the reports are
 available. If the bucket or report access is unavailable, the workflow logs a
 warning and retains the most recent successfully synced metrics.
+
+## Public changelog
+
+The site shows a short preview of past releases on the homepage and the full
+published release archive at `changelog.html`. The archive is generated from
+the app repository's `CHANGELOG.md`; future versions and technical-only
+sections are excluded. Since the app repository is separate, regenerate the
+snapshot locally when publishing a release:
+
+```powershell
+node scripts/sync-changelog.mjs --source "C:\path\to\AzureDevOpsClient\CHANGELOG.md"
+```
+
+Commit the resulting `changelog-data.json` with the release's website update.
+The generator reads `app-version.json` and refuses to publish notes unless
+that Google Play version is marked as published and present in the source.
 
 ### Website install attribution
 

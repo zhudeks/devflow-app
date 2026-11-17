@@ -1,0 +1,1313 @@
+{
+  "publishedVersion": "7.7.0",
+  "releases": [
+    {
+      "version": "7.7.0",
+      "date": "2026-11-16",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Board & Team Settings** — Edit existing board columns, WIP limits, split settings and definitions of done; inspect swimlanes; update team working days, bugs behavior and backlog visibility with premium gating and stateful demo support.\n- **Wiki Management** — Create project/code wikis, switch wikis, and delete a wiki with confirmation and premium gating.\n- **Wiki Versions & Downloads** — Preview historical page revisions read-only and save attachments through supported Git APIs; demo mode includes wiki management, history, and a sample download.\n- **Test Management** — Create and delete test plans from Test Settings, with deletion confirmation and premium gating.\n- **Test Suites** — Create static, query-based, and requirement-based suites under a selected parent; demo mode reflects plan and suite changes.\n- **Test Run Details** — Tap a run in Test Run History or Automated Tests to view its execution metadata and result counts.\n- **Demo Profile Photo** — Bundled example portrait on both Home and Profile."
+        },
+        {
+          "title": "Fixed",
+          "content": "- **Home Work Item Icons** — Apply the intended type color to work item symbols so task checkmarks remain visible against their light-blue backgrounds in dark mode."
+        },
+        {
+          "title": "Changed",
+          "content": "- **Premium Beta Access** — Restricted the tester bypass to the single configured email address rather than its entire domain; subscription and debug behavior remain unchanged."
+        }
+      ],
+      "highlights": [
+        "Board & Team Settings — Edit existing board columns, WIP limits, split settings and definitions of done; inspect swimlanes; update team working days, bugs behavior and backlog visibility with premium gating and stateful demo support.",
+        "Wiki Management — Create project/code wikis, switch wikis, and delete a wiki with confirmation and premium gating.",
+        "Wiki Versions & Downloads — Preview historical page revisions read-only and save attachments through supported Git APIs; demo mode includes wiki management, history, and a sample download."
+      ]
+    },
+    {
+      "version": "7.6.1",
+      "date": "2026-11-13",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes & Minor Improvements",
+          "content": "- **My Work Items** — The dashboard list and My Items count exclude test cases, test plans, and test suites while retaining bugs, defects, tasks, PBIs, user stories, and other regular work item types.\n- **Offline Sync Recovery** — Interrupted operations are picked up again instead of remaining stuck after a process restart.\n- **Refresh Reliability** — Failed refresh requests now report errors rather than appearing successful when cached data is available.\n- **Safer Authentication** — Authorization credentials are sent only to trusted Azure DevOps and Microsoft sign-in hosts.\n- **Work Item Search** — `#<ID>` searches now match the exact work item ID.\n- **Sprint & Test Case Lists** — Sprint member summaries respect the five-member limit, and test case priorities sort numerically with unprioritized cases last.\n- **Backup Privacy** — Encrypted authentication preferences are excluded from device backups and transfers."
+        }
+      ],
+      "highlights": [
+        "My Work Items — The dashboard list and My Items count exclude test cases, test plans, and test suites while retaining bugs, defects, tasks, PBIs, user stories, and other regular work item types.",
+        "Offline Sync Recovery — Interrupted operations are picked up again instead of remaining stuck after a process restart.",
+        "Refresh Reliability — Failed refresh requests now report errors rather than appearing successful when cached data is available."
+      ]
+    },
+    {
+      "version": "7.6.0",
+      "date": "2026-11-12",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Classic Release Management\n- **Create Releases** — Create a release from any available classic release definition.\n- **Redeploy Environments** — Queue a deployment for eligible environments in an active release.\n- **Abandon Releases** — Abandon a release with a confirmation step.\n- **Release Logs** — Download and view the release log archive from the release detail screen."
+        }
+      ],
+      "highlights": [
+        "Create Releases — Create a release from any available classic release definition.",
+        "Redeploy Environments — Queue a deployment for eligible environments in an active release.",
+        "Abandon Releases — Abandon a release with a confirmation step."
+      ]
+    },
+    {
+      "version": "7.5.0",
+      "date": "2026-08-19",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Variable Groups Management (Section 10)\n- **Update Variable Group** — Added support for updating existing variable groups with name, description, and variables.\n#### Pull Requests Enhancement (Section 6)\n- **PR Labels Management** — Added endpoints to retrieve and add labels to pull requests.\n#### Build Pipelines Enhancement (Section 7)\n#### YAML Pipelines Enhancement (Section 8)"
+        }
+      ],
+      "highlights": [
+        "Update Variable Group — Added support for updating existing variable groups with name, description, and variables.",
+        "PR Labels Management — Added endpoints to retrieve and add labels to pull requests."
+      ]
+    },
+    {
+      "version": "7.4.0",
+      "date": "2026-07-24",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Clickable Links & Deep Linking\n- **Description & Acceptance Criteria Links** — Implemented `shouldOverrideUrlLoading` in `HtmlContentWebView` so tapping links inside descriptions and acceptance criteria launches `Intent.ACTION_VIEW` in external browser or deep-link handler.\n- **Comment Links** — Integrated gesture tap detection into `SelectableHtmlTextWithLinks` to make URLs inside work item comment bubbles fully clickable."
+        },
+        {
+          "title": "🎨 Theme & UI Enhancements",
+          "content": "- **Dark Theme HTML Text Adaptation** — Added universal CSS `!important` text color overrides (`onSurface`) and transparent native WebView background to eliminate dark text on dark container backgrounds.\n- **Assignee & Created By Typography** — Standardized font size and weight between Assignee and Created by fields in Test Case detail views (`MaterialTheme.typography.bodyMedium` with `FontWeight.Medium` and `TextOverflow.Ellipsis`)."
+        },
+        {
+          "title": "🐛 Bug Fixes & Stability",
+          "content": "- **WebView Infinite Loading Loop** — Fixed re-composition infinite reload loop in `HtmlContentWebView` by tag-checking `wrappedHtml` in `AndroidView.update`.\n- **Full Text Visibility & Scroll Support** — Corrected CSS pixel to Dp height calculation, added a 24dp bottom padding buffer, and enabled `isScrollContainer = true` on WebView."
+        },
+        {
+          "title": "🛡️ Google Play Compliance",
+          "content": "- **Target SDK Update** — Upgraded `targetSdk` from `35` (Android 15) to `36` (Android 16).\n- **Billing Library Upgrade** — Upgraded `com.android.billingclient:billing-ktx` from `7.1.1` to `8.0.0`.\n---"
+        }
+      ],
+      "highlights": [
+        "Description & Acceptance Criteria Links — Implemented shouldOverrideUrlLoading in HtmlContentWebView so tapping links inside descriptions and acceptance criteria launches Intent.ACTIONVIEW in external browser or deep-link handler.",
+        "Comment Links — Integrated gesture tap detection into SelectableHtmlTextWithLinks to make URLs inside work item comment bubbles fully clickable.",
+        "Dark Theme HTML Text Adaptation — Added universal CSS !important text color overrides (onSurface) and transparent native WebView background to eliminate dark text on dark container backgrounds."
+      ]
+    },
+    {
+      "version": "7.3.0",
+      "date": "2026-06-26",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Git / Repositories Completion (Section 5)\n- **Create Push API** — Added push creation support with commit payload and ref updates.\n- **Blob by Object ID** — Added blob content retrieval by object ID and integrated fallback for file content loading."
+        },
+        {
+          "title": "🛠 Improvements",
+          "content": "- **Repo Detail Tabs** — Switched to a scrollable tab row and forced single-line tab labels to prevent wrapped tab names.\n- **Sprint Capacity Display** — Fixed capacity member list layout overlap by using list rendering designed for scrolling content.\n- **Capacity Names** — Display now keeps only first and last name (email text removed) for cleaner capacity cards.\n- **Work Item Detail Header** — Prevented top bar issue type/id text wrapping by applying width-safe single-line constraints.\n- **Test Cases Multi-Select** — Added haptic feedback on long-press and item selection while in multi-select mode."
+        }
+      ],
+      "highlights": [
+        "Create Push API — Added push creation support with commit payload and ref updates.",
+        "Blob by Object ID — Added blob content retrieval by object ID and integrated fallback for file content loading.",
+        "Repo Detail Tabs — Switched to a scrollable tab row and forced single-line tab labels to prevent wrapped tab names."
+      ]
+    },
+    {
+      "version": "7.2.0",
+      "date": "2026-06-02",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Saved Queries Management\n- **Full CRUD for Queries** — Beyond just viewing, you can now **Create**, **Rename**, and **Delete** saved queries directly within Azure DevOps folders (like \"My Queries\") from the app.\n\n#### Dashboard Management\n- **Create & Edit Dashboards** — Added full management for team dashboards. Create new dashboards, update names and descriptions, or delete obsolete ones directly from the Dashboards screen.\n\n#### Git Forks & Sync\n- **Forks Browser** — New \"Forks\" tab in Repository Detail shows all forks of the current repository.\n- **Fork Sync** — Trigger a sync request to bring your fork up to date with the upstream repository with a single tap.\n\n#### CI/CD & Environments\n- **Environment Management** — Create and delete deployment environments. Enhanced the Environments screen with a dedicated \"Add\" dialog and management actions.\n- **Task Groups** — New screen to browse project Task Groups, showing reusable pipeline task blocks with versioning and category details.\n- **Agent Pool Job Requests** — View active and queued job requests for each agent pool to monitor pipeline throughput in real-time.\n\n#### Security & Administration\n- **Branch Policies** — New \"Branch Policies\" screen under the More menu. View all repository policies, check \"Enabled\" and \"Blocking\" status, and delete policies if you have administrative permissions.\n- **Service Hooks** — Browse all project service hook subscriptions. View event types, consumers (Slack, WebHooks, etc.), and current status."
+        },
+        {
+          "title": "🛠 Improvements & Refactoring",
+          "content": "- **Teams & Projects UI** — Refactored the Projects screen to use robust display models. Added support for viewing team members (with avatars) and contact info, and managing team lifecycle (creation/deletion).\n- **Architecture Alignment** — Standardized UI models across Repos and Projects features, ensuring consistent data flow from the repository layer through ViewModels to the UI."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "- **Build & Compilation** — Resolved over a dozen critical Kotlin compilation errors related to model mismatches, unresolved references, and duplicate class definitions that were blocking the app build.\n- **Padding & Insets** — Fixed multiple UI layout issues where padding was incorrectly applied or causing syntax errors in Compose."
+        }
+      ],
+      "highlights": [
+        "Full CRUD for Queries — Beyond just viewing, you can now Create, Rename, and Delete saved queries directly within Azure DevOps folders (like \"My Queries\") from the app.",
+        "Create & Edit Dashboards — Added full management for team dashboards. Create new dashboards, update names and descriptions, or delete obsolete ones directly from the Dashboards screen.",
+        "Forks Browser — New \"Forks\" tab in Repository Detail shows all forks of the current repository."
+      ]
+    },
+    {
+      "version": "7.0.1",
+      "date": "2026-05-21",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "- **Website link in About** — Added the official DevFlow website (`https://zhudeks.github.io/devflow-app/`) to About → Links section with a globe icon, above Privacy Policy and Google Play."
+        },
+        {
+          "title": "🛠 Demo Mode Improvements",
+          "content": "- **Burndown chart** — Replaced the incorrectly-shaped `ANALYTICS_BURNDOWN` data with proper `ODataResponse<WorkItemSnapshot>` format. Demo now shows 5 work items (60 h total) burning down from sprint start (Apr 1) to zero on the final day (Apr 14) — matching Sprint 3 dates. Also feeds the CFD chart.\n- **Analytics OData coverage** — Added separate demo responses for all four OData entity types so each analytics chart works independently: `WorkItemSnapshot` (burndown/CFD), `PipelineRuns` (pipeline pass-rate trend — 36 runs across 8 weeks), `WorkItems` (velocity across 3 sprints + lead/cycle time per item), `TestResults` (weekly test pass-rate trend)."
+        }
+      ],
+      "highlights": [
+        "Website link in About — Added the official DevFlow website (https://zhudeks.github.io/devflow-app/) to About → Links section with a globe icon, above Privacy Policy and Google Play.",
+        "Burndown chart — Replaced the incorrectly-shaped ANALYTICSBURNDOWN data with proper ODataResponse format. Demo now shows 5 work items (60 h total) burning down from sprint start (Apr 1) to zero on the final day (Apr 14) — matching Sprint 3 dates. Also feeds the CFD chart.",
+        "Analytics OData coverage — Added separate demo responses for all four OData entity types so each analytics chart works independently: WorkItemSnapshot (burndown/CFD), PipelineRuns (pipeline pass-rate trend — 36 runs across 8 weeks), WorkItems (velocity across 3 sprints + lead/cycle time per item), TestResults (weekly test pass-rate trend)."
+      ]
+    },
+    {
+      "version": "7.0.0",
+      "date": "2026-05-11",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Artifact Feed Browser (A1)\n\n- **Artifact Feeds** — New screen accessible from More → Artifacts → Artifact Feeds. Lists all NuGet, npm, Maven, Python, and Universal feeds in the organization. Each feed card shows its name, scope (org-scoped or project name), description, upstream source count, and read-only badge. Search bar filters feeds by name or description. Pull-to-refresh supported. API: `GET _apis/packaging/feeds` (via `feeds.dev.azure.com`).\n- **Feed Packages** — Tapping a feed opens its package list. Packages are displayed with protocol-colored icons (NuGet/npm/Maven/PyPI), latest version badge, and version count. Protocol filter chips appear automatically when a feed contains multiple package types. Search by package name supported. API: `GET _apis/packaging/feeds/{feedId}/packages`.\n\n#### Package Version Manager (A2)\n\n- **Package Versions** — Tapping a package opens its full version history, sorted by publish date (newest first). Each version card shows: version string, Latest badge, Delisted badge, publish date, author, assigned feed views (e.g. Release, Prerelease), and description. API: `GET _apis/packaging/feeds/{feedId}/packages/{packageId}/versions`.\n- **Promote to view** — Tap ⋮ on any version card to expand actions, then tap **Promote** to assign the version to a feed view (Release, Prerelease, Local, or a custom view name). A dialog lets you choose the target view via radio buttons or a free-text field. API: `POST _apis/packaging/feeds/{feedId}/packagesBatch`.\n- **Delist / Relist** — Tap **Delist** to deprecate (unlist) a version; tap **Relist** to restore it. The card's icon and badge update immediately with optimistic UI. API: `PATCH _apis/packaging/feeds/{feedId}/packages/{packageId}/versions/{versionId}`."
+        }
+      ],
+      "highlights": [
+        "Artifact Feeds — New screen accessible from More → Artifacts → Artifact Feeds. Lists all NuGet, npm, Maven, Python, and Universal feeds in the organization. Each feed card shows its name, scope (org-scoped or project name), description, upstream source count, and read-only badge. Search bar filters feeds by name or description. Pull-to-refresh supported. API: GET apis/packaging/feeds (via feeds.dev.azure.com).",
+        "Feed Packages — Tapping a feed opens its package list. Packages are displayed with protocol-colored icons (NuGet/npm/Maven/PyPI), latest version badge, and version count. Protocol filter chips appear automatically when a feed contains multiple package types. Search by package name supported. API: GET apis/packaging/feeds/{feedId}/packages.",
+        "Package Versions — Tapping a package opens its full version history, sorted by publish date (newest first). Each version card shows: version string, Latest badge, Delisted badge, publish date, author, assigned feed views (e.g. Release, Prerelease), and description. API: GET apis/packaging/feeds/{feedId}/packages/{packageId}/versions."
+      ]
+    },
+    {
+      "version": "6.10.1",
+      "date": "2026-05-08",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Service Connection Browser (S1)\n\n- **Service Connection Browser** — New screen accessible from More → CI/CD & Code → Service Connections. Lists all service connections in the current project (Azure, AWS, Docker, Kubernetes, Generic, etc.). Each card shows the connection name, type badge, owner, and status chips: **Ready** (green) and **Shared** (amber). Pull-to-refresh supported. API: `GET _apis/serviceendpoint/endpoints`.\n\n#### Agent Pool Monitor (D1)\n\n- **Agent Pool Monitor** — New screen accessible from More → CI/CD & Code → Agent Pools. Lists all agent pools at the organization level. Tap any pool to expand it and lazy-load its agents. Each agent card shows name, OS, version, and a status badge: **Online** (green) / **Offline** (grey) / **Busy** (amber) / **Disabled** (red). API: `GET _apis/distributedtask/pools` + `GET _apis/distributedtask/pools/{poolId}/agents`.\n\n#### Deployment Groups (D2)"
+        },
+        {
+          "title": "🐛 Bug Fixes & Polish",
+          "content": "- **Tag Management loading/refresh** — Updated loading and pull-to-refresh behaviour to match the app standard: `CircularProgressIndicator` now uses the primary color; added \"Loading tags…\" label beneath it; pull-to-refresh uses `PullToRefreshBox` with a `LinearProgressIndicator` at the top of the list during refresh; error state updated to ⚠️ + message + filled Retry button.\n- **Deployment Groups empty-state icon** — Replaced the unrenderable network emoji (`🖧`) with the Material `Icons.Default.DeviceHub` icon so the empty state displays correctly on all devices."
+        }
+      ],
+      "highlights": [
+        "Service Connection Browser — New screen accessible from More → CI/CD & Code → Service Connections. Lists all service connections in the current project (Azure, AWS, Docker, Kubernetes, Generic, etc.). Each card shows the connection name, type badge, owner, and status chips: Ready (green) and Shared (amber). Pull-to-refresh supported. API: GET apis/serviceendpoint/endpoints.",
+        "Agent Pool Monitor — New screen accessible from More → CI/CD & Code → Agent Pools. Lists all agent pools at the organization level. Tap any pool to expand it and lazy-load its agents. Each agent card shows name, OS, version, and a status badge: Online (green) / Offline (grey) / Busy (amber) / Disabled (red). API: GET apis/distributedtask/pools + GET apis/distributedtask/pools/{poolId}/agents.",
+        "Tag Management loading/refresh — Updated loading and pull-to-refresh behaviour to match the app standard: CircularProgressIndicator now uses the primary color; added \"Loading tags…\" label beneath it; pull-to-refresh uses PullToRefreshBox with a LinearProgressIndicator at the top of the list during refresh; error state updated to ⚠️ + message + filled Retry button."
+      ]
+    },
+    {
+      "version": "6.10.0",
+      "date": "2026-05-01",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### PR Policy Status (POL1)\n\n- **Policy Evaluations on PR Detail** — The PR Overview tab now shows a \"Policy Evaluations\" card listing all policy results for the pull request: build validation, required reviewer approval, comment resolution, and any custom policies. Each row displays the policy type icon, name, and a status badge (✅ Approved / ⏳ Running / 🔶 Queued / ❌ Rejected / ⚪ Not applicable). API: `GET _apis/policy/evaluations?artifactId=vstfs:///CodeReview/CodeReviewId/{project}/{prId}`.\n\n#### Permission Checker (SEC1)\n\n- **Security Namespace Browser** — New screen accessible from More → Security & Notifications → Permissions. Lists all Azure DevOps security namespaces (e.g. Git Repositories, Build, Release, Work Items). Each card shows the namespace name, display name, and number of actions. Supports real-time search by name or action name. API: `GET _apis/securitynamespaces`.\n- **Namespace Detail Sheet** — Tap any namespace to open a bottom sheet with: full list of permission actions with bit values; Access Control Lists (ACLs) for the namespace loaded on demand (`GET _apis/accesscontrolists/{namespaceId}`); each ACL entry shows the token and per-identity permissions table (allow/deny mask decoded against actions).\n\n#### Notification Preferences (N1)\n\n- **Notification Subscriptions Screen** — New screen accessible from More → Security & Notifications → Notifications. Lists all personal notification subscriptions retrieved from `GET _apis/notification/notificationsubscriptions`. Each card shows event type icon, description, and an enable/disable toggle. Filter chips: All / Enabled / Disabled. Real-time search by description or event type. Toggle calls `PATCH _apis/notification/notificationsubscriptions/{id}` and updates the list optimistically."
+        }
+      ],
+      "highlights": [
+        "Policy Evaluations on PR Detail — The PR Overview tab now shows a \"Policy Evaluations\" card listing all policy results for the pull request: build validation, required reviewer approval, comment resolution, and any custom policies. Each row displays the policy type icon, name, and a status badge (✅ Approved / ⏳ Running / 🔶 Queued / ❌ Rejected / ⚪ Not applicable). API: GET apis/policy/evaluations?artifactId=vstfs:///CodeReview/CodeReviewId/{project}/{prId}.",
+        "Security Namespace Browser — New screen accessible from More → Security & Notifications → Permissions. Lists all Azure DevOps security namespaces (e.g. Git Repositories, Build, Release, Work Items). Each card shows the namespace name, display name, and number of actions. Supports real-time search by name or action name. API: GET apis/securitynamespaces.",
+        "Namespace Detail Sheet — Tap any namespace to open a bottom sheet with: full list of permission actions with bit values; Access Control Lists (ACLs) for the namespace loaded on demand (GET apis/accesscontrolists/{namespaceId}); each ACL entry shows the token and per-identity permissions table (allow/deny mask decoded against actions)."
+      ]
+    },
+    {
+      "version": "6.9.0",
+      "date": "2026-04-27",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Wiki (W1 / W2 / W3 / W4 / W5 / W6)\n\n- **Wiki Editor (W1)** — Create new pages and edit existing ones with a full Markdown editor (Edit / Preview tabs). New pages auto-create ancestor directories on demand. `If-Match` header omitted for new pages (ADO requirement), real ETag used for updates.\n- **Wiki Page History (W2)** — Tap the History icon on any wiki page to view its full revision history via the Git commits API (`GET /_apis/git/repositories/{repoId}/commits?itemPath=…`).\n- **Wiki Page Tree (W3)** — Full expand/collapse tree navigation loaded in one request (`recursionLevel=full`). Pages grouped with chevron toggles; search filters the flat tree in real time.\n- **Delete Page (W4)** — ⋮ overflow menu → \"Delete page\" with confirmation dialog. Calls `DELETE /_apis/wiki/wikis/{id}/pages` and reloads the tree.\n- **Move / Rename Page (W5)** — ⋮ overflow menu → \"Rename / Move\". Pre-filled dialog edits the page path; calls `POST /_apis/wiki/wikis/{id}/pagemoves`.\n- **Image Attachments (W6)** — 📎 icon in the editor bottom bar opens the system image picker; uploads to `PUT /_apis/wiki/wikis/{id}/attachments?name={fileName}` and inserts `![alt](/.attachments/…)` Markdown automatically.\n\n#### Extension Browser (E1)\n\n- **Installed Extensions** — New screen accessible from the More menu listing all extensions installed in the Azure DevOps organization. Each card shows extension name, publisher, version, and status chips: **Built-in** and **Enabled / Disabled**. Pull-to-refresh supported. API: `GET https://extmgmt.dev.azure.com/{org}/_apis/extensionmanagement/installedextensions`.\n\n#### ADO Dashboard Viewer (DB1)\n\n- **Team Dashboards** — New screen accessible from the More menu listing all team dashboards for the current project. Tap any dashboard to expand it and lazy-load its widgets (name, type, size). Accordion pattern: one dashboard expanded at a time. Pull-to-refresh supported. API: `GET /_apis/dashboard/dashboards` + `GET /_apis/dashboard/dashboards/{id}`."
+        },
+        {
+          "title": "🐛 Bug Fixes & Polish",
+          "content": "- **Projects page shows all teams** — The Projects / Teams screen now lists every team across all projects in the organization, not only teams in the currently selected project. Previously called `GET /_apis/projects/{project}/teams?$mine=true`; now calls `GET /_apis/teams?$mine=false` (org-wide) and extracts each team's project from its URL so member-count and member-detail calls remain correctly scoped per team.\n- **Wiki overflow menu spinner** — TopAppBar shows spinner during delete/move/upload operations.\n- **Dynamic snackbar messages** — Wiki snackbar shows context-specific text: \"Page saved\", \"Page deleted\", or \"Page moved to …\".\n- **Code cleanup** — Extracted `wikiOrgProject()` helper to eliminate duplicated `wiki.url` parsing."
+        }
+      ],
+      "highlights": [
+        "Wiki Editor (W1) — Create new pages and edit existing ones with a full Markdown editor (Edit / Preview tabs). New pages auto-create ancestor directories on demand. If-Match header omitted for new pages (ADO requirement), real ETag used for updates.",
+        "Wiki Page History (W2) — Tap the History icon on any wiki page to view its full revision history via the Git commits API (GET /apis/git/repositories/{repoId}/commits?itemPath=…).",
+        "Wiki Page Tree (W3) — Full expand/collapse tree navigation loaded in one request (recursionLevel=full). Pages grouped with chevron toggles; search filters the flat tree in real time."
+      ]
+    },
+    {
+      "version": "6.8.6",
+      "date": "2026-04-24",
+      "sections": [
+        {
+          "title": "🚀 Production Stability",
+          "content": "#### Networking — Multi-Pin Strategy\n- **Fixed persistent connection issues in release builds** — Implemented a resilient multi-pin strategy for all Azure DevOps domains.\n- **Root CA Pinning** — Added \"DigiCert Global Root G2\" and \"Microsoft TLS RSA Root G2\" as stable backup pins.\n- **Intermediate Rotation Support** — Updated and verified intermediate pins for `dev.azure.com`, `vssps`, `vsrm`, `analytics`, and `login.microsoftonline.com`.\n- **Improved Reliability** — The app now maintains connectivity even when Microsoft rotates intermediate certificates, as it can fall back to trusted root pins.\n\n---"
+        }
+      ],
+      "highlights": [
+        "Fixed persistent connection issues in release builds — Implemented a resilient multi-pin strategy for all Azure DevOps domains.",
+        "Root CA Pinning — Added \"DigiCert Global Root G2\" and \"Microsoft TLS RSA Root G2\" as stable backup pins.",
+        "Intermediate Rotation Support — Updated and verified intermediate pins for dev.azure.com, vssps, vsrm, analytics, and login.microsoftonline.com."
+      ]
+    },
+    {
+      "version": "6.8.4",
+      "date": "2026-04-20",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Settings — Advanced Board Explorer (B4, B6)\n- **Field Explorer (B4)** — Introduced a new \"Board Admin\" section in Settings with a dedicated Field Explorer screen. View all work item fields for the organization or filter by specific work item types to see metadata like reference names, default values, and allowed values.\n- **Process Explorer (B6)** — Added a Process Explorer screen to browse organization process definitions, highlighting default, inherited, and custom processes with their unique IDs and descriptions.\n\n#### Repositories — Code Search Navigation (R5)\n- **Direct Navigation from Search** — Enhanced the Code Search experience to support direct file navigation. Tapping on a code search result now seamlessly opens the repository's file viewer at the exact file location."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Navigation — Project Scoping (404/401 Fixes)\n- Fixed persistent 404/401 errors when navigating from global search results to repositories in different projects.\n- Implementation: Navigation now passes the immutable **Project ID** from search results, and the repository layer uses a dynamic URL construction strategy with an organization-level fallback to ensure reliable resource resolution across the entire organization.\n\n#### UI — File Viewer Optimization\n- Fixed an issue where file content became invisible during horizontal scrolling.\n- Refactored `AeroRepoFileContentView` to use a high-performance single-text rendering mode for standard viewing, ensuring correct sizing and visibility within scrollable containers."
+        }
+      ],
+      "highlights": [
+        "Field Explorer (B4) — Introduced a new \"Board Admin\" section in Settings with a dedicated Field Explorer screen. View all work item fields for the organization or filter by specific work item types to see metadata like reference names, default values, and allowed values.",
+        "Process Explorer (B6) — Added a Process Explorer screen to browse organization process definitions, highlighting default, inherited, and custom processes with their unique IDs and descriptions.",
+        "Direct Navigation from Search — Enhanced the Code Search experience to support direct file navigation. Tapping on a code search result now seamlessly opens the repository's file viewer at the exact file location."
+      ]
+    },
+    {
+      "version": "6.8.3",
+      "date": "2026-04-19",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Azure Boards — Link Creation & Management\n- **Add Work Item Links** — Users can now create links between work items directly from the Detail screen. A new \"Add Link\" button in the Linked Items section opens a dialog to enter a Work Item ID and select the relation type (Parent, Child, or Related).\n- **Remove Work Item Links** — Added the ability to remove existing links between work items with a confirmation snackbar.\n- **Enhanced Linked Items Section** — The section now includes an \"Add\" button and individual \"Remove\" actions for each linked item.\n\n#### Azure Boards — Data Layer Expansion\n- **Field Discovery API** — Extended `WorkItemApi` and `WorkItemRepository` to support fetching all available fields for an organization and specific work item types.\n- **Work Item Type Definition API** — Added support for retrieving project-specific work item type definitions, including icons and colors.\n- **Process Explorer API** — Integrated Azure DevOps Process APIs to fetch organization-wide process definitions (System, Inherited, and Custom)."
+        }
+      ],
+      "highlights": [
+        "Add Work Item Links — Users can now create links between work items directly from the Detail screen. A new \"Add Link\" button in the Linked Items section opens a dialog to enter a Work Item ID and select the relation type (Parent, Child, or Related).",
+        "Remove Work Item Links — Added the ability to remove existing links between work items with a confirmation snackbar.",
+        "Enhanced Linked Items Section — The section now includes an \"Add\" button and individual \"Remove\" actions for each linked item."
+      ]
+    },
+    {
+      "version": "6.8.2",
+      "date": "2026-04-19",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Analytics Enhancements — OData Driven Insights\n- **Cumulative Flow Diagram (CFD)** — Added a stacked area chart to the Sprints screen analytics tab, showing work item distribution across states over the sprint duration.\n- **Lead & Cycle Time Analytics** — Implemented a new analytics card in the Sprints screen showing average lead and cycle times for the last 30 days, with a breakdown by work item type.\n- **Weekly Pipeline Pass-Rate Trend** — Added a weekly trend line chart to the Pipelines screen, visualizing build reliability over the last 8 weeks.\n- **Weekly Test Pass-Rate Trend** — Integrated an OData-backed weekly pass-rate trend chart into the Test Analytics dashboard for better long-term quality tracking."
+        }
+      ],
+      "highlights": [
+        "Cumulative Flow Diagram (CFD) — Added a stacked area chart to the Sprints screen analytics tab, showing work item distribution across states over the sprint duration.",
+        "Lead & Cycle Time Analytics — Implemented a new analytics card in the Sprints screen showing average lead and cycle times for the last 30 days, with a breakdown by work item type.",
+        "Weekly Pipeline Pass-Rate Trend — Added a weekly trend line chart to the Pipelines screen, visualizing build reliability over the last 8 weeks."
+      ]
+    },
+    {
+      "version": "6.8.1",
+      "date": "2026-04-19",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Organization Directory — 401 Unauthorized Fix\n- Fixed authentication failure when loading users and groups in the Organization Directory\n- Root cause: ADO Graph APIs on `vssps.dev.azure.com` require the organization name in the URL path; the previous implementation used unscoped URLs\n#### Organization Directory — Theme Alignment\n- Fixed a bug where the Directory screen appeared in dark mode even when the app was set to light mode\n- Root cause: The screen was using a legacy `AppColors` object with hardcoded dark values"
+        },
+        {
+          "title": "✨ New Features",
+          "content": "#### Organization Directory — Tab Swiping\n- Added horizontal swipe gestures to the Organization Directory screen\n- Users can now swipe left and right to switch between the \"Users\" and \"Groups\" tabs, implemented via `HorizontalPager`\n\n#### Security — Destructive Action Removal\n- **Removed \"Delete Team\" button** from the Teams & Projects screen to prevent accidental and permanent data loss\n- Administrative actions like team deletion are now restricted to the Azure DevOps web portal for safety"
+        }
+      ],
+      "highlights": [
+        "Fixed authentication failure when loading users and groups in the Organization Directory",
+        "Root cause: ADO Graph APIs on vssps.dev.azure.com require the organization name in the URL path; the previous implementation used unscoped URLs",
+        "Fixed a bug where the Directory screen appeared in dark mode even when the app was set to light mode"
+      ]
+    },
+    {
+      "version": "6.8.0",
+      "date": "2026-04-17",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Navigation — Deep Link Crash (`StringUri` serialization)\n- Fixed fatal crash on launch/login when the app was opened via an Azure DevOps deep link\n- Root cause: `navController.navigate(uri: android.net.Uri)` passed Android's `Uri` object directly to Navigation Compose; newer versions use `kotlinx.serialization` to resolve route arguments, and `android.net.Uri` (`StringUri`) is not `@Serializable`\n- Fix: added `resolveDeepLinkRoute(uri)` that parses the URI and maps it to the correct internal route string (`detail/{id}`, `pipeline_detail/{id}`, `pullrequest_detail/{id}`) before navigating — affects both the authenticated `LaunchedEffect` path and the post-login redirect path\n\n#### Navigation — Cross-Organisation Deep Link Guard\n- Previously: opening a deep link belonging to organisation Y while signed into organisation X showed a transient Toast but still opened the item in the wrong org's context\n- Fix: org mismatch now **blocks navigation entirely**; the ephemeral Toast is replaced with a persistent `AlertDialog` (\"Wrong Organization\") that clearly states the mismatch and must be dismissed; on post-login mismatch the user is routed to Home instead of the wrong item"
+        },
+        {
+          "title": "✨ New Features",
+          "content": "#### Work Item Detail — Copy URL\n- Added a **📋 copy icon button** to the work item detail top bar (between the ID badge and the follow button)\n- Tapping it copies the full Azure DevOps URL (`https://dev.azure.com/{org}/{project}/_workitems/edit/{id}`) to the system clipboard\n- A snackbar confirms \"Link copied to clipboard\"\n- URL was already built and stored in `DetailUiState.workItemUrl` — no new API calls required\n\n#### Pipelines — Cancelled Pipelines Visible\n- Builds with `result == \"canceled\"` (Azure DevOps US spelling) are now correctly shown with a grey \"Cancelled\" badge instead of being grouped with Failed builds\n\n#### Pipelines — Running Builds Pinned at Top\n- Builds with `status == \"inProgress\"` are fetched separately and pinned above the paged list so long-running pipelines started days ago are always visible regardless of API sort order\n\n#### Pipelines — Performance\n- `loadStats()` now fires two parallel `async` calls (`inProgress` top=10 + `completed` top=50) instead of a single sequential top=100 call\n- Page size increased 25→50, `initialLoadSize` 25→50, `prefetchDistance` added (10) in `PagingConfig`\n\n#### Work Items — Friendly Not-Found Page\n- `AeroDetailError` now distinguishes 404/not-found, 403/forbidden, and generic errors with tailored icons, titles, and actions\n- 404: grey `LinkOff` icon, \"Work Item Not Found\" heading, `#NNNNN` ID badge, \"Go Back\" button (no pointless Retry)\n- 403: lock icon, \"Access Denied\" heading with Retry\n- Generic: standard error icon with Retry"
+        },
+        {
+          "title": "✨ New Features",
+          "content": "#### Azure Pipelines — YAML Pipeline Runner (P4)\n- **YAML Pipelines screen** — browse all YAML pipeline definitions; expandable rows show recent runs with state/result chips; trigger a new run from a branch picker dialog; accessible from **More** tab and home Quick Actions\n- **Full pagination** — `x-ms-continuationtoken` header consumed in a do/while loop; page size raised to 1000 so most organisations load in a single round trip\n- **Progressive rendering** — `Flow<List<YamlPipeline>>` emits after every page; first batch appears immediately (full-screen spinner → list in ~1 request); subsequent pages append with a subtle \"Loading more…\" indicator\n- **Search** — real-time filter by pipeline name or folder path; count header updates live; context-aware empty state (\"No pipelines match…\" vs \"No YAML pipelines found\")\n\n#### Azure Pipelines — Variable Groups (P6)\n- **Variable Groups screen** — full list of pipeline variable groups with KeyVault badge; bottom sheet shows all variables (secret values masked) for the selected group; accessible from More tab and home Quick Actions\n\n#### Azure Pipelines — Environments & Deployments (P2)\n- **Environments screen** — accordion list of deployment environments; selecting one loads full deployment history (status, deployer avatar, timestamps)\n\n#### Azure Releases — Release Definition Browser (P3)\n- **Release Definitions screen** — browse all classic release pipeline definitions with folder path and stage names; search bar; accessible via 📋 icon in the Releases top bar\n\n#### Home — Quick Actions\n- Added **YAML Pipelines**, **Variable Groups**, and **Environments** as options in the customisable Quick Actions row on the home/dashboard screen\n\n#### More Screen\n- Added **YAML Pipelines**, **Variable Groups**, and **Environments** cards to the CI/CD & Code section of the More tab"
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Repositories — \"No repositories found\" intermittent blank screen\n- `ReposViewModel` now injects `AuthRepository` and collects `currentProject` flow; on project switch the repo list reloads automatically — no more stale empty state requiring an app restart\n- `loadRepositories()` guards against duplicate in-flight requests with an `isLoading || isRefreshing` early-return\n- Added a **Retry** button to the empty state so users can recover without restarting\n\n#### IME / Keyboard jank (`IME_INSETS_SHOW_ANIMATION` timeout)\n- Added `LocalFocusManager.current.clearFocus()` on screen entry for all three always-visible search-bar screens (`AeroReposScreen`, `AeroYamlPipelinesScreen`, `AeroReleaseDefinitionsScreen`) — prevents the soft keyboard from appearing automatically during navigation transitions"
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Networking — Gson Crash Prevention\n- **`CommentUser` Gson crash** — `IdentityRefTypeAdapter` extended to handle `CommentUser` in addition to `CreatedBy`/`AssignedTo`; Azure DevOps can return person-identity fields as either a plain string or a JSON object.\n- **Auth temp clients unprotected** — `AuthRepositoryImpl.createTempProfileApi` and `createTempDevOpsApi` now use `SafeGsonConverterFactory` with the shared `Gson` instance (injected via constructor) rather than a bare `GsonConverterFactory.create()`.\n\n#### Work Item Detail — Images in Description / Acceptance Criteria\n- **Relative image URLs not resolved** — `loadDataWithBaseURL(null, …)` meant relative paths like `/_apis/wit/attachments/{id}` couldn't be resolved. Fixed by passing `https://dev.azure.com/{org}/` as the base URL.\n- **OAuth users unaffected by PAT-only fix** — `authorizationHeader` property on `DetailViewModel` and `TestCaseDetailViewModel` uses `AuthRepository.getAuthorizationHeader()` which already returns the correct header format for both auth methods.\n\n#### Work Item Detail — Empty Content Whitespace\n- **Blank acceptance criteria / description shows enormous whitespace** — Azure DevOps stores empty fields as whitespace-only HTML (`<div>&nbsp;</div>`, `<p><br></p>`, etc.) which passed `isNullOrBlank()` but rendered as a tall blank WebView. Added `isHtmlEffectivelyEmpty()` helper that strips tags and expands HTML entities before checking for blank text; both `AeroDescriptionCard` and `AeroAcceptanceCriteriaCard` now use it to show the \"No content defined\" placeholder instead."
+        },
+        {
+          "title": "✨ Improvements",
+          "content": "#### Demo Mode — Complete Data Coverage\n- **Dashboard \"My Work Items\" section now populates** — Added hard fallback in `DashboardViewModel`: if `getWorkItemsDetails` returns empty while demo mode is active, 5 realistic hardcoded work items are shown immediately.\n- **Sprint \"done / remaining\" counts fixed** — Sprint summary now shows `5 done / 7 remaining / 15 total` in demo mode instead of `0 / 0 / 15`.\n#### About Page — Layout Redesign\n- **App Information & Developer sections** — `AboutInfoRow` rewritten with `Arrangement.SpaceBetween`: label on the left (natural width, no longer fixed 100dp), value + link icon flush to the right. Eliminates the centered-value visual caused by competing `weight(1f)` modifiers."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Demo Mode\n- **Work item detail crash** (`UnsupportedOperationException: JsonNull`) — `IdentityRefTypeAdapter` now guards all four object-field reads (`displayName`, `uniqueName`, `id`, `imageUrl`) with `.takeIf { !it.isJsonNull }` before calling `.asString`, handling explicit `null` JSON values that Gson returns as `JsonNull` elements rather than Kotlin `null`.\n- **`WorkItemRepositoryImpl` offline bypass** — `queryWorkItems` and `getWorkItemsDetails` offline-cache bypass now skipped in demo mode, ensuring the DemoInterceptor path is always exercised.\n#### Sprints\n- **Capacity tab crash** (`NullPointerException` on `capacity.teamMember`) — `SprintsViewModel.loadCapacities` now guards against `teamMember` being `null` (Gson bypasses Kotlin non-nullable declarations); entries with a null member are skipped via `?: return@mapNotNull null`.\n\n#### Test Cases\n- **Test cases page crash** (`UnsupportedOperationException: JsonNull`) — `TestRepositoryImpl.parseWorkItemsToTestCaseList` now applies `.takeIf { !it.isJsonNull }` to every field extraction, and safely checks `!isJsonNull && isJsonObject` before casting `System.AssignedTo` to a JSON object.\n\n#### Releases\n- **Releases crash on open** (`NullPointerException` — `collectionSizeOrDefault`) — `ReleasesViewModel.toDisplay()` (both `ReleaseItem` and `ReleaseDetail`) now uses `(environments ?: emptyList()).map` and `(deploySteps ?: emptyList()).firstOrNull()` since Gson sets list fields to `null` at the JVM level despite Kotlin `= emptyList()` defaults."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Stability — Null Safety & Crash Prevention\n- **WIQL injection eliminated** — `GetDashboardStatsUseCase` replaced `'$email'` / `'$today'` string interpolation with the built-in `@Me` / `@Today` WIQL macros, removing the injection vector and simplifying query construction.\n- **Login crash** — `LoginViewModel` replaced two `getOrNull()!!` calls with `getOrElse { return@launch }`, preventing NPE when auth result is unexpectedly absent.\n- **Boards crash** — `BoardsViewModel` replaced `getOrNull()!!` (×2) with safe local-val early-return guards.\n- **Auth profile crash** — `AuthRepositoryImpl` replaced `body()!!` with a null-check early-return when the OAuth profile response body is empty.\n- **Approvals crash** — `AeroApprovalsScreen` replaced `uiState.pendingAction!!` with `?: return` guard.\n- **Wiki TopBar crash** — `AeroWikiScreen` fixed three `!!` operators in TopBar; captured nullable state in local vals before use.\n- **Delivery Plans crash** — `AeroDeliveryPlansScreen` fixed `selectedPlan!!` and `uiState.timeline!!` with safe local-val guards.\n- **Tag Management crash** — `AeroTagManagementScreen` replaced `selectedTag!!` with safe-call pattern.\n- **Diff viewer crash** — `CommitDiffViewModel` replaced `getOrNull()!!` with `getOrElse { return@launch }`.\n- **Queries / PR Detail / Pipelines** — Replaced `getOrNull()!!` with `getOrElse { return@launch }` in `QueriesViewModel`, `PRDetailViewModel` (×2), and `PipelinesViewModel`.\n\n#### Concurrency & Thread Safety\n- **Coroutine scope leak in `BillingManager`** — Extracted `SupervisorJob` into a named `private val job`; added `destroy()` to cancel the job and end the billing client connection.\n- **`WorkItemsPagingSource` visibility race** — Added `@Volatile` to `cachedIds`; replaced `cachedIds!!` with null-safe access.\n\n#### State & Event Correctness\n- **Login event overwrite** — `LoginViewModel.finishLogin()` was emitting `LoginSuccess` immediately overwritten by `NavigateToDashboard` on a `MutableStateFlow<LoginEvent?>`. Removed the redundant `LoginSuccess` emit.\n- **Wiki save snackbar only shows once** — `LaunchedEffect(saveSuccess: Boolean)` key didn't re-trigger on second save. Replaced with an integer `saveSuccessNonce` incremented on every save.\n- **Queries snackbar key** — Changed `LaunchedEffect(results.isNotEmpty())` to `LaunchedEffect(results.size)` so the snackbar shows for every new result set.\n- **Backlog pager bounds check** — Added `targetIndex in uiState.backlogLevels.indices` guard before `animateScrollToPage` to prevent `IndexOutOfBoundsException`.\n- **Stale state after Repo exception** — `RepoDetailViewModel` catch block now resets `selectedCommit = null` and `commitChanges = emptyList()` to clear stale UI.\n\n#### Code Quality\n- **Silent exceptions** — `ProfileRepositoryImpl` and `OAuthManager` catch blocks now log warnings via `Log.w`/`Log.e` and rethrow `CancellationException` correctly.\n- **`@Singleton` on mutable `GsonBuilder`** — Removed `@Singleton` from `NetworkModule.provideGson()` (builders are mutable; reuse is incorrect practice).\n- **`userId` null guard in follow repository** — `WorkItemFollowRepositoryImpl` now validates `credentials.userId` before calling the follow API.\n- **Magic string extracted** — `PatManagementViewModel` \"all\" scope string moved to `private const val SCOPE_ALL`.\n\n#### Lifecycle\n- **`collectAsState()` → `collectAsStateWithLifecycle()`** — Migrated all 35 Compose screens from `collectAsState()` to `collectAsStateWithLifecycle()` to avoid collecting flows when the UI is in the background, reducing unnecessary work and potential state leaks.\n\n#### UI — Small Screen Layout\n- **Assignee edit icon misplaced on small screens** — Assignee name `Text` in `AeroAssigneeCard` now uses `Modifier.weight(1f)` + `maxLines = 1` + `TextOverflow.Ellipsis`, keeping the pencil icon always visible.\n- **Creator avatar clipped on small screens** — Creator name `Text` in `AeroAssigneeCard` now uses `Modifier.weight(1f)`, guaranteeing the avatar always has room and is never pushed off the right edge."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Pipelines\n- **NPE crash on empty build response** — `PipelineDetailViewModel` now uses safe null-check on the build result instead of `!!`, emitting an error state rather than crashing when the API returns an empty body.\n- **OOM on very large build logs** — Log reading is now capped at 500 KB using a buffered line reader with explicit `body.close()`. Previously, multi-MB logs could exhaust heap.\n- **Timeline record cap** — Build timeline processing is now capped at 500 records to prevent UI lag on complex pipelines with hundreds of stages.\n\n#### Wiki\n- **Optimistic concurrency (ETag)** — Wiki page saves now include the `ETag` header returned when the page was loaded (`If-Match: <etag>`). Previously every save used the wildcard `*`, silently overwriting concurrent edits. Adds `WikiPageWithEtag` wrapper; ETag is stored in `WikiUiState.pageEtag`.\n- **Silent failures surfaced** — `WikiViewModel.startEditing` and `savePage` now emit error snackbars instead of returning silently when state is null.\n- **`loadPages` access fix** — `loadPages()` made `private`; `refreshPages()` public delegator added for pull-to-refresh.\n\n#### Work Item — Git Links\n- **Linked branches not visible (case-sensitivity)** — `substringAfter(\"/Git/Ref/\")` was case-sensitive while the detection `contains()` used `ignoreCase=true`. ADO instances returning lowercase `/git/ref/` passed detection but returned empty extraction → branch silently dropped. Added `substringAfterIgnoreCase()` extension and applied it to all three parsers (`toLinkedBranches`, `toLinkedPRs`, `toLinkedCommits`).\n- **`GBrefs/heads/main` double-prefix not stripped** — `when{}` matched only one prefix at a time, so `GBrefs/heads/main` → drop `GB` → `refs/heads/main` (wrong display name). Changed to sequential `if`-checks to strip both prefixes in order.\n- **Linked commit URL parsing** — Switched from `split('/')[6]` fixed-index to `substringAfter(\"/Git/Commit/\")` to correctly parse both slash-separated and `%2F`-encoded vstfs URLs.\n- **`repoName` shows GUID** — Replaced truncated GUID with readable `\"Repository\"` label for branch and commit links.\n- **Git links invisible offline** — `WorkItemEntity` now persists all `Relation` objects as a Gson-serialized `relationsJson` column. Branch, PR, and commit links are now visible for any previously-cached work item in offline mode. DB version bumped **8 → 9** (destructive migration).\n\n#### Commit Diff\n- **Route corruption on special characters** — `CommitDiff.createRoute()` now URL-encodes `repoId` and `commitId` to prevent navigation failures when IDs contain `%` or `/`.\n- **Blank screen on empty diff** — Added an explicit empty-state message (\"No file changes\") when the API returns a commit with no file modifications.\n\n#### Pull Requests — Files Tab\n- **Same content on both sides of diff** — `getFileContent` previously used `versionDescriptor.versionType=branch`, fetching the current HEAD of each branch. After merge or rebase, both sides pointed to the same content. Fixed by using commit SHAs from the PR iteration (`sourceRefCommit.commitId` for new, `commonRefCommit.commitId` for the merge-base old content) with `versionType=commit`. Falls back to branch names on older ADO Server versions."
+        },
+        {
+          "title": "⚡ Performance",
+          "content": "#### Commit Diff Viewer\n- **Parallel file content fetching** — Changed sequential `mapNotNull { computeFileDiff() }` to `coroutineScope { map { async { ... } }.awaitAll() }`. A 10-file commit now fetches all old+new content concurrently (~10× faster on typical latency).\n- **LCS on background thread** — `DiffUtil.computeDiff` (O(m×n) DP) now runs on `Dispatchers.Default`, preventing main-thread jank for large files.\n- **Lazy diff line rendering** — Removed `Column + verticalScroll` inside `LazyColumn` items (which composed all diff lines unconditionally). `CommitDiffContent` is now a single flat `LazyColumn`; diff lines are direct lazy items composed only when visible."
+        },
+        {
+          "title": "✨ UX",
+          "content": "#### Commit Diff Viewer\n- **File expand/collapse animation** — Tapping a file header now rotates a chevron icon 0° → 180° (`animateFloatAsState`, 220 ms, FastOutSlowIn). Diff lines fade in/out via `Modifier.animateItem()` (160 ms fade-in, 100 ms fade-out) as items enter/leave the lazy list."
+        }
+      ],
+      "highlights": [
+        "Fixed fatal crash on launch/login when the app was opened via an Azure DevOps deep link",
+        "Root cause: navController.navigate(uri: android.net.Uri) passed Android's Uri object directly to Navigation Compose; newer versions use kotlinx.serialization to resolve route arguments, and android.net.Uri (StringUri) is not @Serializable",
+        "Fix: added resolveDeepLinkRoute(uri) that parses the URI and maps it to the correct internal route string (detail/{id}, pipelinedetail/{id}, pullrequestdetail/{id}) before navigating — affects both the authenticated LaunchedEffect path and the post-login redirect path"
+      ]
+    },
+    {
+      "version": "6.7.0",
+      "date": "2026-04-14",
+      "sections": [
+        {
+          "title": "✨ New Features & Improvements",
+          "content": "#### Offline Mode — Full Comment & Follow Caching\n- **Follow status caching** — Follow/unfollow state is persisted locally. The follow button reflects the correct state even without connectivity.\n- **Seamless write operations** — Adding, editing, and deleting comments now attempts the network call directly (no stale connectivity pre-check). Falls back to offline queue only on actual `IOException`, eliminating false \"Saved offline\" messages when the device is online.\n- **Auto-refresh on reconnect** — Work item detail screen automatically reloads when the device goes back online, so comments and state are immediately up to date without a manual pull-to-refresh.\n\n#### Offline Mode — Home Screen & Search\n- **Cached home data on launch** — Opening the app in offline mode (or going online after an offline session) now shows the last-known work items, pipeline statuses, and stats from cache instead of an empty screen.\n- **Offline search** — Work items can be searched from the local Room cache while offline.\n- **Work item creator & assignee** — Creator and assignee identity fields are now stored and displayed correctly in offline mode.\n\n#### Offline Mode — Auto-Sync on Reconnect\n- **Auto-sync trigger** — Pending operations queued while offline are now synced automatically the moment the device reconnects, without requiring a manual refresh.\n- **Post-reconnect refresh** — If the app was backgrounded while offline and then reconnects, all data is refreshed automatically on next interaction.\n\n#### Work Item History\n- **Sentinel date fix** — Azure DevOps returns year `9999` as a placeholder for the latest uncommitted revision. This now shows as **\"Current\"** instead of \"Jan 01, 9999 04:00\".\n\n#### UI / Navigation\n- **Bottom nav bar — 3-button navigation** — The floating pill navigation bar now correctly sits above the system navigation bar when the device uses 3-button navigation mode. Uses `windowInsetsPadding(WindowInsets.navigationBars)` so it adapts to both gesture and button navigation automatically.\n- **Offline banner improvements** — More accurate online/offline detection; banner clears promptly when connectivity is restored."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "- **False \"Saved offline\" snackbar** — Fixed: adding a comment or updating a work item state while online showed \"Saved offline — will sync when online\" due to a stale `StateFlow.value` check. All write operations now attempt the API directly.\n- **Comments not displaying** — Fixed: Azure DevOps comment API does not return an `html` field. The non-nullable `html: String` field caused a Room constraint violation on insert, leaving comments empty. Made `html` nullable.\n- **Comment ID type mismatch** — Fixed: Azure DevOps returns comment `id` as an integer but it was declared as `String`. Changed `WorkItemComment.id` to `Int`."
+        }
+      ],
+      "highlights": [
+        "Follow status caching — Follow/unfollow state is persisted locally. The follow button reflects the correct state even without connectivity.",
+        "Seamless write operations — Adding, editing, and deleting comments now attempts the network call directly (no stale connectivity pre-check). Falls back to offline queue only on actual IOException, eliminating false \"Saved offline\" messages when the device is online.",
+        "Auto-refresh on reconnect — Work item detail screen automatically reloads when the device goes back online, so comments and state are immediately up to date without a manual pull-to-refresh."
+      ]
+    },
+    {
+      "version": "6.6.1",
+      "date": "2026-04-14",
+      "sections": [
+        {
+          "title": "✨ New Features & Improvements",
+          "content": "#### Work Item Detail — Git Links\n- **Linked branches & PRs** — Work item detail screen now shows a \"Git Links\" card listing all branches and pull requests linked to the work item (via ArtifactLink relations).\n- **In-app navigation** — Tapping a PR navigates to `AeroPRDetailScreen`; tapping a branch navigates to `AeroRepoDetailScreen` with the correct branch pre-selected.\n- **Auto branch selection** — When opening a repo from a branch link, the linked branch is automatically selected in the repo detail screen.\n\n#### Pull Requests — Files Tab\n- **Change type filter** — Tap the \"+ N added\", \"~ N modified\", or \"- N deleted\" chips to filter the file list to that type only. Tap again to clear the filter. Selected chips fill with full colour; a \"No files match this filter\" state is shown when the filtered list is empty."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "- **Branch navigation crash** — Fixed `IllegalArgumentException` when branch names contain slashes (e.g. `feature/T/T-26`): `repoName` and `initialBranch` are now passed as URL-encoded query parameters instead of path segments.\n- **Wrong repoId extraction** — Fixed vstfs URL parsing: used fixed index `parts[6]` for repoId instead of `parts[size-2]`, which was returning \"heads\" for multi-segment branch names like `refs/heads/feature/my-branch`.\n\n---"
+        }
+      ],
+      "highlights": [
+        "Linked branches & PRs — Work item detail screen now shows a \"Git Links\" card listing all branches and pull requests linked to the work item (via ArtifactLink relations).",
+        "In-app navigation — Tapping a PR navigates to AeroPRDetailScreen; tapping a branch navigates to AeroRepoDetailScreen with the correct branch pre-selected.",
+        "Auto branch selection — When opening a repo from a branch link, the linked branch is automatically selected in the repo detail screen."
+      ]
+    },
+    {
+      "version": "6.6.0",
+      "date": "2026-04-13",
+      "sections": [
+        {
+          "title": "✨ New Features & Improvements",
+          "content": "#### Test Cases — My Cases Tab\n- **Infinite scroll pagination** — My Cases now loads 50 test cases at a time (up from a hard cap of 200). Count chip shows \"50 of 321 cases\" to reflect progress. Scroll to the bottom to load the next page; a spinner and \"All N cases loaded\" footer confirm completion.\n- **Bulk select: real assignee search** — Bulk-assign now opens the same team member picker as Work Items (live ADO member search with avatars), replacing the limited local filter.\n- **Bulk select: state dropdown** — Single \"State\" button replaces separate Active/Closed buttons; dropdown includes Active, Ready, Design, Closed, and Inactive.\n- **Bulk select: deselect-all toggle** — Select-All button toggles to Deselect-All when all cases are selected.\n- **Long-press to select** — Fixed: cards now correctly register `onLongClick` via `combinedClickable`.\n\n#### Test Cases — Browse Tab\n- **Suite test case counts** — Each suite folder now shows \"N test case(s)\" below its name (direct cases only, not nested). Fetched via old test API (`api-version=5.0`) and merged into the tree.\n- **Sticky count chip** — Plan/suite/case count always visible in a fixed top bar; count format is \"N cases\" or \"N of 321 cases\" during pagination.\n\n#### Test Cases — Header\n- **Removed gap** — `AeroBrowseSelectorRow` no longer renders a background band when no plan or suite is selected.\n- **Light-theme contrast** — Count chip switched from `primaryContainer` (low contrast) to `primary.copy(alpha=0.12f)` background with `primary` SemiBold text."
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "- **Pagination scroll trigger** — Replaced non-reactive `derivedStateOf` with `snapshotFlow { listState.layoutInfo }` so load-more fires reliably on scroll.\n- **Load-more race condition** — `loadMoreMyCases()` now re-checked `isLoadingMoreCases` inside the coroutine to prevent double-fire from rapid scroll events.\n- **Assignee search in dialog** — Fixed state computed outside `AlertDialog` text lambda not recomputing on typing."
+        }
+      ],
+      "highlights": [
+        "Infinite scroll pagination — My Cases now loads 50 test cases at a time (up from a hard cap of 200). Count chip shows \"50 of 321 cases\" to reflect progress. Scroll to the bottom to load the next page; a spinner and \"All N cases loaded\" footer confirm completion.",
+        "Bulk select: real assignee search — Bulk-assign now opens the same team member picker as Work Items (live ADO member search with avatars), replacing the limited local filter.",
+        "Bulk select: state dropdown — Single \"State\" button replaces separate Active/Closed buttons; dropdown includes Active, Ready, Design, Closed, and Inactive."
+      ]
+    },
+    {
+      "version": "6.5.6",
+      "date": "2026-04-13",
+      "sections": [
+        {
+          "title": "Fixed",
+          "content": "- **Microsoft OAuth login** — Certificate pinning failure on release builds due to outdated intermediate CA pin for `login.microsoftonline.com`\n  - Updated pin from old DigiCert SHA2 Secure Server CA to new Microsoft Azure RSA TLS Issuing CA 03\n  - Added DigiCert Global Root G2 as backup pin to prevent future breakage during certificate rotations"
+        }
+      ],
+      "highlights": [
+        "Microsoft OAuth login — Certificate pinning failure on release builds due to outdated intermediate CA pin for login.microsoftonline.com",
+        "Updated pin from old DigiCert SHA2 Secure Server CA to new Microsoft Azure RSA TLS Issuing CA 03",
+        "Added DigiCert Global Root G2 as backup pin to prevent future breakage during certificate rotations"
+      ]
+    },
+    {
+      "version": "6.5.5",
+      "date": "2026-04-12",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Work Items Crash — Gson Parsing Failure\n- **Root cause** — Azure DevOps API returns person fields (`System.AssignedTo`, `System.CreatedBy`, `System.ChangedBy`) as **plain strings** (e.g., `\"John Doe\"`) instead of full objects in some cases (deleted users, identity resolution failures, API changes). Gson expected `{` but got a string, causing `IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 3 column 1 path $`\n- **Fix** — Created `IdentityRefTypeAdapter`, a custom Gson type adapter that handles both object and string formats for `CreatedBy` and `AssignedTo` fields"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Root cause — Azure DevOps API returns person fields (System.AssignedTo, System.CreatedBy, System.ChangedBy) as plain strings (e.g., \"John Doe\") instead of full objects in some cases (deleted users, identity resolution failures, API changes). Gson expected { but got a string, causing IllegalStateException: Expected BEGINOBJECT but was STRING at line 3 column 1 path $",
+        "Fix — Created IdentityRefTypeAdapter, a custom Gson type adapter that handles both object and string formats for CreatedBy and AssignedTo fields"
+      ]
+    },
+    {
+      "version": "6.5.4",
+      "date": "2026-04-11",
+      "sections": [
+        {
+          "title": "🔒 Security Hardening",
+          "content": "#### OAuthManager Uses Shared HttpClient\n- **Root cause** — `OAuthManager` created its own `OkHttpClient()` instance, bypassing certificate pinning and other security configuration from `NetworkModule`\n- **Fix** — `OAuthManager` now receives the shared `OkHttpClient` via Hilt injection; all OAuth traffic goes through the pinned, configured client\n#### Play Integrity API Integration\n- **New `SecurityManager`** — orchestrates all security checks at app startup:\n  1. APK signature verification (blocks repackaged APKs)\n  2. Tamper detection (blocks debugger attachment)\n  3. Play Integrity API (requests attestation token with secure nonce)\n- **Non-blocking integrity check** — token requested and logged at startup; server-side verification ready but not yet enforced; allows gradual rollout\n- **Secure nonce generation** — uses `SecureRandom` for cryptographically secure 32-byte nonce; prevents replay attacks\n- **MainActivity refactored** — replaced direct signature/tamper checks with async `SecurityManager.performSecurityChecks()`\n#### R8 Mapping File Documentation\n- **Upload procedures** documented for Firebase Crashlytics, Google Play Console, and manual symbolication\n- **CI/CD** already publishes mapping file as \"R8-Mapping\" artifact; no pipeline changes needed"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Root cause — OAuthManager created its own OkHttpClient() instance, bypassing certificate pinning and other security configuration from NetworkModule",
+        "Fix — OAuthManager now receives the shared OkHttpClient via Hilt injection; all OAuth traffic goes through the pinned, configured client",
+        "New SecurityManager — orchestrates all security checks at app startup:"
+      ]
+    },
+    {
+      "version": "6.5.3",
+      "date": "2026-04-10",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### OAuth Session Persistence\n- **Root cause** — `SecurePreferences.isAuthenticated()` returned `false` for OAuth users whose access token had expired (Microsoft tokens expire after ~1 hour), even when a valid refresh token was stored; `MainActivity` then redirected them to the Login screen\n- **Fix** — `isAuthenticated()` now returns `true` for OAuth sessions that have a refresh token, regardless of access token expiry\n- **Silent refresh at startup** — new `AuthRepository.ensureValidSession()` coroutine method checks token validity on app open; if expired, calls `acquireTokenSilently()` before deciding the start destination; only falls back to Login if the refresh itself fails\n- **`MainViewModel`** — new `@HiltViewModel` drives the auth state (`Loading → Authenticated / Unauthenticated`) so `MainActivity` no longer performs a synchronous auth check; app shows a blank surface while the refresh completes (~200–500 ms) then navigates"
+        },
+        {
+          "title": "✨ New Features",
+          "content": "#### Sign-Out Confirmation Dialog\n- **Confirmation required** — tapping the ExitToApp icon in the Profile screen top bar now shows a Material 3 `AlertDialog` before signing out\n- **Dialog content** — ExitToApp icon (error tint), title \"Sign out?\", body \"You will need to sign in again to access your Azure DevOps account.\"\n- **Actions** — red \"Sign out\" confirm button; \"Cancel\" text button dismisses without action\n#### Beta Tester Premium Bypass\n- **Email allowlist** — specific email addresses always receive full premium access regardless of Play Store subscription status\n- **`BETA_TESTER_EMAILS`** — hardcoded `Set<String>` in `PremiumRepositoryImpl` companion object; entries are lowercased for case-insensitive matching\n- **`isBetaTester()`** — reads `SecurePreferences.getUserEmail()` at call time; no new storage or network calls\n- **Reactive** — `isPremium: StateFlow<Boolean>` updated to `billingManager.isPremium.map { billing -> billing || isBetaTester() }.stateIn(...)` so UI updates correctly; `isFeatureAvailable()` also checks `isBetaTester()`\n- **Security** — list is obfuscated by R8/ProGuard in release builds; `SecurePreferences` injection means the email cannot be spoofed from outside the app"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Root cause — SecurePreferences.isAuthenticated() returned false for OAuth users whose access token had expired (Microsoft tokens expire after 1 hour), even when a valid refresh token was stored; MainActivity then redirected them to the Login screen",
+        "Fix — isAuthenticated() now returns true for OAuth sessions that have a refresh token, regardless of access token expiry",
+        "Silent refresh at startup — new AuthRepository.ensureValidSession() coroutine method checks token validity on app open; if expired, calls acquireTokenSilently() before deciding the start destination; only falls back to Login if the refresh itself fails"
+      ]
+    },
+    {
+      "version": "6.5.1",
+      "date": "2026-04-09",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Backlog Browser\n- **New screen** — accessible from **More → Backlog**; shows product & portfolio backlog hierarchy via Azure DevOps `GET _apis/work/backlogs` API\n- **Tabbed pager** — one page per backlog level (Epics → Features → Stories → Tasks) with horizontal swipe navigation between levels\n- **Team selector** — animated expandable panel with scrollable team chips; last-selected team remembered via SharedPreferences\n- **Work item cards** — shows type emoji, title, state chip, story points badge, and assignee name\n- **Empty states** — per-level empty illustration when no work items exist\n- **Navigation** — tap any work item to open its full detail screen\n- **DI wiring** — `NetworkModule` and `RepositoryModule` updated with Hilt bindings\n- **HTTP/1.1 enforcement** — OkHttp client now forces `Protocol.HTTP_1_1` to avoid API compatibility issues\n\n#### Dashboard Quick Actions Customization\n- **Customize sheet** — tap \"Edit\" in the Quick Actions section to open a `ModalBottomSheet`\n- **Toggle on/off** — 4-column grid of all 14 available quick actions; tap to show or hide\n- **Persistent** — selections saved to SharedPreferences; restored on next launch\n- **New actions** — added Backlog, Releases, Approvals, and Delivery Plans to the available set\n- **Pipeline count** — dashboard now fetches up to 10 builds and shows up to 4 distinct pipelines (was 3)"
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Subscription Screen\n- Fixed price extraction for `ProductDetails` — now uses last pricing phase instead of first\n- Extracted `SubscriptionProduct` display model to decouple UI from Play Billing classes\n- Improved product card layout (spacing, removed deprecated `SpaceBetween`)\n\n#### Developer Contact\n- Updated developer email in About screen to `ghazaryan.zhudeks.dev@gmail.com`"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "New screen — accessible from More → Backlog; shows product & portfolio backlog hierarchy via Azure DevOps GET apis/work/backlogs API",
+        "Tabbed pager — one page per backlog level (Epics → Features → Stories → Tasks) with horizontal swipe navigation between levels",
+        "Team selector — animated expandable panel with scrollable team chips; last-selected team remembered via SharedPreferences"
+      ]
+    },
+    {
+      "version": "6.5.0",
+      "date": "2026-04-09",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Branch Management (Repositories)\n- **Create branches** — bottom sheet branch picker → \"New\" button → dialog with branch name input and source branch selection; uses `POST _apis/git/repositories/{id}/refs?api-version=7.1-preview.1`\n- **Delete branches** — tap delete icon on any non-protected branch; confirmation dialog before deletion; `main`/`master` marked as \"protected\" (no delete button)\n- **Premium-gated** — both create and delete operations require a Premium subscription; free users see the upgrade sheet\n- **Full branch list** — replaced the 20-item dropdown with a scrollable bottom sheet showing all branches with selection checkmark and per-branch actions\n- **Snackbars** — success/error feedback after create or delete operations\n\n#### Commit Diff Viewer\n- **Side-by-side diff** — tap any commit in the repo detail screen → expand → \"View Full Diff\" button; renders line-by-line diff with green added / red removed / context highlighting\n- **LCS algorithm** — custom `DiffUtil` using Longest Common Subsequence dynamic programming for accurate line-level diffs\n- **Change summary** — colored chips showing added/edited/deleted/renamed file counts; per-file cards with +/- line counts\n- **Initial commit support** — when there's no parent commit, all files are shown as additions\n- **Renamed files** — detected via ADO `changeType`; old content fetched using `originalPath`\n- **Models** — `GitCommitDiffs`, `GitDiffChange`, `GitDiffItem`, `GitDiffContent`, `DiffLine`, `FileDiff`\n\n#### About Screen\n- **New screen** — accessible from **More → About**; shows app version, build type (Debug/Release), developer info (name, email, GitHub), key libraries, links (Privacy Policy, Google Play), and copyright\n- **Email integration** — tapping email opens the device's mail client with a pre-filled subject\n- **External links** — GitHub and Google Play open in the device's browser"
+        },
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Sprint Page — Pull-to-Refresh Fixed\n- **Root cause** — `onRefresh()` called `loadTeams()` → `onTeamSelected()`, but `onTeamSelected()` had a guard clause (`if (selectedTeam?.id == team.id) return`) that returned early during refresh, leaving `isRefreshing` stuck at `true` forever; intermediate `copy()` calls also dropped the flag; error paths in `loadSprints()`/`loadSprintWorkItems()` never reset it\n- **Fix** — `onRefresh()` now bypasses `loadTeams()` and calls `loadSprints()` directly with the current team; every `copy()` in the cascade preserves `isRefreshing`; all error paths reset it to `false`; `filterWorkItems()` and `updateStatistics()` also preserve the flag\n- **Filters preserved** — refreshing now keeps the user's active type/state/assigned filters instead of resetting them to \"All\"\n\n#### Sprint Page — Duplicate Progress Bars Removed\n- Removed redundant `LinearProgressIndicator` blocks in `AeroSprintWorkItemsTab` and `AeroAnalyticsTab` that showed simultaneously with the `PullToRefreshBox` indicator"
+        },
+        {
+          "title": "🔧 Maintenance",
+          "content": "- **`GitRepoRepository`** — added `createBranch()` and `deleteBranch()` interface methods\n- **`GitRepoRepositoryImpl`** — full implementation with error body parsing for user-friendly messages\n- **`PremiumFeature.BRANCH_MANAGEMENT`** — new premium-gated feature enum value\n\n#### Navigation\n- **`Screen.About`** — new navigation route; wired in `AppNavigation` and `MoreScreen`"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Create branches — bottom sheet branch picker → \"New\" button → dialog with branch name input and source branch selection; uses POST apis/git/repositories/{id}/refs?api-version=7.1-preview.1",
+        "Delete branches — tap delete icon on any non-protected branch; confirmation dialog before deletion; main/master marked as \"protected\" (no delete button)",
+        "Premium-gated — both create and delete operations require a Premium subscription; free users see the upgrade sheet"
+      ]
+    },
+    {
+      "version": "6.4.2",
+      "date": "2026-04-08",
+      "sections": [
+        {
+          "title": "🔧 Maintenance",
+          "content": "#### Android 15 Edge-to-Edge Migration\n- **Google Play warning fix** — Removed deprecated `Window.setStatusBarColor()` and `Window.setNavigationBarColor()` calls (deprecated in Android 15)\n- System bar icon appearance (light/dark) still controlled via `WindowInsetsControllerCompat` — no visual changes"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Google Play warning fix — Removed deprecated Window.setStatusBarColor() and Window.setNavigationBarColor() calls (deprecated in Android 15)",
+        "System bar icon appearance (light/dark) still controlled via WindowInsetsControllerCompat — no visual changes"
+      ]
+    },
+    {
+      "version": "6.4.0",
+      "date": "2026-04-08",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Demo Mode — JSON Escape Sequence Crash\n- **Root cause** — Kotlin raw strings (`\"\"\"...\"\"\"`) don't escape backslashes, so `\"\\Sprint 3\"` became literal `\\S` in the JSON, which Gson rejected as an invalid escape sequence; crashed Work Items screen with `NullPointerException: Invalid escape sequence at path $.value[0].fields.System.IterationPath`\n#### Test Cases — Crash on Browse Mode in Demo\n- **Root cause** — `TestRepositoryImpl` created its own `OkHttpClient` without the `DemoInterceptor`, so demo-mode WIQL queries hit the real Azure DevOps API → 404 HTML → Gson parse failure → `body.value` was `null` → `NullPointerException` in `loadTestPlans()` at line 187\n- **Fix\" — `TestRepositoryImpl` now receives the shared `OkHttpClient` (with `DemoInterceptor`) via constructor injection; null-safety added to `loadTestPlans()` (`plans ?: emptyList()`, `plans.isNullOrEmpty()`)\n\n#### Login Screen — UI Polish\n- Added extra spacing (16dp) after \"Sign in with Microsoft\" button\n- Reduced \"Azure DevOps Client\" subtitle size from `headlineLarge` to `bodySmall`\n- Added app version display at bottom (`v{VERSION_NAME} ({VERSION_CODE})`)"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Root cause — Kotlin raw strings (\"\"\"...\"\"\") don't escape backslashes, so \"\\Sprint 3\" became literal \\S in the JSON, which Gson rejected as an invalid escape sequence; crashed Work Items screen with NullPointerException: Invalid escape sequence at path $.value[0].fields.System.IterationPath",
+        "Root cause — TestRepositoryImpl created its own OkHttpClient without the DemoInterceptor, so demo-mode WIQL queries hit the real Azure DevOps API → 404 HTML → Gson parse failure → body.value was null → NullPointerException in loadTestPlans() at line 187",
+        "Fix\" — TestRepositoryImpl now receives the shared OkHttpClient (with DemoInterceptor) via constructor injection; null-safety added to loadTestPlans() (plans ?: emptyList(), plans.isNullOrEmpty())"
+      ]
+    },
+    {
+      "version": "6.3.0",
+      "date": "2026-04-07",
+      "sections": [
+        {
+          "title": "✨ New Features",
+          "content": "#### Build Artifacts Browser\n- Browse and download build artifacts directly from the Pipeline Detail screen\n- **`PipelineRepository.getBuildArtifacts(buildId)`** — new interface method and `PipelineRepositoryImpl` implementation\n- **`PipelineDetailUiState`** gains `artifacts: List<BuildArtifact>` and `isLoadingArtifacts: Boolean`; artifacts are loaded automatically alongside pipeline details\n- **`PipelineDetailEvent.DownloadArtifact`** — one-shot event carrying `url`, `filename`, and `authHeader`; collected in the UI to enqueue a `DownloadManager` request with the correct Authorization header (supports both PAT and OAuth)\n- **`AeroBuildArtifactRow`** — new composable in `AeroPipelineDetailScreen`; shows artifact name, resource type, and a download icon button; section hidden when there are no artifacts\n\n#### Memory & Pagination (Performance)\n- **LeakCanary 2.14** — added as `debugImplementation`; zero-config heap-leak detection in debug builds\n- **Paging 3** (`paging-runtime-ktx:3.3.6` + `paging-compose:3.3.6`) — large lists no longer loaded into memory at once:\n  - `BuildsPagingSource` — offset-based pagination for the pipelines/builds list (`$skip` added to `BuildApi.getBuilds`)\n  - `CommitsPagingSource` — offset-based pagination for Git commits\n  - `WorkItemsPagingSource` — fetches all IDs via WIQL once, then pages detail in chunks of 25\n  - `PipelinesViewModel` exposes `pagedBuilds: Flow<PagingData<PipelineDisplay>>`; stats row loaded separately\n  - `RepoDetailViewModel` exposes `pagedCommits: Flow<PagingData<GitCommit>>`; invalidated via `flatMapLatest` on branch change\n  - `HomeViewModel\" exposes `pagedWorkItems: Flow<PagingData<WorkItemDisplay>>`; filter changes drive `_pageParams` → `flatMapLatest` → new pager\n  - All three screens use `collectAsLazyPagingItems()` with append loading / error footer"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Browse and download build artifacts directly from the Pipeline Detail screen",
+        "PipelineRepository.getBuildArtifacts(buildId) — new interface method and PipelineRepositoryImpl implementation",
+        "PipelineDetailUiState gains artifacts: List and isLoadingArtifacts: Boolean; artifacts are loaded automatically alongside pipeline details"
+      ]
+    },
+    {
+      "version": "6.2.3",
+      "date": "2026-04-06",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes",
+          "content": "#### Search — Numeric ID Prefix Matching\n- **Root cause** — Numeric search queries (e.g., \"42\") used exact ID equality (`[System.Id] = 42`), missing work items with IDs that start with the number (420, 421, 422, etc.)\n- **Fix\" — `WiqlQueryBuilder.buildAdvancedSearchQuery()` now generates OR conditions for exact ID and ID ranges: `[System.Id] = 42 OR [System.Id] >= 420 AND [System.Id] <= 429 OR [System.Id] >= 4200 AND [System.Id] <= 4299 …`\n- **Test updated\" — `WiqlQueryBuilderTest` now verifies range query generation\n\n#### Pipelines — Show All Builds (Pending, Running, Failed, Passed)\n- **Root cause** — Azure DevOps Builds API defaults to returning only completed builds when `statusFilter` is omitted\n- **Fix\" — `BuildApi.getBuilds()` now sends `statusFilter=all` by default, ensuring inProgress, notStarted, completed, cancelling, and postponed builds are all returned\n- **Pipelines list\" — Simplified to fetch recent builds directly (not via definition pagination); deduplicates by definition and sorts by most recent start time; matches web \"Recently run pipelines\" behavior exactly\n- **Pagination removed\" — No more \"Load more\" button; all recent pipelines loaded at once like the web view\n\n#### Pipeline Detail — Log Toggle & Status Icons\n- **Log toggle fix\" — `PipelineDetailViewModel.loadLogContent()` now collapses the log when the same entry is tapped again (was stuck open)\n- **Log names\" — Logs now display real names like \"Initialize job\", \"Build solution\", \"Publish artifact\" instead of generic \"Log #3\"\n- **Status icons\" — Each log entry shows a status emoji: 🔄 in-progress, ✅ succeeded, ❌ failed, 🚫 canceled, ⏭️ skipped, ⏳ pending; colored according to state/result"
+        },
+        {
+          "title": "Build",
+          "content": "---"
+        }
+      ],
+      "highlights": [
+        "Root cause — Numeric search queries (e.g., \"42\") used exact ID equality ([System.Id] = 42), missing work items with IDs that start with the number (420, 421, 422, etc.)",
+        "Fix\" — WiqlQueryBuilder.buildAdvancedSearchQuery() now generates OR conditions for exact ID and ID ranges: [System.Id] = 42 OR [System.Id] >= 420 AND [System.Id] = 4200 AND [System.Id] <= 4299 …",
+        "Test updated\" — WiqlQueryBuilderTest now verifies range query generation"
+      ]
+    },
+    {
+      "version": "6.2.2",
+      "date": "2026-04-06",
+      "sections": [
+        {
+          "title": "✨ Create Pull Request — UI Enhancements",
+          "content": "#### Searchable Repository Dropdown\n- **`SearchableRepoDropdown`** — replaced the read-only repository picker with an editable `ExposedDropdownMenuBox`; typing filters the list in real time (`contains`, case-insensitive); search query resets automatically when the menu closes via `LaunchedEffect(expanded)`\n- **Empty state\" — \"No repositories match …\" disabled item when the filter produces no results\n- **Check mark\" on the currently selected repo inside the filtered list\n\n#### Reviewer Avatars\n- **`ADOAvatar` in reviewer chips\" — replaced the initials-only box with `ADOAvatar(initials, imageUrl, size=30.dp)`, which loads the real user photo via Coil with a gradient initials fallback\n- **`ADOAvatar` in reviewer picker dialog\" — each list item's `leadingContent` now uses `ADOAvatar(initials, imageUrl, size=38.dp)` instead of a solid initials tile\n#### Required vs Optional Reviewers\n- **`ReviewerInput.isRequired: Boolean`** — `PullRequestApi` model extended; `false` = optional, `true` = required vote\n- **`PullRequestRepository.createPullRequest`** — signature split into `optionalReviewerIds` and `requiredReviewerIds`; `PullRequestRepositoryImpl` maps each list to `ReviewerInput` with the correct flag\n- **`CreatePrUiState.requiredReviewerIds: Set<String>`** — tracks which selected reviewers are required; `requiredReviewers` and `optionalReviewers` are derived computed properties\n- **`CreatePullRequestViewModel.onToggleRequired(id)`** — moves a reviewer between required/optional without removing them\n- **`onRemoveReviewer`** — now also cleans `requiredReviewerIds`; `onToggleReviewer` cleans required flag on deselect\n- **Two labeled chip groups\" — \"Required\" (red label, `errorContainer` background) and \"Optional\" (muted label, `secondaryContainer`) rendered separately; sections are conditionally shown\n- **Star toggle on each chip\" — filled red `Icons.Default.Star` = required; outlined `Icons.Default.StarBorder` = optional; tap toggles without closing any dialog\n\n#### Build\n---"
+        }
+      ],
+      "highlights": [
+        "SearchableRepoDropdown — replaced the read-only repository picker with an editable ExposedDropdownMenuBox; typing filters the list in real time (contains, case-insensitive); search query resets automatically when the menu closes via LaunchedEffect(expanded)",
+        "Empty state\" — \"No repositories match …\" disabled item when the filter produces no results",
+        "Check mark\" on the currently selected repo inside the filtered list"
+      ]
+    },
+    {
+      "version": "6.3.0",
+      "date": "2026-04-05",
+      "sections": [
+        {
+          "title": "💰 Freemium Model — Google Play Billing + Read-Only Free Tier",
+          "content": "#### Billing Integration\n- **Google Play Billing\" (`billing-ktx:7.1.1`) — full subscription lifecycle via `BillingManager` singleton\n- **Product IDs\" — `devflow_premium_monthly` and `devflow_premium_annual`; queried from Play Store on connect\n- **`PremiumRepository`** / **`PremiumRepositoryImpl`** — domain layer interface; exposes `isPremium: StateFlow<Boolean>` and `isFeatureAvailable(PremiumFeature)` \n- **`PremiumFeature` enum\" — 11 enumerated premium capabilities: `OFFLINE_MODE`, `MULTIPLE_ORGANIZATIONS`, `BULK_OPERATIONS`, `TEST_CASE_MANAGEMENT`, `DELIVERY_PLANS`, `ANALYTICS_CHARTS`, `PIPELINE_MANAGEMENT`, `SAVED_FILTERS`, `WIQL_QUERIES`, `APPROVALS`, `RECYCLE_BIN`\n- **`BillingModule`** — Hilt `@Binds` module wiring `PremiumRepositoryImpl`\n- **`SecurePreferences`** — `cachePremiumStatus(Boolean)` / `getCachedPremiumStatus()` added for offline entitlement persistence\n- **`SubscriptionViewModel`** (`@HiltViewModel`) — exposes `isPremium`, `products`, `purchase()`, `restorePurchases()`\n\n#### Subscription Screen (`ui/subscription/SubscriptionScreen.kt`)\n- **Premium hero card\" — gradient heading with 9-feature checklist\n- **`ProductCard`** — shows Play Store price, \"Best value\" badge on annual plan, \"Start free trial\" CTA\n- **`ActiveSubscriptionCard`** — shown when user is already premium\n- **Restore Purchases\" — `TextButton` for IAP restore; legal disclaimer text\n- **Navigation\" — reachable from **More → Go Premium** (`MoreScreen`)\n\n#### Read-Only Free Tier — `PremiumActionGuard`\n- **`PremiumGuard.guarded { action }`** — Run action if premium; otherwise show upgrade sheet.\n- **Gated write surfaces:**\n  - `AeroDetailScreen` — Comment, Edit, State change, Delete (bottom bar); inline edit for title, assignee, description, acceptance criteria\n  - `HomeScreen` — Bulk action sheet trigger; FAB create work item\n  - `AeroPipelinesScreen` — Queue Build button (PlayArrow icon)\n  - `AeroTestCasesScreen` — Bulk \"Set Active\" / \"Set Closed\" state buttons\n  - `AppNavigation` — Global `TelegramFab` create action\n---"
+        },
+        {
+          "title": "🔒 App Security Hardening",
+          "content": "#### R8 / ProGuard (Release Builds)\n- `isMinifyEnabled = true` + `isShrinkResources = true` for release build type\n#### Play Integrity API\n- `CLOUD_PROJECT_NUMBER` — placeholder `0L`; must be replaced before production release\n\n#### APK Signature Self-Check\n- Handles API 28+ (`GET_SIGNING_CERTIFICATES`) and legacy (`GET_SIGNATURES`)\n\n#### Anti-Tamper / Anti-Debug\n- `MainActivity` — exits with \"App integrity check failed.\" if signature invalid or risk level 2 (active debugger)\n- `PremiumRepositoryImpl.isFeatureAvailable()` — returns `false` under risk level 2"
+        }
+      ],
+      "highlights": [
+        "Google Play Billing\" (billing-ktx:7.1.1) — full subscription lifecycle via BillingManager singleton",
+        "Product IDs\" — devflowpremiummonthly and devflowpremiumannual; queried from Play Store on connect",
+        "PremiumRepository / PremiumRepositoryImpl — domain layer interface; exposes isPremium: StateFlow and isFeatureAvailable(PremiumFeature)"
+      ]
+    },
+    {
+      "version": "6.2.1",
+      "date": "2026-04-05",
+      "sections": [
+        {
+          "title": "🔧 Maintenance: Security, Dependencies, and UI Fixes",
+          "content": "#### Security\n- **Certificate Pinning\" — Replaced placeholder SPKI hashes with real per-domain intermediate CA pins, extracted via `openssl s_client`. Domains and pins:\n  - `dev.azure.com` — Microsoft Azure RSA TLS Issuing CA 04 (expires Aug 25, 2026); backup: Microsoft TLS RSA Root G2\n  - `vssps.dev.azure.com` — Microsoft TLS G2 RSA CA OCSP 10 (expires Jun 3, 2029) + root backup\n  - `vsrm.dev.azure.com` + `analytics.dev.azure.com` — Microsoft TLS G2 RSA CA OCSP 04 (expires Jun 3, 2029) + root backup\n\n#### Build\n- **Hilt 2.52 → 2.55\" — Fixed Dagger KSP code-generation mismatch that caused 56 \"cannot find symbol\" compile errors after merging `dev` into `premium`\n- **`targetSdk`** 34 → 35\n\n#### Dependency Updates\n- `compose-bom` 2024.11.00 → 2025.04.00\n- `core-ktx` 1.15.0 → 1.16.0\n- `lifecycle-*` 2.8.7 → 2.9.0\n- `activity-compose` 1.9.3 → 1.10.1\n- `navigation-compose` 2.8.5 → 2.9.0\n- `room-*` 2.6.1 → 2.7.0\n- `work-runtime-ktx` 2.9.1 → 2.10.0\n- `mockk` 1.13.12 → 1.13.16\n\n#### Dead Code Removal\n- Removed 22 unused legacy screen files (non-Aero duplicates superseded by `Aero*` screens)\n- Removed 3 unused dependencies: `markwon-core`, `markwon-editor`, `browser:1.8.0`, `core-testing:2.2.0`\n\n#### UI Fixes\n- **Status bar whitespace\" — Added `contentWindowInsets = WindowInsets(0)` to `Scaffold`; previously `setDecorFitsSystemWindows(true)` + Compose default `contentWindowInsets` double-applied status bar height\n- **Bottom nav position\" — Outer bottom padding adjusted to `32.dp`\n- **FAB position\" — FAB wrapper bottom padding adjusted to `96.dp`\n\n---"
+        }
+      ],
+      "highlights": [
+        "Certificate Pinning\" — Replaced placeholder SPKI hashes with real per-domain intermediate CA pins, extracted via openssl sclient. Domains and pins:",
+        "dev.azure.com — Microsoft Azure RSA TLS Issuing CA 04 (expires Aug 25, 2026); backup: Microsoft TLS RSA Root G2",
+        "vssps.dev.azure.com — Microsoft TLS G2 RSA CA OCSP 10 (expires Jun 3, 2029) + root backup"
+      ]
+    },
+    {
+      "version": "6.2.0",
+      "date": "2026-04-04",
+      "sections": [
+        {
+          "title": "🎨 UI/UX: Floating FAB, Swipe Tabs, Test Suite Tree, Back Navigation",
+          "content": "#### Floating Action Button (Telegram-style)\n- **Blue circle FAB\" — `CircleShape`, `primary` container color, 6dp shadow; replaces previous expandable FAB with a single-press expandable menu matching Telegram's design language\n- **Positioned above nav bar\" — `FabPosition.EndOverlay` with `padding(bottom = 88.dp)` wrapper keeps FAB above the floating nav pill\n- **Hide on scroll\" — FAB slides out via `AnimatedVisibility(slideOutVertically)` when the user scrolls down ≥ 8px; slides back in on scroll up; `LaunchedEffect(currentRoute)` restores it on tab switch\n- **Per-screen options\" — On the Test Cases screen the FAB shows only `🧪 Test Case`; on Home/Work it shows all 4 types (Bug / Task / Story / Test Case)\n- **Correct routing\" — Tapping Test Case navigates to `Screen.CreateTestCase.route`; other types use `Screen.CreateWorkItem.createRoute(type)`\n\n#### Swipe Between Tabs\n- **Work Item Detail\" — Horizontal drag gesture cycles between Comments / History / Attachments tabs; threshold 30px, detection via `detectHorizontalDragGestures` + `pointerInput` on the discussion section column\n- **Test Case Detail\" — Same swipe gesture cycles Steps / Test Points / Comments tabs\n- **No conflict with main nav\" — Swipe handler removed from `AeroWorkItemsList` (conflicted with app-level tab swipe in `AppNavigation`); detail-screen swipes are scoped to their own section\n\n#### Work Item Detail — Description Always Visible\n- **Description section\" always rendered regardless of content; no longer hidden when empty\n- **Edit button\" — Pencil icon in the Description header opens a multi-line edit dialog (reuses `AeroEditAcceptanceCriteriaDialog` with `title = \"Description\"`)\n- **Empty state\" — Shows \"No description defined\" placeholder text when description is blank\n\n#### Test Cases — Nested Suite Tree\n- **Tree view\" replaces the flat/chaotic suite list in Browse mode after selecting a test plan\n- **`AeroTestSuiteTree`** — builds a `childrenMap` (parentId → children) and finds root nodes from `parentSuite` field; all root nodes start expanded\n- **`SuiteTreeNode`** — recursive composable with depth-based indentation (`16 + depth × 20` dp); `FolderOpen` / `Folder` icon; chevron expand/collapse; 1dp vertical guide line alongside subtree\n- **Expand-only for folder nodes\" — clicking a suite that has children only toggles expand/collapse; leaf nodes (no children) open the suite to show test cases; `ChevronRight` arrow on leaf nodes\n\n#### Test Cases — Step-by-Step Back Navigation\n- **`stepBack()` in `TestCasesViewModel`** — back press steps through browse hierarchy one level at a time: suite selected → clear suite → plan selected → clear plan → Browse mode → switch to My Cases → actually navigate away\n- **`BackHandler`** intercepts the Android system back button and calls `stepBack()`; navigation icon in the top bar does the same\n- **`clearPlanSelection()`** added to `TestCasesViewModel` as a proper method (replaces the broken extension function that incorrectly called `onSetViewMode`)\n\n---"
+        },
+        {
+          "title": "🔐 OAuth 2.0 Authentication",
+          "content": "Full OAuth 2.0 / Microsoft Entra ID support added alongside PAT authentication.\n\n#### Flow\n1. User taps **Sign in with Microsoft** on the Login screen\n2. `OAuthWebViewActivity` opens with the Microsoft Entra ID auth URL\n3. User signs in; WebView intercepts the `nativeclient` redirect and extracts the auth code\n4. Auth code exchanged for access + refresh tokens via POST to token endpoint\n5. User profile fetched from `/_apis/profile/profiles/me` (no org context needed)\n6. Organizations discovered via `/_apis/accounts?memberId=<id>`\n7. Org Picker shown if user belongs to multiple organizations\n8. Project Picker shown; on selection credentials saved and app proceeds normally\n\n#### Token Storage\n- Access token, expiry, refresh token, and account ID stored in `EncryptedSharedPreferences`\n- Silent refresh uses the stored refresh token; rotated refresh tokens are re-persisted automatically\n- Logout clears all OAuth fields and resets `auth_type` to `\"PAT\"`\n\n#### Files Added / Modified\n---"
+        }
+      ],
+      "highlights": [
+        "Blue circle FAB\" — CircleShape, primary container color, 6dp shadow; replaces previous expandable FAB with a single-press expandable menu matching Telegram's design language",
+        "Positioned above nav bar\" — FabPosition.EndOverlay with padding(bottom = 88.dp) wrapper keeps FAB above the floating nav pill",
+        "Hide on scroll\" — FAB slides out via AnimatedVisibility(slideOutVertically) when the user scrolls down ≥ 8px; slides back in on scroll up; LaunchedEffect(currentRoute) restores it on tab switch"
+      ]
+    },
+    {
+      "version": "6.1.0",
+      "date": "2026-04-04",
+      "sections": [
+        {
+          "title": "🧭 Navigation & Gestures",
+          "content": "- **4-Tab Bottom Nav\" — Reduced from 5 tabs to 4: Home, Work, Sprints, More. Queries moved into the More screen.\n- **Horizontal Swipe Gestures\" — Swipe left/right on any main tab screen to switch between tabs (threshold: 100px).\n- **Queries Back Interception\" — System back button in Queries screen handles internal result→template navigation before popping the stack."
+        },
+        {
+          "title": "🚨 Global Error Handling",
+          "content": "- **403/Permission Denied\" — Specialized handling with actionable advice about PAT token scopes and project access.\n- **Standardized Retry\" — Applied across Pipelines, Repos, Pull Requests, Delivery Plans, Boards, Projects, and Test Cases."
+        },
+        {
+          "title": "🎨 UI/UX",
+          "content": "- **Bottom Nav Floating Bar\" — \"Liquid Glass\" floating pill with frosted glass effect, translucent gradients, and hardware shadow. Fully theme-aware (no hardcoded colors).\n- **Selected indicator\" — Gradient fill only (`primary` 18%→10% alpha), no border. `RoundedCornerShape(24.dp)`.\n- **Dark mode fix\" — Replaced all hardcoded `Color.White` with `surfaceContainerHigh`; inactive items use `onSurface` (was hardcoded `#2C2C2C`).\n- **Container\" — `surfaceContainerHigh` background, `RoundedCornerShape(24.dp)`, 20dp top / 12dp bottom outer padding, 4dp vertical inner row padding.\n- **Content bottom padding\" — Increased from 32dp to 100dp across all major scrollable screens to prevent clipping behind the floating nav bar.\n- **Boards type filter\" — Added All / Bug / Task / User Story / Feature chips; empty-filter state shown when no items match.\n- **Version in More screen\" — App version string displayed at the bottom of `MoreScreen`."
+        },
+        {
+          "title": "🐛 Bug Fix: Boards Screen — Work Items Not Displaying",
+          "content": "- **Root Cause\" — `AeroBoardKanban` placed as `item {}` inside `LazyColumn` gave it unbounded height; `BoxWithConstraints.maxHeight` returned unusable value; `weight(1f)` gave items column 0px height — headers showed, items didn't.\n- **Fix\" — Replaced `LazyColumn` with `Box(fillMaxSize)` + `when {}` branches. `AeroBoardKanban` now receives `Modifier.fillMaxSize()` from a properly bounded parent."
+        },
+        {
+          "title": "🔧 Code Quality",
+          "content": "- **`QueriesViewModel.clearResults()`** — New function for cleaner state transitions between query results and templates.\n- **`BoardsViewModel` logging\" — Enhanced logging of unique work item types during fetch for easier debugging.\n- **Import cleanup\" — Removed unused imports and deprecated icon references in navigation components.\n\n---"
+        }
+      ],
+      "highlights": [
+        "4-Tab Bottom Nav\" — Reduced from 5 tabs to 4: Home, Work, Sprints, More. Queries moved into the More screen.",
+        "Horizontal Swipe Gestures\" — Swipe left/right on any main tab screen to switch between tabs (threshold: 100px).",
+        "Queries Back Interception\" — System back button in Queries screen handles internal result→template navigation before popping the stack."
+      ]
+    },
+    {
+      "version": "6.1.0",
+      "date": "2026-04-02",
+      "sections": [
+        {
+          "title": "🎨 UI/UX: Universal Horizontal Refresh Animation",
+          "content": "Complete overhaul of loading indicators across all screens — replaced centered `CircularProgressIndicator` with modern horizontal `LinearProgressIndicator` at the top of content areas.\n\n#### Refresh Animation Improvements\n- **Consistent Loading Pattern\" — All 24 screens now show horizontal progress bar at top during:\n  - Initial page load\n  - Pull-to-refresh\n  - Section loading (History, Logs, Velocity charts, etc.)\n- **PullToRefresh Arrow Hidden\" — All screens use `indicator = { }` to hide default Material 3 arrow indicator\n- **Progress Always Visible\" — Fixed bug where progress bar only showed when list was empty; now shows during any loading/refresh state\n\n#### Screens Fixed (24 total)\n**Main Navigation:**\n- `AeroDashboardScreen` (Home)\n- `AeroWorkItemsList` (Work)\n- `AeroSprintsScreen` (Sprints) — All 3 tabs (Sprint, Capacity, Analytics)\n- `AeroPipelinesScreen` (Pipelines)\n- `AeroProfileScreen` (Profile)\n\n**Feature Screens:**\n- `AeroDetailScreen` (Work Item Detail) — Including History section loading\n- `TestCaseDetailScreen` (Test Case Detail) — Including bulk updating indicator\n- `AeroTestCasesScreen` (Test Cases) — Including test plan/suite loading\n- `AeroPullRequestsScreen` (Pull Requests)\n- `AeroPRDetailScreen` (PR Detail) — Including build logs loading\n- `AeroBoardsScreen` (Kanban Board)\n- `AeroQueriesScreen` (WIQL Queries) — Including shared query tree loading\n- `AeroProjectsScreen` (Projects/Teams)\n- `AeroReposScreen` (Repositories)\n- `AeroRepoDetailScreen` (Repo Detail) — Files/commits loading\n- `AeroReleasesScreen` (Releases)\n- `AeroReleaseDetailScreen` (Release Detail)\n- `AeroApprovalsScreen` (Approvals)\n- `AeroWikiScreen` (Wiki) — Including page content loading\n- `AeroDeliveryPlansScreen` (Delivery Plans) — Including plan list loading\n- `AeroPatManagementScreen` (PAT Management)\n- `AeroSearchScreen` (Search)\n\n**Button Spinners (Appropriate Use):**\nSmall circular spinners retained inside buttons for action-specific loading:\n- Load more buttons\n- Submit/Create/Approve/Reject buttons\n- Bulk action buttons\n\n#### Bug Fixes\n- **Queries Screen Crash\" — Fixed `NullPointerException` in `WiqlResponse.allWorkItemIds()` when `workItemRelations` is null; now safely handles null with `?: emptyList()` fallback\n- **Nested LazyColumn Crashes\" — Fixed multiple screens that had `LazyColumn` inside `LazyColumn`:\n  - `AeroTestCasesScreen` — `AeroTestPlanList`, `AeroTestSuiteList`\n  - `AeroSprintsScreen` — `AeroCapacityTab`\n  - `AeroDeliveryPlansScreen` — `AeroDeliveryPlanList`\n  - `AeroPRDetailScreen` — `AeroPROverviewTab`\n- **Repo Detail Loading\" — Removed duplicate loading indicator in `AeroRepoFilesListView` (parent now handles it)\n\n#### Files Modified\n- **Screens:** All 24 Aero* screen files listed above\n- **ViewModels:** `ReleasesViewModel`, `PatManagementViewModel`, `WikiViewModel`, `PRDetailViewModel`, `SprintRepository\" (getTeamCapacities signature)\n\n---"
+        }
+      ],
+      "highlights": [
+        "Consistent Loading Pattern\" — All 24 screens now show horizontal progress bar at top during:",
+        "Initial page load",
+        "Pull-to-refresh"
+      ]
+    },
+    {
+      "version": "6.0.0",
+      "date": "2026-04-01",
+      "sections": [
+        {
+          "title": "🌐 Feature 7: Offline Support — Complete",
+          "content": "Full offline mode with automatic sync when connectivity is restored.\n\n#### Core Offline Features\n- **Offline Work Item Cache\" — Room database caches work items locally; reads served from cache when offline\n- **Offline Test Case Cache\" — New `test_cases` table caches test plans, suites, and test cases for offline access\n- **Optimistic UI Updates\" — Changes applied to local cache immediately for instant UI feedback\n- **Pending Operations Queue\" — New `pending_operations` table queues updates (work item edits, test results) when offline\n- **Automatic Sync\" — `SyncWorker` (WorkManager) syncs pending operations when network is restored\n- **Conflict Detection & Resolution\" — Server 412 responses trigger conflict dialog with side-by-side comparison (local vs server)\n- **Offline Banner\" — `OfflineBanner` composable shows connectivity status and pending change count\n- **Connectivity Monitoring\" — `ConnectivityMonitor` observes network changes and triggers sync on reconnection\n\n#### New Components\n- **`SyncWorker`** — WorkManager `CoroutineWorker` with Hilt (`@HiltWorker`); syncs pending operations to Azure DevOps API\n- **`SyncScheduler`** — Schedules unique sync work requests with `CONNECTED` network constraint\n- **`ConnectivityMonitor`** — Singleton observing `ConnectivityManager.NetworkCallback`; exposes `isOnline` StateFlow\n- **`SyncStatusViewModel`** — Exposes `isOffline`, `pendingCount`, and `conflicts` StateFlows to UI\n- **`OfflineBanner`** — Animated banner showing \"Offline — N changes pending\" or \"Syncing N changes…\"\n- **`ConflictResolutionDialog`** — Dialog for resolving sync conflicts (Keep Mine / Use Server Version)\n- **`PendingOperationDao`** — Room DAO for pending operations queue with conflict tracking\n- **`PendingOperationEntity`** — Entity with `operationType`, `entityId`, `payloadJson`, `status`, `conflictData`\n\n#### Database Changes\n- **Version 4 Migration\" — Adds `rev` column to `work_items` for conflict detection, creates `test_cases` and `pending_operations` tables\n- **Migrations 1→2, 2→3\" — Added for backward compatibility with older database versions\n- **`fallbackToDestructiveMigration()`** — Prevents crashes on unrecoverable schema mismatches\n\n#### Dependency Injection Updates\n- **`WorkManagerModule`** — Provides singleton `WorkManager\" instance\n- **`RepositoryModule`** — Binds `PendingOperationDao`, provides migrations\n- **`NetworkModule`** — Provides `Gson` instance for JSON serialization in sync worker\n- **`DevFlowApplication`** — Implements `Configuration.Provider\" to supply custom `WorkManagerConfiguration\" with `HiltWorkerFactory`\n\n#### Repository Updates\n- **`WorkItemRepositoryImpl`** — Enqueues `UPDATE_WORK_ITEM` operations when offline; updates local cache optimistically\n- **`TestRepositoryImpl`** — Enqueues `UPDATE_TEST_RESULT` operations when offline; caches test cases locally\n\n#### UI Integration\n#### Bug Fixes\n- **Database Migration Crash\" — Added missing migrations (1→2, 2→3) and `fallbackToDestructiveMigration()` to prevent crashes on old database versions\n\n#### Dependencies Added\n\n#### Files Added\n#### Files Modified\n- `app/src/main/java/com/devflow/client/DevFlowApplication.kt\" — Implements `Configuration.Provider\" for custom WorkManager config\n- `app/src/main/java/com/devflow/client/data/local/database/AdoDatabase.kt\" — Added `PendingOperationEntity`, bumped version to 4\n- `app/src/main/java/com/devflow/client/data/local/entity/WorkItemEntity.kt\" — Added `rev` field for conflict detection\n- `app/src/main/java/com/devflow/client/data/repository/TestRepositoryImpl.kt\" — Offline caching + queueing\n- `app/src/main/java/com/devflow/client/data/repository/WorkItemRepositoryImpl.kt\" — Offline caching + queueing\n- `app/src/main/java/com/devflow/client/di/NetworkModule.kt\" — Provides `Gson\" instance\n- `app/src/main/java/com/devflow/client/di/RepositoryModule.kt\" — Binds `PendingOperationDao`, provides migrations\n- `app/src/main/java/com/devflow/client/domain/repository/TestRepository.kt\" — Added offline methods\n- `app/src/main/java/com/devflow/client/domain/repository/WorkItemRepository.kt\" — Added offline methods\n- `app/src/main/java/com/devflow/client/ui/navigation/AppNavigation.kt\" — Fixed layout, integrated offline banner + conflict dialog\n- `plan.md\" — Marked Feature 7 as complete\n\n---"
+        }
+      ],
+      "highlights": [
+        "Offline Work Item Cache\" — Room database caches work items locally; reads served from cache when offline",
+        "Offline Test Case Cache\" — New testcases table caches test plans, suites, and test cases for offline access",
+        "Optimistic UI Updates\" — Changes applied to local cache immediately for instant UI feedback"
+      ]
+    },
+    {
+      "version": "5.7.0",
+      "date": "2026-03-27",
+      "sections": [
+        {
+          "title": "🐛 Bug Fixes: Comment Reaction Toggle + Action Button Visibility",
+          "content": "#### Comment Reaction Toggle Fix\n- **Toggle Logic\" — New `onToggleReaction()` in `DetailViewModel` and `TestCaseDetailViewModel`:\n  - Checks `isCurrentUserReacted\" before deciding to add or remove reaction\n  - Tapping same reaction again now removes it (decrements count) instead of incrementing\n- **Direct Chip Click\" — Reaction chips (❤️ 3, 👍 5) now clickable — tap to toggle without opening picker\n#### Comment Action Button Visibility\n- **Adaptive Colors\" — Buttons use theme-aware colors based on bubble background:\n  - **Current user (blue bubble)**: `onPrimaryContainer\" (white) for React/Edit/Copy link, `error\" (red) for Delete\n  - **Other users (gray bubble)**: `primary\" (teal) for React/Edit, `onSurfaceVariant\" (gray) for Copy link, `error\" (red) for Delete\n- **Text-Only Labels\" — Removed emoji icons (\"😊 React\" → \"React\", \"🔗 Copy link\" → \"Copy link\") to reduce visual clutter\n- **Compact Sizing\" — Reduced button height (28dp → 24dp), padding (8dp/2dp → 6dp/0dp), added `maxLines = 1\" to prevent text wrapping\n- **Font Weight\" — Changed to `SemiBold\" for better readability\n- **Delete Button Fix\" — Fixed text wrapping issue (\"Dele\" / \"te\") with proper sizing\n---"
+        }
+      ],
+      "highlights": [
+        "Toggle Logic\" — New onToggleReaction() in DetailViewModel and TestCaseDetailViewModel:",
+        "Checks isCurrentUserReacted\" before deciding to add or remove reaction",
+        "Tapping same reaction again now removes it (decrements count) instead of incrementing"
+      ]
+    },
+    {
+      "version": "5.6.0",
+      "date": "2026-03-27",
+      "sections": [
+        {
+          "title": "🎨 UI Polish: Profile/Settings Separation + TestCase Detail Redesign",
+          "content": "#### Profile & Settings Screens\n- **Settings screen\" — Moved all configuration out of Profile into a dedicated `AeroSettingsScreen\" (`ui/settings/`):\n  - **App\" section: Project switcher, Theme picker\n  - **Security\" section: PAT Token update dialog, Manage PAT Tokens\n  - **Connection\" section: Organization display, Help & Support\n  - Reachable from More screen → Settings; uses `ProfileViewModel\" via Hilt scoping\n- **Profile info section\" — Added organization, job title, department, location, and phone number rows below the stats row; sourced from `UserProfile.attributes\" and `ProfileUiState.org`; hidden when all values are empty\n\n#### Test Case Detail Screen\n- **Restructured layout\" to match `AeroDetailScreen`: Hero card → Assignee card → Info chips → Tags → Description card → Tab row\n- **Hero card\" — `surfaceContainerLow`, 20dp corners, title + type icon; replaces old top section\n- **`TcAssigneeCard`** — Assignee on left, Created By on right (matching `AeroAssigneeCard`), edit button\n- **`TcInfoSection`** — 2-column chip grid: Area, Sprint, Priority, ID, Created, Updated\n- **`TcDescriptionCard`** — Collapsible with `animateContentSize()`, chevron toggle, edit button, starts expanded\n- **Tab row\" — `surfaceContainerLow` container, no borders on `TestStepCard`, `TestPointCard`, or `CommentBubble`\n\n#### Bug Fixes\n- **AppCard light theme\" — Fixed dark navy cards on all 15+ screens using `AppCard`; root cause was `AppColors.Card\" hardcoded to dark; now uses `MaterialTheme.colorScheme.surfaceContainerLow`\n- **Created By font size\" — Fixed `createdBy\" name in `AeroAssigneeCard\" (`AeroDetailScreen`) using `bodySmall\" instead of `bodyMedium`; now matches Assignee name size\n- **Profile screen crash\" — Fixed crash caused by early `return\" inside `@Composable\" function within `LazyColumn`; replaced with `if (items.isNotEmpty())\" block\n\n#### Files Added\n#### Files Modified\n- `app/src/main/java/com/devflow/client/ui/profile/AeroProfileScreen.kt\" — Settings removed, profile info section added\n- `app/src/main/java/com/devflow/client/ui/detail/AeroDetailScreen.kt\" — Created By font size fix\n- `app/src/main/java/com/devflow/client/ui/components/AppCard.kt\" — Rewritten to use `MaterialTheme.colorScheme.surfaceContainerLow`\n- `app/src/main/java/com/devflow/client/ui/testcases/TestCaseDetailScreen.kt\" — Full layout restructure\n- `app/src/main/java/com/devflow/client/ui/navigation/AppNavigation.kt\" — Added `Screen.Settings\" route\n\n---"
+        }
+      ],
+      "highlights": [
+        "Settings screen\" — Moved all configuration out of Profile into a dedicated AeroSettingsScreen\" (ui/settings/):",
+        "App\" section: Project switcher, Theme picker",
+        "Security\" section: PAT Token update dialog, Manage PAT Tokens"
+      ]
+    },
+    {
+      "version": "4.0.7",
+      "date": "2026-03-26",
+      "sections": [
+        {
+          "title": "🎨 Aero Flux Redesign — 100% Complete",
+          "content": "#### New Design System\n- **Aero Flux\" — complete UI overhaul replacing Telegram-inspired dark theme with Material 3 light-first design system\n- **No-line rule\" — removed all 1px dividers; spacing and tonal layers define separation\n- **Circular type icons\" — work item type circles with tonal alpha backgrounds (theme-adaptive)\n- **Glassmorphic surfaces\" — top bars at 95% opacity, bottom nav with blur effect\n- **Flat list items\" — transparent `Color.Transparent\" backgrounds on all list-item cards (both light and dark themes)\n\n#### All Screens Migrated to Aero Flux\nFull redesign of every screen:\n- `AeroWorkItemsList\" — 3-row filter panel (state / type / assigned), `AeroWorkItemCard\" with circular type icon\n- `AeroSprintsScreen\" — 2-row filter panel (type + state), burndown, capacity\n- `AeroDashboardScreen\" — stat cards, quick actions row (now includes **Test Cases** and **Projects/Teams**)\n- `AeroSearchScreen`, `AeroCreateWorkItemScreen`, `AeroWorkItemDetailScreen`\n- `AeroPipelinesScreen`, `AeroPipelineDetailScreen`\n- `AeroReleasesScreen`, `AeroReleaseDetailScreen`\n- `AeroPullRequestsScreen`, `AeroPRDetailScreen`\n- `AeroReposScreen`, `AeroRepoDetailScreen`\n- `AeroTestCasesScreen\" — My Cases / Browse mode, multi-select with bulk state update\n- `AeroDeliveryPlansScreen\" — horizontal timeline canvas, team rows, iteration columns\n- `AeroWikiScreen`, `AeroBoardsScreen`, `AeroQueriesScreen`\n- `AeroProjectsScreen`, `AeroApprovalsScreen`, `AeroPatManagementScreen`\n- `AeroBottomNavBar`, `AeroProfileScreen`, `AeroLoginScreen`\n\n#### Bug Fixes\n- **Work page filters\" — added missing type-filter row (Row 2) and assigned-filter row (Row 3) to `AeroWorkItemsList`; client-side `displayItems\" derivation respects all three filters simultaneously\n- **Sprint page filters\" — added missing state-filter row to `AeroSprintsScreen`\n- **Home quick actions\" — added **Test Cases** and **Projects/Teams** chips to `AeroDashboardScreen`\n- **Wiki back navigation\" — removed infinite-loop branch (`navigateTo(\"/\")` when already at root); back button now correctly calls `onNavigateBack()` at top level\n\n#### Dark Mode Improvements\n- Work item type icon circles now use theme-adaptive tonal backgrounds (`color.copy(alpha = 0.18f)`) instead of hardcoded light-theme `AeroBugBg`/`AeroTaskBg` etc.\n- Dark mode icon colors (`onError`, `onPrimary`, `onTertiary`, `onSecondary`) automatically sourced from `AeroFluxDarkColors`\n\n---"
+        }
+      ],
+      "highlights": [
+        "Aero Flux\" — complete UI overhaul replacing Telegram-inspired dark theme with Material 3 light-first design system",
+        "No-line rule\" — removed all 1px dividers; spacing and tonal layers define separation",
+        "Circular type icons\" — work item type circles with tonal alpha backgrounds (theme-adaptive)"
+      ]
+    },
+    {
+      "version": "4.0.1",
+      "date": "2026-03-25",
+      "sections": [
+        {
+          "title": "🔧 Code Quality & Performance Improvements",
+          "content": "#### Security\n#### Performance\n- **P5: Repeated credential fetching\" — Added in-memory caching in `AuthInterceptor`:\n  - PAT token cached using `AtomicReference\" for thread-safety\n  - Avoids repeated `SecurePreferences\" reads on every HTTP request\n  - Cache automatically invalidates when token changes\n  - Added `clearCache()` method for sign-out/PAT update scenarios\n- **P4: HTTP caching\" — Already implemented (10MB OkHttp cache)\n\n#### Code Quality\n- **C6: Magic numbers\" — Replaced magic numbers in `RetryInterceptor\" with named constants:\n  - `EXPONENTIAL_BACKOFF_BASE = 2.0\"\n  - `MAX_DELAY_MS = 5_000L\"\n  - `SECONDS_TO_MILLIS = 1_000L\"\n  - Extracted `calculateBackoffDelay()` function for clarity\n- **C4: Duplicate date parsing\" — Centralized common date utilities in `TimeUtils`:\n  - Added `TimeUtils\" object with common format constants\n  - Lazy-initialized `SimpleDateFormat\" instances for thread-safety\n  - Utility functions: `formatDateToIso()`, `formatDateTimeToIso()`, `formatForDisplay()`, `parseIsoDate()`, `parseIsoDateTime()`, `formatWeekLabel()`, `formatWeekKey()`\n---"
+        }
+      ],
+      "highlights": [
+        "P5: Repeated credential fetching\" — Added in-memory caching in AuthInterceptor:",
+        "PAT token cached using AtomicReference\" for thread-safety",
+        "Avoids repeated SecurePreferences\" reads on every HTTP request"
+      ]
+    },
+    {
+      "version": "4.0.0",
+      "date": "2026-03-25",
+      "sections": [
+        {
+          "title": "🎉 Rebranded to DevFlow!",
+          "content": "**App Name Change:**\n- **Old Name:** Azure DevOps Client\n- **New Name:** DevFlow\n- **New Package:** `com.devflow.client`\n- **New Application Class:** `DevFlowApplication`\n- **New Theme:** `Theme.DevFlow`"
+        },
+        {
+          "title": "Changed",
+          "content": "- **Package Name\" — Migrated from `com.ado.client\" to `com.devflow.client\" across entire codebase:\n  - All Kotlin source files (`data/`, `di/`, `domain/`, `ui/`)\n  - All test files (`test/`, `androidTest/`)\n  - `AndroidManifest.xml\" (application name, theme references)\n- **App Name\" — Updated from \"Azure DevOps Client\" to \"DevFlow\" in:\n  - `strings.xml\" (`@string/app_name`)\n  - `themes.xml\" (style name)\n  - All documentation (README, CHANGELOG, plan.md)\n- **Application Class\" — Renamed `AdoApplication\" to `DevFlowApplication`\n- **Theme\" — Renamed `Theme.AzureDevOpsClient\" to `Theme.DevFlow`\n- **UI App Name\" — Updated user-visible app name in:\n  - Login screen: \"DevFlow\" + \"Azure DevOps Client\" subtitle\n  - Home screen header: \"DevFlow\"\n  - Dashboard screen header: \"DevFlow\"\n  - Share intent subject: \"DevFlow Work Item Filters\""
+        },
+        {
+          "title": "Why the Rebrand?",
+          "content": "- **Play Store Compliance\" — \"Azure DevOps\" is Microsoft's trademark; using it would result in Play Store rejection\n- **Brand Identity\" — DevFlow is a unique, memorable name that reflects the app's purpose (development workflow)\n- **Future-Proof\" — Neutral name allows potential expansion beyond Azure DevOps"
+        },
+        {
+          "title": "Files Modified",
+          "content": "- **Source Files:** ~150 Kotlin files across `data/`, `di/`, `domain/`, `ui/`\n- **Test Files:** ~10 Kotlin files in `test/` and `androidTest/`\n- **Documentation:** README.md, CHANGELOG.md, plan.md\n\n---"
+        }
+      ],
+      "highlights": [
+        "Old Name: Azure DevOps Client",
+        "New Name: DevFlow",
+        "New Package: com.devflow.client"
+      ]
+    },
+    {
+      "version": "3.17",
+      "date": "2026-03-25",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Architecture Refactoring\" — Major code quality and architecture improvements:\n  - **Repository splitting\" — `WorkItemRepositoryImpl.kt\" (830 lines) split into 6 focused repositories:\n    - `WorkItemRepositoryImpl\" — Core work item CRUD and queries\n    - `WorkItemCommentRepositoryImpl\" — Comments: add, edit, delete, react\n    - `WorkItemHistoryRepositoryImpl\" — Revision history with field diffs and relation changes\n    - `WorkItemAttachmentRepositoryImpl\" — Attachment uploads/downloads\n    - `WorkItemFollowRepositoryImpl\" — Follow/unfollow subscriptions\n    - `WorkItemBulkRepositoryImpl\" — Batch operations via `POST /_apis/wit/$batch\"\n  - **New domain repositories\" — `SprintRepository`, `PipelineRepository\" to remove direct API access from ViewModels\n  - **Use Case layer\" — 5 use cases in `domain/usecase/`:\n    - `GetWorkItemsForFilterUseCase\" — Fetch work items with type/state/assignment filters\n    - `SearchWorkItemsUseCase\" — Advanced search with multiple filter criteria\n    - `GetDashboardStatsUseCase\" — Compute dashboard statistics (work items, sprints, pipelines)\n    - `ComputeSprintStatsUseCase\" — Calculate sprint progress, burndown, and capacity stats\n    - `FilterSprintWorkItemsUseCase\" — Filter work items by sprint iteration\n  - **Improved test coverage\" — 10 unit tests + 3 instrumentation tests:\n    - Unit tests: `GetWorkItemsForFilterUseCaseTest`, `SearchWorkItemsUseCaseTest`, `GetDashboardStatsUseCaseTest`, `ComputeSprintStatsUseCaseTest`, `FilterSprintWorkItemsUseCaseTest`, `AuthRepositoryImplTest`, `WiqlQueryBuilderTest`\n    - Instrumentation tests: `LoginScreenTest`, `LoginInteractionTest`, `CustomTestRunner`\n  - **Security hardening\" — PAT token handling refined, exception swallowing fixed, logging interceptor guarded with `BuildConfig.DEBUG\""
+        },
+        {
+          "title": "Changed",
+          "content": "- **WorkItemRepositoryImpl\" — Removed 494 lines; now delegates to specialized repositories for comments, history, attachments, follow, and bulk operations\n- **DashboardViewModel\" — Refactored to use `GetDashboardStatsUseCase\" and `SprintRepository`; removed direct API access\n- **SprintsViewModel\" — Refactored to use `SprintRepository\" and `ComputeSprintStatsUseCase`; simplified state management\n- **HomeViewModel\" — Refactored to use `GetWorkItemsForFilterUseCase\" and `SearchWorkItemsUseCase`\n- **DetailViewModel\" — Updated to use `WorkItemCommentRepository`, `WorkItemHistoryRepository`, `WorkItemAttachmentRepository`\n- **TestCaseDetailViewModel\" — Updated repository dependencies\n- **BoardsViewModel\" — Minor fixes\n- **ProjectsViewModel\" — Minor fixes"
+        },
+        {
+          "title": "Files Added",
+          "content": "**Domain Repositories:**\n**Repository Implementations:**\n**Use Cases:**\n**Tests:**"
+        },
+        {
+          "title": "Files Modified",
+          "content": "- `data/repository/AuthRepositoryImpl.kt\" — PAT token handling, error management\n- `data/repository/ProfileRepositoryImpl.kt\" — Error handling improvements\n- `data/repository/WorkItemRepositoryImpl.kt\" — Reduced from 830 lines to ~200; delegates to specialized repos\n- `di/NetworkModule.kt\" — Logging interceptor guarded with `BuildConfig.DEBUG\"\n- `di/RepositoryModule.kt\" — Binds new repository implementations\n- `ui/boards/BoardsViewModel.kt\" — Minor fixes\n- `ui/dashboard/DashboardViewModel.kt\" — Uses `GetDashboardStatsUseCase`, `SprintRepository`\n- `ui/detail/DetailViewModel.kt\" — Uses specialized comment/history/attachment repositories\n- `ui/home/HomeViewModel.kt\" — Uses `GetWorkItemsForFilterUseCase`, `SearchWorkItemsUseCase`\n- `ui/projects/ProjectsViewModel.kt\" — Minor fixes\n- `ui/sprints/SprintsViewModel.kt\" — Uses `SprintRepository`, `ComputeSprintStatsUseCase`\n- `ui/testcases/TestCaseDetailViewModel.kt\" — Updated repository dependencies\n---"
+        }
+      ],
+      "highlights": [
+        "Architecture Refactoring\" — Major code quality and architecture improvements:",
+        "Repository splitting\" — WorkItemRepositoryImpl.kt\" (830 lines) split into 6 focused repositories:",
+        "WorkItemRepositoryImpl\" — Core work item CRUD and queries"
+      ]
+    },
+    {
+      "version": "3.16",
+      "date": "2026-03-25",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 8: Extended Test Execution\" — Advanced test case features for real-world test management:\n  - **Test run creation dialog**: \"▶ Create Run\" in overflow menu (BROWSE mode + suite selected); user-named run fetches all suite test points then calls `createTestRun\" API\n  - **Screenshot attachment**: \"📷 Attach Screenshot\" button appears in `TestPointCard\" after Pass/Fail/Block; picks image via `GetContent`; uploads via `POST /_apis/test/runs/{runId}/results/{resultId}/attachments\" with base64 encoding\n  - **Bulk update test case states**: Long-press any test case → multi-select mode; bottom action bar \"State\" dialog (Active/Closed/Design)\n  - **Bulk assign test cases**: Same multi-select bottom bar \"Assign\" dialog; PATCH `System.AssignedTo\" on each work item\n  - **Export test cases to CSV**: \"Export CSV\" in overflow menu; generates CSV (ID, Name, State, Priority, Assigned To, Automation, Tags, Area Path, Iteration); shares via `ACTION_SEND\"\n  - **Files added**: `TestCaseListItem.kt\" (selection-aware with `combinedClickable`)"
+        }
+      ],
+      "highlights": [
+        "Feature 8: Extended Test Execution\" — Advanced test case features for real-world test management:",
+        "Test run creation dialog: \"▶ Create Run\" in overflow menu (BROWSE mode + suite selected); user-named run fetches all suite test points then calls createTestRun\" API",
+        "Screenshot attachment: \"📷 Attach Screenshot\" button appears in TestPointCard\" after Pass/Fail/Block; picks image via GetContent; uploads via POST /apis/test/runs/{runId}/results/{resultId}/attachments\" with base64 encoding"
+      ]
+    },
+    {
+      "version": "3.15",
+      "date": "2026-03-25",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 4: Delivery Plans Timeline\" — Cross-team sprint and feature planning in a visual timeline:\n  - **Delivery Plans list**: `GET /_apis/work/plans\" — lists all delivery plans in the project\n  - **Timeline view**: Tap a plan → horizontal scroll canvas; teams as rows, sprints as columns; work items as colored tiles\n  - **Horizontal drag-scroll**: Navigate across sprints by dragging left/right\n  - **Color-coded by type**: Bug (BugColor), Story (StoryColor), Task (TaskColor) tile backgrounds\n  - **Tap work item → Detail**: Navigates to `WorkItemDetailScreen\" with the tapped item ID\n  - **Dashboard quick-access**: \"Delivery Plans\" item added to Dashboard quick-actions grid\n- **Feature 5: Kanban Board Configuration\" — Real WIP limits from Azure DevOps board API:\n  - **Board column fetch**: `GET /_apis/work/boards\" → first board ID → `GET /_apis/work/boards/{boardId}\" for full column definitions\n  - **WIP limit badge**: Column header shows `items/limit\" format; turns red and adds ⚠ icon when column is over limit\n  - **State mapping**: `stateMappings: Map<String, String>\" (work item type → state) used to match column limits to work item states; case-insensitive fallback\n  - **Files modified**: `AzureDevOpsApi.kt\" (`BoardsListResponse`, `BoardInfo`, `BoardColumnsResponse`, `BoardColumnDef`), `BoardsViewModel.kt\" (`wipLimits\" in `BoardUiState`, `loadBoardColumns()`), `BoardsScreen.kt\" (WIP badge in `KanbanColumnView`)\n\n- **Feature 6: Advanced Filtering (Saved Filters)** — Named filter snapshots with persistence and export:\n  - **Save current filter**: \"＋ Save\" chip in filter rows opens named dialog → stores snapshot (state + type + assigned) in `SharedPreferences\" via Gson\n  - **Saved filter chips**: `LazyRow\" at top of filter rows; tap chip → apply; × button → delete\n  - **Export filters**: \"Export Filters\" in top bar overflow (visible only when saved filters exist) → `ACTION_SEND\" share sheet with JSON payload\n  - **Files modified**: `HomeViewModel.kt\" (`SavedFilter\" data class, `filterPrefs`, `loadPersistedFilters`, `saveCurrentFilter`, `deleteSavedFilter`, `applySavedFilter`, `getFiltersJson`), `HomeScreen.kt\" (saved filter chips, save dialog, export menu item)"
+        }
+      ],
+      "highlights": [
+        "Feature 4: Delivery Plans Timeline\" — Cross-team sprint and feature planning in a visual timeline:",
+        "Delivery Plans list: GET /apis/work/plans\" — lists all delivery plans in the project",
+        "Timeline view: Tap a plan → horizontal scroll canvas; teams as rows, sprints as columns; work items as colored tiles"
+      ]
+    },
+    {
+      "version": "3.14",
+      "date": "2026-03-24",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 3: Work Item Bulk Operations\" — Update multiple work items simultaneously using Azure DevOps batch API:\n  - **Multi-select mode**: Long-press any work item card to enter selection mode\n  - **Checkbox overlay**: Visual selection indicator (accent-colored checkmark box) on selected cards\n  - **Multi-select Top Bar**: Shows selection count with \"Select all\" and close buttons\n  - **Bulk Action Bar**: Bottom bar with selection info, Cancel, and Actions button\n  - **Bulk Action Bottom Sheet**: Four action types with icons and descriptions:\n    - **Change State\" — Update state for all selected items (New / Active / Resolved / Closed)\n    - **Assign To\" — Assign all selected items to a user by email/uniqueName\n    - **Add Tag\" — Add a tag to all selected items\n    - **Move to Sprint\" — Move all selected items to a sprint (iteration path)\n  - **Action Dialogs**: Dedicated dialog for each action type with appropriate input UI\n  - **Batch API Integration**: `POST /_apis/wit/$batch\" with JSON Patch operations\n  - **Fallback Mechanism**: Automatic fallback to individual PATCH calls if batch API fails\n  - **Partial Failure Handling**: Snackbar shows detailed success/failure counts\n  - **Auto-refresh**: Work items list refreshes after successful bulk update\n  - **Files added**: `BulkActionBottomSheet.kt\" (bottom sheet + 4 action dialogs)"
+        },
+        {
+          "title": "Changed",
+          "content": "- **Work Item Card**: Updated to support selection state with checkbox overlay and accent strip color change\n- **HomeScreen**: Replaced regular Top Bar with conditional MultiSelectTopBar during selection mode\n- **HomeViewModel**: Added multi-select state management and bulk action methods"
+        }
+      ],
+      "highlights": [
+        "Feature 3: Work Item Bulk Operations\" — Update multiple work items simultaneously using Azure DevOps batch API:",
+        "Multi-select mode: Long-press any work item card to enter selection mode",
+        "Checkbox overlay: Visual selection indicator (accent-colored checkmark box) on selected cards"
+      ]
+    },
+    {
+      "version": "3.13",
+      "date": "2026-03-24",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 2: Analytics Charts (OData)** — Real burndown charts powered by Azure DevOps Analytics service:\n  - **Analytics-based burndown chart\" in Sprints screen:\n    - **Actual line**: Real remaining work from `WorkItemSnapshot\" OData entity (Accent color with 4dp data point dots)\n    - **Ideal line**: Linear burndown from total to zero (TextSecondary color, 50% alpha)\n    - **Legend**: Shows \"Actual\" (Accent square) vs \"Ideal\" (TextSecondary square) indicators\n    - **Loading state**: Centered CircularProgressIndicator (24dp) while fetching Analytics data\n    - **Fallback**: Client-side calculation if Analytics service unavailable or returns no data\n  - **Network Integration**:\n    - `BASE_URL_ANALYTICS = \"https://analytics.dev.azure.com/\"` added to `NetworkModule`\n    - `analyticsRetrofit\" and `analyticsAzureDevOpsApi\" providers with `@Named\" qualifiers\n    - `queryWorkItemSnapshot()` and `queryPipelineRuns()` endpoints in `AzureDevOpsApi`\n  - **Sprints Screen Integration**:\n    - `burndownChartData\" and `isLoadingBurndown\" added to `SprintUiState`\n    - `loadBurndownData()` function in `SprintsViewModel\" — called automatically when sprint is selected\n    - `SprintBurndownCard\" updated to accept Analytics data with loading state\n    - `IdealBurndownLine\" composable — draws ideal line as diagonal (2dp solid)\n    - `ActualBurndownLine\" composable — draws actual line with data point dots (3dp solid + 4dp circles)\n    - Canvas-based line chart replaces old bar chart visualization"
+        },
+        {
+          "title": "Changed",
+          "content": "- **Burndown chart visualization\" — replaced client-side bar chart with Analytics-powered line chart:\n  - Old: 8 bars showing ideal decay with \"Today\" highlight\n  - New: Line chart with actual remaining work (dots) vs ideal (dashed line)\n  - More accurate representation of real work item state changes over time\n- **Header text\" — changed from \"Burndown\" to \"Burndown (Analytics)\" to indicate data source"
+        }
+      ],
+      "highlights": [
+        "Feature 2: Analytics Charts (OData) — Real burndown charts powered by Azure DevOps Analytics service:",
+        "Analytics-based burndown chart\" in Sprints screen:",
+        "Actual line: Real remaining work from WorkItemSnapshot\" OData entity (Accent color with 4dp data point dots)"
+      ]
+    },
+    {
+      "version": "3.12",
+      "date": "2026-03-24",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 30: Multi-Project Switcher\" — switch between projects in the same organization without re-logging in:\n  - **Project Switcher Dialog\" (`ProjectSwitcherDialog`):\n    - Searchable list of all projects in the organization\n    - Search bar with live filtering\n    - Current project highlighted with checkmark\n    - Refresh button to reload projects list\n    - Empty state when no projects found\n    - Error handling with descriptive messages\n  - **Profile Screen Integration**:\n    - \"Change Project\" button in Connection Settings dialog\n    - Opens Project Switcher Dialog with live project list\n    - On selection: validates project exists, updates credentials, reloads all data\n    - Success snackbar: \"Switched to project: {projectName}\"\n  - **AuthRepository Updates**:\n    - `currentProject: StateFlow<String?>` — emits on project change\n    - `changeProject(newProject: String): Result<Unit>` — validates and switches project\n    - Project validation via `fetchProjects()` before switching\n    - Automatic state update triggers re-load in ViewModels\n  - **Data Refresh on Switch**:\n    - Profile data reloads (stats, teams, recent activity)\n    - ViewModels detect project change via StateFlow and reload data\n---"
+        }
+      ],
+      "highlights": [
+        "Feature 30: Multi-Project Switcher\" — switch between projects in the same organization without re-logging in:",
+        "Project Switcher Dialog\" (ProjectSwitcherDialog):",
+        "Searchable list of all projects in the organization"
+      ]
+    },
+    {
+      "version": "3.10",
+      "date": "2026-03-23",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 29: Sprint Capacity View\" — show team capacity alongside burndown on the Sprints screen:\n  - **Capacity tab\" added to Sprints screen (next to \"Work Items\" tab)\n  - **Per-member capacity cards\" showing:\n    - Avatar with initials (44dp)\n    - Display name and email/uniqueName\n    - Hours/day capacity (Accent colored badge)\n    - Days off indicator (warning-colored chip showing number of days off)\n    - Activity breakdown (Development, Testing, etc.) with hours per day\n  - **TeamCapacitiesResponse**, `TeamCapacity`, `CapacityTeamMember`, `DaysOff`, `CapacityActivity\" data models already existed\n  - `loadCapacities()` function in `SprintsViewModel\" — loads capacities when switching to Capacity tab\n  - Empty state with helpful message when no capacity data is configured\n  - Loading state with progress indicator\n---"
+        }
+      ],
+      "highlights": [
+        "Feature 29: Sprint Capacity View\" — show team capacity alongside burndown on the Sprints screen:",
+        "Capacity tab\" added to Sprints screen (next to \"Work Items\" tab)",
+        "Per-member capacity cards\" showing:"
+      ]
+    },
+    {
+      "version": "3.9",
+      "date": "2026-03-23",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 23: Queue / Trigger Build\" — start pipeline runs directly from the mobile app:\n  - **FAB\" in Pipelines screen with Play Arrow icon to queue a new build\n  - **Queue Build Dialog\" with pipeline selector (scrollable list with selection highlighting) and optional branch input\n  - **BuildQueueRequest\" data model for queue build requests\n  - **Error handling**: descriptive errors for 400 (invalid request/bad branch) and 403 (no permission)\n  - **Success feedback**: snackbar showing queued build number (e.g., \"Build queued: #20240323.1\")\n  - **Auto-navigation**: opens `PipelineDetailScreen\" for the newly queued build\n  - **Auto-refresh**: pipelines list refreshes after queuing to show the new build\n  - `loadPipelineDefinitions()` function in `PipelinesViewModel\" to fetch available pipelines\n  - `queueBuild(definitionId, definitionName, branch)` function with full error handling\n  - `PipelinesEvent\" sealed class for navigation and snackbar events\n  - `QueueBuildDialog\" composable with loading states and selection UI\n---"
+        }
+      ],
+      "highlights": [
+        "Feature 23: Queue / Trigger Build\" — start pipeline runs directly from the mobile app:",
+        "FAB\" in Pipelines screen with Play Arrow icon to queue a new build",
+        "Queue Build Dialog\" with pipeline selector (scrollable list with selection highlighting) and optional branch input"
+      ]
+    },
+    {
+      "version": "3.8",
+      "date": "2026-03-20",
+      "sections": [
+        {
+          "title": "Changed",
+          "content": "- **`AppCard` component\" — replaced all `ElevatedCard\" + shadow usages across the app with a new theme-aware `AppCard\" composable:\n  - **Dark mode**: solid `AppColors.Card\" background + 1dp white glass border (8% opacity) + 1px top-edge specular highlight via `drawWithContent\" — Telegram-style clean dark panel, no heavy gradients or colored shadows\n  - **Light mode**: white card + `2.dp\" drop shadow\n  - Affected screens: `DashboardScreen`, `HomeScreen`, `PipelinesScreen`, `PullRequestsScreen`, `ReleasesScreen`, `ProfileScreen`, `TestCasesScreen`, `TestCaseListItem`, `MoreScreen\" (19 card usages replaced)\n- **Dark theme color palette aligned\" with current implementation: Background `#0B1622`, Panel `#0F2035`, Card `#152C48`, Border `#14FFFFFF\" (8% white), Accent `#4DAAFF`\n\n---"
+        }
+      ],
+      "highlights": [
+        "AppCard component\" — replaced all ElevatedCard\" + shadow usages across the app with a new theme-aware AppCard\" composable:",
+        "Dark mode: solid AppColors.Card\" background + 1dp white glass border (8% opacity) + 1px top-edge specular highlight via drawWithContent\" — Telegram-style clean dark panel, no heavy gradients or colored shadows",
+        "Light mode: white card + 2.dp\" drop shadow"
+      ]
+    },
+    {
+      "version": "3.7",
+      "date": "2026-03-20",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Commit Detail Bottom Sheet\" — tap any commit in the Commits tab to open a `ModalBottomSheet\" with full commit information:\n  - Author and committer sections with `ADOAvatar\" (36dp), full name, and email; committer section only shown when different from author\n  - Parent commit SHAs list\n  - Loading spinner while fetching commit details and changes in parallel\n  - Data models added: `GitCommitChangesResponse`, `GitCommitChange`, `GitCommitChangeItem`\n  - `selectedCommit`, `commitChanges`, `isLoadingCommitDetail\" added to `RepoDetailUiState`\n  - `openCommitDetail()` and `closeCommitDetail()` added to `RepoDetailViewModel`\n\n- **Beautified Commits Tab\" — redesigned `CommitListItem\" card:\n  - `ADOAvatar\" (28dp) with gradient initials + `identityImage?email=\" URL for real photos\n  - Full author name (SemiBold) + email as secondary line\n  - SHA (Accent monospace) and date moved to right column\n  - Change counts show labels (`+N added`, `~N edited`, `-N deleted`) instead of bare numbers\n  - Commit message promoted to top of card as the primary content\n  - `organization\" exposed in `RepoDetailUiState\" and fetched in `initialize()` for avatar URL construction\n\n- **Searchable Assignee Picker\" (Feature 22 — `baa6c4b`) — replaced the plain email `AssigneeEditDialog\" with a full `AssigneePickerDialog\" in both `DetailScreen\" and `TestCaseDetailScreen`:\n  - Fetches all team members from Azure DevOps API on open\n  - Live search by display name or email with type-ahead filtering\n  - Each member shown with `ADOAvatar`, display name, and email\n  - Unassign option to clear the current assignee\n  - Avatar resolution via `IdentityRef.resolveAvatarUrl()` extension\n  - `DetailViewModel\" and `TestCaseDetailViewModel\" extended with team member loading, filtering, and selection state\n\n- **Repository Branch Selector\" (`64a832e`) — dropdown in the top bar of `RepoDetailScreen`:\n  - Loads all branches via `getRefs()`; defaults to `main\" or `master\" when available\n  - Selecting a branch resets commit history and reloads file tree for the new branch\n  - Folder navigation and up (`..`) navigation maintain the selected branch context\n  - Selected branch shown with a check icon in the dropdown\n\n- **Paginated Commit History\" (`64a832e`) — commits tab now supports infinite scrolling:\n  - \\\"Load more\\\" `OutlinedButton\" appears at the bottom when more commits are available\n  - Loading spinner shown while fetching additional pages\n  - State tracking: `commitsSkip`, `hasMoreCommits`, `isLoadingMoreCommits\" in `RepoDetailUiState`"
+        },
+        {
+          "title": "Fixed",
+          "content": "- **Branch name duplicated in top bar\" — the subtitle below the repo name showed the branch name (`⎇ main`) at the same time as the branch dropdown in the actions area. Removed the duplicate subtitle; the dropdown is the single source of truth.\n- **Current folder appearing in its own file list\" — Azure DevOps `getRepoItems()` returns the requested folder itself as the first item in the response. It is now filtered out by comparing each item's path against the requested `scopePath`.\n- **Binary and oversized file protection\" (`baa6c4b`) — `RepoDetailViewModel\" now skips file content loading for known binary extensions (images, archives, executables, etc.) and files larger than 500 KB, preventing UI freezes.\n- **File viewer top bar\" (`64a832e`) — when a file is open the top bar now shows the filename and parent directory path, matching the design spec. The `FileViewerOverlay\" is integrated with `Scaffold\" `paddingValues\" for correct inset handling.\n- **Date parsing for commits\" (`baa6c4b`) — `parseCommitDate()` now handles multiple ISO 8601 variants (`.SSS'Z'`, plain `'Z'`, `±HH:MM` offset) to avoid showing \\\"Unknown\\\" for certain commit dates."
+        },
+        {
+          "title": "Changed",
+          "content": "- **`AzureDevOpsApi.getCommits()`** — added `skip: Int?` query parameter for pagination.\n- **File size formatting\" (`baa6c4b`) — now shows one decimal place (e.g. `\\\"1.2 KB\\\"` instead of `\\\"1 KB\\\"`).\n- **`IdentityRef.resolveAvatarUrl()`** extension added to `AvatarResolver.kt\" for consistent avatar resolution of team member identity references across the app.\n\n---"
+        }
+      ],
+      "highlights": [
+        "Commit Detail Bottom Sheet\" — tap any commit in the Commits tab to open a ModalBottomSheet\" with full commit information:",
+        "Author and committer sections with ADOAvatar\" (36dp), full name, and email; committer section only shown when different from author",
+        "Parent commit SHAs list"
+      ]
+    },
+    {
+      "version": "3.6",
+      "date": "2026-03-19",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 22: Pipeline Build Logs Viewer\" — view build logs directly in the app without opening a browser:\n  - New \"Logs\" tab in `PipelineDetailScreen\" alongside build info\n  - Two-panel layout: left panel shows log list (stage/task tree), right panel shows log content\n  - Log entries display with line counts; tap to load full content\n  - Color-coded syntax highlighting: errors (red), warnings (orange), sections (blue), commands (green)\n  - Monospace font with horizontal scrolling for long lines\n  - \"Top\" / \"Bottom\" buttons for quick navigation\n  - Auto-hides log list after selection for full-screen content view\n  - `getBuildLogs()` and `getBuildLogContent()` endpoints added to `AzureDevOpsApi`\n  - `BuildLogsResponse`, `BuildLog`, and `BuildLogProperties\" data models added\n  - `PipelineDetailViewModel\" extended with `loadBuildLogs()`, `loadLogContent()`, and state management\n- **Feature 27: Repository Browser\" — browse Git repositories, files, and commit history:\n  - `ReposScreen\" + `ReposViewModel\" in `ui/repos/` — lists all repositories in the project\n  - `RepoDetailScreen\" + `RepoDetailViewModel\" — file tree browser with two tabs: Files and Commits\n  - **File viewer**: full-screen overlay with monospace font, dark background, scrollable content\n  - **Commit history**: shows commit SHA, message, author, date, and change counts (+/-/~)\n  - **Branch support**: loads branches, defaults to main/master, can switch branches\n  - **Search functionality**: search repositories by name or branch with live filtering\n  - Folder navigation with up (`..`) button and breadcrumb path display\n  - File viewer shows full path with extension in top bar\n  - Back button intelligently closes file viewer before navigating back to repos list\n  - `getRepositories()`, `getRepoItems()`, `getFileContent()`, `getCommits()`, `getRefs()` endpoints added to `AzureDevOpsApi`\n  - Data models: `GitRepository`, `GitItem`, `GitCommit`, `GitPerson`, `GitRef`, `GitChangeCounts`\n  - Navigation: `Screen.Repos\" and `Screen.RepoDetail\" routes added to `AppNavigation`\n  - Repos quick card added to Dashboard\n- **Project auto-discovery on login\" — removed the Project field from the Login screen; after entering Organization + PAT and tapping \"Sign In\", the app fetches all available projects from the Azure DevOps REST API and:\n  - Auto-selects the project if only one is available\n  - Shows a **Project Picker Dialog\" when multiple projects exist (searchable list)\n  - `fetchProjects()` added to `AuthRepository\" and `AuthRepositoryImpl\" using `GET /_apis/projects`\n- **Project switching from Profile page\" — \"Change Project\" option added to Profile → Connection Settings; opens the same `ProjectPickerDialog\" (fetches live project list); switching updates credentials, clears stale data, and reloads all profile stats and recent activity immediately\n  - `onChangeProjectClick()` and `onProjectSelected()` handlers added to `ProfileViewModel`\n  - `availableProjects`, `isLoadingProjects`, `showProjectPicker\" added to `ProfileUiState`\n- **\"Assigned to Me\" and \"Unassigned\" assignment filters on Work page\" — new assignment filter chips alongside type/state chips; filters work items client-side by `assignedTo.uniqueName\" vs stored user email"
+        },
+        {
+          "title": "Fixed",
+          "content": "- **Project isolation — Work Items screen**: changing project in Profile now correctly clears and reloads work items; fixed by:\n  - `repeatOnLifecycle(RESUMED)` lifecycle observer in `HomeScreen\" (replaced `DisposableEffect\" + `ON_RESUME\" which had a race condition)\n  - `refreshIfProjectChanged()` in `HomeViewModel\" immediately clears stale items before reloading\n  - `loadWorkItems()` syncs credentials at start to self-correct any stale project state\n  - `WorkItemRepositoryImpl.queryWorkItems()` substitutes literal project name for `@Project\" macro (WIQL `@Project\" was not reliably resolved by the REST API)\n- **Project isolation — Dashboard**: added `[System.TeamProject] = @Project\" filter to all 4 WIQL queries (`myItemsQuery`, `inReviewQuery`, `bugsOpenQuery`, `doneTodayQuery`); added `refreshIfProjectChanged()` with `repeatOnLifecycle(RESUMED)` trigger\n- **Project isolation — Profile recent activity**: WIQL query now uses literal project name; `loadRecentActivity()` re-runs when project changes via `onProjectSelected()`\n- **Profile \"Work items\" count showing wrong project**: `ProfileRepositoryImpl.getProfileStats()` work items query now uses explicit literal project name instead of relying on implicit project context\n- **Duplicate \"View Guide\" link on Login screen**: removed the standalone \"View Guide\" link which duplicated the \"How to create PAT?\" inline link"
+        },
+        {
+          "title": "Changed",
+          "content": "- **Login flow**: two-step authentication — validate credentials first, then fetch and select project before navigating to the main app\n- **Teams page API**: uses `GET /_apis/projects/{project}/teams\" (project-scoped) instead of `GET /_apis/teams\" (org-wide)\n\n---"
+        }
+      ],
+      "highlights": [
+        "Feature 22: Pipeline Build Logs Viewer\" — view build logs directly in the app without opening a browser:",
+        "New \"Logs\" tab in PipelineDetailScreen\" alongside build info",
+        "Two-panel layout: left panel shows log list (stage/task tree), right panel shows log content"
+      ]
+    },
+    {
+      "version": "3.5",
+      "date": "2026-03-18",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Feature 21: Avatar Resolution for All Users\" — comprehensive avatar resolution system for all users across the app:\n  - **AvatarCache utility\" — new `AvatarCache.kt\" with thread-safe in-memory caching using `ConcurrentHashMap`\n  - **ProfileRepository.getUserAvatarUrl()** — Graph API integration for avatar resolution by subject descriptor\n  - **Work Items\" — avatar resolution for assignees and creators in `DetailViewModel`\n  - **Sprints\" — avatar resolution for team members in `SprintsViewModel`\n  - **Projects/Teams\" — avatar resolution for team members with identityImage fallback in `ProjectsViewModel`\n  - **Pull Requests\" — avatar resolution for PR authors and reviewers:\n    - Added `id\" field to `GitPRAuthor\" and `GitPRReviewer\" data models\n    - Added `organization\" to `PullRequestsUiState\" and `PRDetailDisplay`\n    - Updated `PullRequestsScreen\" and `PRDetailScreen\" with identityImage fallback\n  - **Test Cases\" — avatar resolution for test case creators and comment authors in `TestCaseDetailViewModel`\n  - **Avatar resolution strategy**:\n    1. Primary: Use `imageUrl\" from API response when available\n    2. Fallback: Construct identityImage URL: `https://dev.azure.com/{org}/_api/_common/identityImage?id={userId}`\n    3. Graph API: Available via `ProfileRepository.getUserAvatarUrl()` for subject descriptors\n    4. Caching: `AvatarCache\" prevents repeated API calls for the same user\n\n---"
+        }
+      ],
+      "highlights": [
+        "Feature 21: Avatar Resolution for All Users\" — comprehensive avatar resolution system for all users across the app:",
+        "AvatarCache utility\" — new AvatarCache.kt\" with thread-safe in-memory caching using ConcurrentHashMap",
+        "ProfileRepository.getUserAvatarUrl() — Graph API integration for avatar resolution by subject descriptor"
+      ]
+    },
+    {
+      "version": "3.4",
+      "date": "2026-03-18",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Profile Screen — Full Implementation\" (v3.4):\n  - **Sign Out\" — `onSignOut()` calls `authRepository.logout()` and fires `NavigateToLogin\" event; clears `EncryptedSharedPreferences\" and navigates to Login screen\n  - **Connection Settings Dialog\" — shows Organization, Project, and masked PAT (`••••••xxxx`); \"Update PAT\" button opens password dialog with toggleable visibility\n  - **Update PAT Dialog\" — `OutlinedTextField\" with password visual transformation and eye icon toggle; validates new token via profile API; shows snackbar on success/error\n  - **Theme Dialog\" — three radio options (System / Light / Dark); saves to `DataStore<Preferences>` under `theme_mode\" key; applies immediately\n  - **Help Dialog\" — links to bug report/feedback, Azure DevOps REST API docs, and displays app version from `BuildConfig.VERSION_NAME`\n  - **Recent Activity Card\" — shows last 5 work items changed by the current user (WIQL query ordered by `ChangedDate DESC`); each row shows type icon, title, state chip, and relative timestamp; tap to navigate to work item detail\n  - **Info Card\" — added Organization and Project rows below \"Last Updated\"\n  - `ProfileEvent.NavigateToLogin`, `ProfileEvent.ShowSnackbar`, `ProfileEvent.NavigateToWorkItem\" sealed classes added\n  - `RecentActivityItem\" data class added\n  - `maskPat()` helper function added to `ProfileViewModel`"
+        },
+        {
+          "title": "Changed",
+          "content": "- **Profile stats loading\" — avatar bytes extracted from profile API first; `loadUserAvatarFromAssignedItems()` runs last to guarantee it doesn't race with profile load\n\n---"
+        }
+      ],
+      "highlights": [
+        "Profile Screen — Full Implementation\" (v3.4):",
+        "Sign Out\" — onSignOut() calls authRepository.logout() and fires NavigateToLogin\" event; clears EncryptedSharedPreferences\" and navigates to Login screen",
+        "Connection Settings Dialog\" — shows Organization, Project, and masked PAT (••••••xxxx); \"Update PAT\" button opens password dialog with toggleable visibility"
+      ]
+    },
+    {
+      "version": "3.3",
+      "date": "2026-03-18",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Home Screen Header — Full Implementation\" (v3.3):\n  - **Real app logo\" — replaced gear emoji with `app_logo\" vector drawable (22dp, `Color.Unspecified\" tint) inside the 32dp gradient box\n  - **Real team name\" — `HomeViewModel\" injects `ProfileRepository\" and calls `getUserTeams()`; `teamName\" added to `HomeUiState`; shows org alone when team is blank\n  - **User avatar → Profile navigation\" — `onAvatarClick\" replaced with `onNavigateToProfile\" callback; tapping avatar opens Profile screen\n  - **Three-dot overflow menu\" — `MoreVert\" icon button with dropdown menu (Refresh / Search / Profile / Sign out)\n  - **Sign out\" — `HomeViewModel.onSignOut()` calls `authRepository.logout()` and fires `HomeEvent.NavigateToLogin\" via `Channel`\n  - `HomeEvent.NavigateToLogin\" sealed class added to `HomeViewModel`\n  - `HomeViewModel\" now injects `ProfileRepository\" for team name and user avatar bytes\n  - `userAvatarBytes: ByteArray?` added to `HomeUiState\" for future base64 avatar support"
+        },
+        {
+          "title": "Changed",
+          "content": "- **WorkItemsTopBar\" — signature changed: `userInitials`/`userAvatarUrl`/`onMenuClick\" replaced with `onRefresh`, `onNavigateToSearch`, `onNavigateToProfile`, `onSignOut`\n---"
+        }
+      ],
+      "highlights": [
+        "Home Screen Header — Full Implementation\" (v3.3):",
+        "Real app logo\" — replaced gear emoji with applogo\" vector drawable (22dp, Color.Unspecified\" tint) inside the 32dp gradient box",
+        "Real team name\" — HomeViewModel\" injects ProfileRepository\" and calls getUserTeams(); teamName\" added to HomeUiState; shows org alone when team is blank"
+      ]
+    },
+    {
+      "version": "3.2",
+      "date": "2026-03-18",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Test Case Detail — Tab interface**: replaced inline Test Steps / Test Points / Comments sections with a `TabRow\" (Steps | Test Points | Comments), matching the work item detail tab pattern\n- **Test Case Detail — Edit/Add/Delete Test Steps**: per-step Edit (pencil) and Delete (×) buttons in the Steps tab; \"Add Step\" FAB button in bottom bar when on Steps tab; `StepEditDialog\" composable for both add and edit; steps saved to `Microsoft.VSTS.TCM.Steps\" XML field via `workItemRepository.updateWorkItem\" on every change\n  - `showAddStepDialog`, `showEditStepDialog`, `editingStepIndex\" added to `TestCaseDetailUiState`\n  - `onShowAddStepDialog`, `onShowEditStepDialog`, `onDismissStepDialog`, `onConfirmAddStep`, `onConfirmEditStep`, `onDeleteStep`, `saveTestSteps`, `buildTestStepsXml`, `escapeXml\" added to `TestCaseDetailViewModel`\n  - Bottom bar: \"Add Step\" icon shown on Steps tab; \"Comment\" icon shown on Comments tab; \"Edit\" icon always shown\n- **Permanent Delete for Work Items**: red `DeleteForever\" icon button in bottom bar opens a confirmation dialog; on confirm calls `DELETE /_apis/wit/workitems/{id}?destroy=true&api-version=7.0`; navigates back and shows snackbar on success\n- **Permanent Delete for Test Cases**: same UX as work item delete but uses `DELETE /_apis/testplan/testcases/{id}?api-version=7.2-preview.1\" (Test Management REST API — the Work Items API rejects test case deletion with 400)\n  - `deleteWorkItem(id): Result<Unit>` added to `WorkItemRepository\" interface and `WorkItemRepositoryImpl`\n  - `deleteTestCase(id): Result<Unit>` added to `TestRepository\" interface and `TestRepositoryImpl\" (OkHttp, same pattern as `addTestCasesToSuite`)\n  - `showDeleteWorkItemDialog\" state + `onDeleteWorkItemClick\" / `onDismissDeleteWorkItemDialog\" / `onConfirmDeleteWorkItem\" added to both `DetailViewModel\" and `TestCaseDetailViewModel`\n  - `DeleteWorkItemDialog\" composable added to `DetailScreen`; `DeleteTestCaseDialog\" composable added to `TestCaseDetailScreen`\n- **Linked Items enrichment**: after the work item loads, a background call to `getWorkItemsDetails(linkedItemIds)` fetches real title, state, work item type, assignee, and assignee avatar for every linked item\n  - `LinkedWorkItemDisplay\" extended with `workItemType`, `assignedTo`, `assignedToImageUrl\" (all nullable)\n  - `loadLinkedItemDetails()` private method added to `DetailViewModel`\n  - `LinkedItemCard\" redesigned: shows `#id Title\" (2 lines), relation-type badge, work item-type badge (color-coded: Bug/Defect → red, Task → blue, Story → cyan, Epic → purple), state text, assignee avatar + name row\n- **Create New Test Case\" (v3.2): full test case creation flow\n  - FAB on `TestCasesScreen\" navigates to `CreateTestCaseScreen`\n  - `CreateTestCaseScreen\" + `CreateTestCaseViewModel\" created in `ui/testcases/`\n  - Title field (required, Save disabled when blank)\n  - Priority selector (chips: Critical / High / Medium / Low)\n  - Test plan / suite selectors with searchable nested tree view\n  - Test steps editor: add/remove steps with Action + Expected Result fields\n  - Save flow: POST `/_apis/wit/workitems/$Test%20Case` → PATCH `Microsoft.VSTS.TCM.Steps\" XML\n  - On success: navigate to newly created test case detail, show snackbar\n  - \"Test Case 🧪\" option added to Dashboard/Work `CreateFab`\n  - `Screen.CreateTestCase\" route added to `AppNavigation`"
+        },
+        {
+          "title": "Fixed",
+          "content": "- **All work items showing \"Linked\" relation type**: `WorkItemRelation.getRelationType()` was checking `rel\" for plain words like \"Child\" but the API sends identifiers like `System.LinkTypes.Hierarchy-Forward`. Fixed to first use `attributes.name\" (human-readable label provided by API), then fall back to parsing the `rel\" identifier (`Hierarchy-Forward` → Child, `Hierarchy-Reverse` → Parent, `Dependency-Forward` → Successor, etc.)\n- **Custom work item types (e.g. \"Defect\") not appearing in the app**: `WiqlQueryBuilder.workItemTypeFilter\" was an allowlist of only `Bug`, `Task`, `Product Backlog Item`. Changed to a denylist: `[System.WorkItemType] NOT IN ('Test Case', 'Test Plan', 'Test Suite')\" — all other types including custom ones now appear in work item lists\n---"
+        }
+      ],
+      "highlights": [
+        "Test Case Detail — Tab interface: replaced inline Test Steps / Test Points / Comments sections with a TabRow\" (Steps | Test Points | Comments), matching the work item detail tab pattern",
+        "Test Case Detail — Edit/Add/Delete Test Steps: per-step Edit (pencil) and Delete (×) buttons in the Steps tab; \"Add Step\" FAB button in bottom bar when on Steps tab; StepEditDialog\" composable for both add and edit; steps saved to Microsoft.VSTS.TCM.Steps\" XML field via workItemRepository.updateWorkItem\" on every change",
+        "showAddStepDialog, showEditStepDialog, editingStepIndex\" added to TestCaseDetailUiState"
+      ]
+    },
+    {
+      "version": "3.0",
+      "date": "2026-03-18",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- `ProjectsScreen\" + `ProjectsViewModel\" in `ui/projects/`\n  - Browse all teams in the organization with real-time member counts\n  - Team list item: gradient avatar with initials, team name, description, member count badge\n  - Tap team → expandable bottom panel showing team members list\n  - Team member card: 44dp avatar with accent color, display name, email/uniqueName\n  - \"Go to Sprint\" shortcut button — navigates to Sprints screen\n  - Pull-to-refresh functionality\n  - Loading and empty states\n  - Member counts loaded in parallel for all teams on screen open\n- **`TeamMembersResponse`**, **`TeamMember`**, and **`IdentityRef`** data models added:\n  - `TeamMember\" contains nested `IdentityRef\" object with id, displayName, uniqueName, imageUrl, descriptor\n  - `IdentityRef\" used for identity information in team members context\n- **Navigation**:\n  - Projects quick card added to Dashboard between Pull Requests and Team Activity\n- **Navigation fix**: Projects → Sprints navigation now properly clears back stack, allowing bottom nav to work correctly"
+        }
+      ],
+      "highlights": [
+        "ProjectsScreen\" + ProjectsViewModel\" in ui/projects/",
+        "Browse all teams in the organization with real-time member counts",
+        "Team list item: gradient avatar with initials, team name, description, member count badge"
+      ]
+    },
+    {
+      "version": "2.9",
+      "date": "2026-03-17",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Acceptance Criteria field\" for work items — full view and inline editing:\n  - Acceptance Criteria section added to `DetailScreen\" between Description and Test Steps\n  - Section is visible for User Story / Feature / Epic / Product Backlog Item always; shown for any type when the field is non-blank\n  - Rich HTML content rendered via `HtmlContentWebView\" (same as Description); italic placeholder shown when field is blank\n  - Pencil `IconButton\" in section header opens `AcceptanceCriteriaEditDialog\" (multi-line `OutlinedTextField`, minLines=4)\n  - `updateWorkItemAcceptanceCriteria(id, text)` added to `WorkItemRepository\" interface and `WorkItemRepositoryImpl\" — uses JSON Patch on `/fields/Microsoft.VSTS.Common.AcceptanceCriteria`\n  - `WorkItemDisplay.acceptanceCriteria\" field added; populated from `WorkItemFields.acceptanceCriteria\" in `toDisplay()`\n  - `DetailUiState.showEditAcceptanceCriteriaDialog\" flag added; `onEditAcceptanceCriteriaClick()`, `onDismissEditAcceptanceCriteriaDialog()`, `onUpdateAcceptanceCriteria()\" handlers in `DetailViewModel`\n\n---"
+        }
+      ],
+      "highlights": [
+        "Acceptance Criteria field\" for work items — full view and inline editing:",
+        "Acceptance Criteria section added to DetailScreen\" between Description and Test Steps",
+        "Section is visible for User Story / Feature / Epic / Product Backlog Item always; shown for any type when the field is non-blank"
+      ]
+    },
+    {
+      "version": "2.8",
+      "date": "2026-03-17",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- `DetailScreen\" now has 3 tabs: **Comments | History | Attachments** (replacing the single Comments tab)\n  - History and Attachments removed from the 3-dot More menu since they now have dedicated tabs\n  - History loads lazily on first tab open (no API call until the user taps the tab)\n  - Each revision card shows author avatar (real photo), name, timestamp, and all changed fields\n  - **Field diffs**: State, Assigned To, Priority, Title, Sprint, Area Path, Tags, Severity, Reason, Activity, Risk, Value Area, Business Value, Story Points/Effort, Remaining/Original/Completed Work, Due/Start/Finish Date, Backlog Priority/Stack Rank\n  - **Summary changes\" (icon + colored label + optional text preview): Description changed, Acceptance Criteria changed, Comment added/edited/deleted\n  - **Relation changes**: Attachment added/removed (with filename), Child/Parent/Related/Duplicate/Successor/Predecessor link added/removed, Hyperlink, Tested by, Affects, External link\n  - **Attachment download**: tap ⬇ button → authenticated OkHttp download to `cacheDir/attachments/` → `FileProvider\" URI → `ACTION_VIEW\" intent\n  - Internal noise fields (`System.ChangedDate`, `System.Watermark`, `System.Rev`, state-date fields) filtered from display"
+        }
+      ],
+      "highlights": [
+        "DetailScreen\" now has 3 tabs: Comments | History | Attachments (replacing the single Comments tab)",
+        "History and Attachments removed from the 3-dot More menu since they now have dedicated tabs",
+        "History loads lazily on first tab open (no API call until the user taps the tab)"
+      ]
+    },
+    {
+      "version": "2.7",
+      "date": "2026-03-17",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- 4 tabs: Templates | Shared | Saved | Custom\n  - Predefined query templates (My Active Items, My Bugs, Unassigned Tasks, Items Changed Today)\n  - Shared query tree from Azure DevOps (`GET /wit/queries?$depth=2`) with expand/collapse folders\n  - Custom WIQL query input panel with syntax hint\n  - Execute any query → results shown as work item cards (reusing existing card style)\n  - Pull-to-refresh re-runs last query or reloads shared tree depending on active tab\n  - `WiqlResponse\" extended to handle both flat (`workItems`) and tree/oneHop (`workItemRelations`) query types via `allWorkItemIds()` helper\n  - New API endpoints: `getQueriesTree`, `runStoredQuery`\n  - Queries quick card added to Dashboard\n  - Color-coded status header card with gradient tint, status icon, branch, duration/build#/triggered stats\n  - Build information card with requester avatar (initials via `ADOAvatar`), start/finish/duration rows\n  - Test results section: aggregate pass/fail chips, per-run `TestRunCard\" with segmented progress bar and stat row\n  - Pull-to-refresh\n  - New API endpoints: `getBuildById\" (single build), `getTestRunsForBuild`"
+        },
+        {
+          "title": "Fixed",
+          "content": "- **OOM crash from unconditional animations\" — `rememberInfiniteTransition\" was called for every item in `PipelinesScreen\" and `DashboardScreen.PipelineRow\" regardless of whether the pipeline was running. Extracted `PipelineStatusIcon\" / `DashboardPipelineStatusIcon\" composables so the infinite transition is only created when `status == \"running\"`\n- **Pipeline detail page very slow\" — `PipelineDetailViewModel\" was calling `getBuilds(top=25)` and scanning by name; now navigates with `buildId: Int\" and calls `getBuildById()` directly (single targeted API call)\n- **Compile error `Unresolved reference 'pipelineName'`** — residual reference in `PipelineDetailScreen\" top-bar subtitle after parameter rename; replaced with `uiState.pipeline?.name ?: \"#$buildId\"`\n\n---"
+        }
+      ],
+      "highlights": [
+        "4 tabs: Templates | Shared | Saved | Custom",
+        "Predefined query templates (My Active Items, My Bugs, Unassigned Tasks, Items Changed Today)",
+        "Shared query tree from Azure DevOps (GET /wit/queries?$depth=2) with expand/collapse folders"
+      ]
+    },
+    {
+      "version": "2.5",
+      "date": "2026-03-17",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Test Case field editing\" — Assignee, Priority, Tags, Sprint/Iteration Path, and Area Path are now editable in `TestCaseDetailScreen`, matching the field editing already available in `DetailScreen`; each row has a pencil `IconButton\" that opens a modal dialog\n- **`AssigneeEditDialog`, `PriorityEditDialog`, `TagsEditDialog`, `IterationEditDialog`, `AreaPathEditDialog`** composables added to `TestCaseDetailScreen`\n- **`currentPlanId\" / `currentSuiteId\"** stored in `TestCaseDetailUiState\" when `loadTestPoints\" is called, enabling run creation without extra parameters"
+        },
+        {
+          "title": "Fixed",
+          "content": "- **Pass / Fail / Block buttons not visible**: buttons were hidden behind `if (point.runId != null)` — test points only have a `runId\" when there is an active test run (almost never when browsing). Fixed by removing the guard and creating a test run on the fly when the user taps a button: `createTestRun(planId, pointId)` → `getTestResults(runId)` → `updateTestResult(runId, resultId, outcome)`. The `runId\" is then stored on the point for subsequent taps.\n\n---"
+        }
+      ],
+      "highlights": [
+        "Test Case field editing\" — Assignee, Priority, Tags, Sprint/Iteration Path, and Area Path are now editable in TestCaseDetailScreen, matching the field editing already available in DetailScreen; each row has a pencil IconButton\" that opens a modal dialog",
+        "AssigneeEditDialog, PriorityEditDialog, TagsEditDialog, IterationEditDialog, AreaPathEditDialog composables added to TestCaseDetailScreen",
+        "currentPlanId\" / currentSuiteId\" stored in TestCaseDetailUiState\" when loadTestPoints\" is called, enabling run creation without extra parameters"
+      ]
+    },
+    {
+      "version": "2.4",
+      "date": "2026-03-17",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Pull Requests screen\" — new `PullRequestsScreen\" + `PullRequestsViewModel\" in `ui/pullrequests/`; shows all PRs in the project as scrollable cards with title, branch info, author avatar, status chip, and creation date\n- **PR Detail screen\" — new `PRDetailScreen\" + `PRDetailViewModel`; in-app full-detail view with header card (title, status chip, source→target branch), author/date/ID info card, description card, and reviewers list with vote chips (Approved / Rejected / Approved with suggestions / Waiting / No vote)\n- **Navigation routes\" `Screen.PullRequests\" and `Screen.PullRequestDetail\" added to `AppNavigation`; PRs now open in-app instead of in a browser\n- **PR status filter chips\" — All · Active · Completed · Abandoned (re-fetches from API on each change)\n- **\"Created by me\" toggle\" — client-side filter comparing `createdBy.uniqueName\" against the stored user email (API `searchCriteria.creatorId\" requires a GUID and is not used)\n- **`GitPRReviewer`** data class added; `GitPullRequestItem\" extended with `description\" and `reviewers\" fields\n- **Pull Requests quick card\" on `DashboardScreen\" navigating to the PR list\n- **Work Item Field Editing\" — `DetailScreen\" now supports inline editing of Assignee, Priority, Tags, Sprint/Iteration Path, and Area Path via pencil-icon edit buttons and modal dialogs\n- **`AssigneeEditDialog`, `PriorityEditDialog`, `TagsEditDialog`, `IterationEditDialog`, `AreaPathEditDialog`** composables added to `DetailScreen`\n- **`WorkItemRepository\" extended with `updateWorkItemAssignee`, `updateWorkItemPriority`, `updateWorkItemTags`, `updateWorkItemIterationPath`, `updateWorkItemAreaPath`, `getTeamIterations`\n- **`DetailViewModel\" extended with editing state fields, `loadIterations()`, and handler methods for all five editable fields\n- **Test Execution\" — Pass / Fail / Block action buttons added to each test point row in `TestCaseDetailScreen`; calls `TestRepository.updateTestResult()\" on tap and optimistically updates point state in UI"
+        },
+        {
+          "title": "Fixed",
+          "content": "- **PR cards showing white background**: PR screen was using `ADOCard\" (light-mode color `#FFFFFF`). All `ADO*` color references in `PullRequestsScreen\" replaced with `AppColors.*\" to match the dark Telegram theme\n- **\"Created by me\" filter always empty**: Was passing `searchCriteria.creatorId\" (requires GUID) to the API with the user's email. Fixed by fetching all PRs without that parameter and filtering client-side by `createdBy.uniqueName`\n- **PRs opening in browser**: PR cards previously used `LocalUriHandler.openUri()\" to open the Azure DevOps web URL. Replaced with in-app `PRDetailScreen\" navigation via `onNavigateToPRDetail(pr.pullRequestId)`\n\n---"
+        }
+      ],
+      "highlights": [
+        "Pull Requests screen\" — new PullRequestsScreen\" + PullRequestsViewModel\" in ui/pullrequests/; shows all PRs in the project as scrollable cards with title, branch info, author avatar, status chip, and creation date",
+        "PR Detail screen\" — new PRDetailScreen\" + PRDetailViewModel; in-app full-detail view with header card (title, status chip, source→target branch), author/date/ID info card, description card, and reviewers list with vote chips (Approved / Rejected / Approved with suggestions / Waiting / No vote)",
+        "Navigation routes\" Screen.PullRequests\" and Screen.PullRequestDetail\" added to AppNavigation; PRs now open in-app instead of in a browser"
+      ]
+    },
+    {
+      "version": "2.3",
+      "date": "2026-03-16",
+      "sections": [
+        {
+          "title": "Fixed",
+          "content": "- **Sprint filters not working — \"Assigned to Me\" always empty:** `filterWorkItems()` was comparing the user's email against the assignee's `displayName\" (e.g. `\"John Doe\"`) instead of their `uniqueName\" (which holds the email in Azure DevOps). Fixed by adding `assignedToUniqueName: String?` to `SprintWorkItemDisplay`, populated from `AssignedTo.uniqueName\" in `toSprintDisplay()`. Filter now compares `userEmail\" against `assignedToUniqueName\" with a fallback to matching `userDisplayName\" against the display name.\n- **Sprint filters not working — state/type filters inconsistent after sprint switch:** `loadSprintWorkItems\" was calling `_uiState.copy(workItems = displayedItems, ...)\" directly, bypassing the filter logic. Replaced with setting `allWorkItems\" only, then calling `filterWorkItems()`. Also reset all three filter fields (`selectedFilterType`, `selectedFilterState`, `selectedFilterAssigned`) on sprint switch — previously `selectedFilterAssigned\" was not reset.\n- **Team selector panel not visible when list is scrolled:** `TeamSelectorPanel\" was the first item inside the `LazyColumn`. When scrolled down, clicking the team button expanded the panel off-screen at the top of the scroll area. Fixed by lifting the panel into a `Column\" wrapper above the `LazyColumn\" so it always appears just below the top bar regardless of scroll position.\n- **Team Progress progress bars invisible at low progress values:** `ADOProgressBar\" used `.fillMaxSize(fraction)\" which scales **both** width and height by the fraction. At 1/6 progress (~17%) the bar was ~0.8dp tall — invisible against the track. Fixed by changing to `.fillMaxWidth(fraction).fillMaxHeight()\" so only the width changes.\n- **Profile \"Last Updated\" showing raw timestamp:** `formatTimestamp()` input format `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'` failed to parse Azure DevOps timestamps like `2026-03-15T15:44:23.3166667+00:00\" (7 fractional digits, `+HH:MM\" timezone offset). Fixed by normalizing the string before parsing: truncate fractional seconds to 3 digits, convert `+HH:MM` → `+HHMM`, and `Z` → `+0000`. Added a fallback format without fractional seconds."
+        },
+        {
+          "title": "Changed",
+          "content": "- **Sprint iteration chips row\" now sorted by `finishDate\" descending (most recent first) after pinning the current sprint at the top. Previously the API order was used after pinning current.\n- **Profile \"Last Updated\" date format\" changed from `MMM dd, yyyy\" to `dd-MM-yyyy HH:mm\" to show time and use numeric month.\n- **Team Progress bar\" height increased from 5dp to 6dp; fill gradient uses a slight alpha fade (`color 70% → color 100%`) for a more polished look.\n\n---"
+        }
+      ],
+      "highlights": [
+        "Sprint filters not working — \"Assigned to Me\" always empty: filterWorkItems() was comparing the user's email against the assignee's displayName\" (e.g. \"John Doe\") instead of their uniqueName\" (which holds the email in Azure DevOps). Fixed by adding assignedToUniqueName: String? to SprintWorkItemDisplay, populated from AssignedTo.uniqueName\" in toSprintDisplay(). Filter now compares userEmail\" against assignedToUniqueName\" with a fallback to matching userDisplayName\" against the display name.",
+        "Sprint filters not working — state/type filters inconsistent after sprint switch: loadSprintWorkItems\" was calling uiState.copy(workItems = displayedItems, ...)\" directly, bypassing the filter logic. Replaced with setting allWorkItems\" only, then calling filterWorkItems(). Also reset all three filter fields (selectedFilterType, selectedFilterState, selectedFilterAssigned) on sprint switch — previously selectedFilterAssigned\" was not reset.",
+        "Team selector panel not visible when list is scrolled: TeamSelectorPanel\" was the first item inside the LazyColumn. When scrolled down, clicking the team button expanded the panel off-screen at the top of the scroll area. Fixed by lifting the panel into a Column\" wrapper above the LazyColumn\" so it always appears just below the top bar regardless of scroll position."
+      ]
+    },
+    {
+      "version": "2.2",
+      "date": "2026-03-16",
+      "sections": [
+        {
+          "title": "Fixed",
+          "content": "- **Avatar images not loading (root cause 1):** `UserProfile.attributes\" was deserialized with `@SerializedName(\"attributes\")` but the Azure DevOps profile API returns the key as `coreAttributes`. Changed to `@SerializedName(\"coreAttributes\")` in `WorkItemModels.kt\" so avatar data is now correctly parsed.\n- **Avatar images not loading (root cause 2):** `AuthInterceptor\" was adding `Content-Type: application/json\" to every request including GET requests for images. Azure DevOps image endpoints return JSON error responses when they receive this header on a GET. Now only added when the request has a body (POST/PUT/PATCH).\n- **Login network error (\"after 10000ms\"):** `createTempApi\" in `AuthRepositoryImpl\" built a bare `OkHttpClient\" with default 10-second connect timeout and no IPv4-preference DNS. On IPv6-first networks this caused login to fail immediately. Now matches the main client: 60s timeouts, 120s call timeout, and IPv4-preference DNS resolver.\n- **Kotlin compile errors in `toDisplay()` / `toSprintDisplay()`:** `fields.assignedTo ?: fields.createdBy\" inferred type `Any?` (no common supertype between `AssignedTo\" and `CreatedBy`), making member access on `imageUrl`, `id`, and `displayName\" fail. Fixed in `HomeViewModel`, `DetailViewModel`, and `SprintsViewModel\" by accessing fields from each typed variable separately."
+        },
+        {
+          "title": "Changed",
+          "content": "- `ProfileViewModel\" now injects `AuthRepository\" to expose `org\" in `ProfileUiState`, enabling the Profile screen to construct the correct avatar URL from `UserProfile.id`.\n- `ProfileScreen\" hero avatar now uses `https://vssps.dev.azure.com/{org}/_api/_common/identityImage?id={profileId}` directly instead of `profile.attributes?.avatar?.value`.\n\n---"
+        }
+      ],
+      "highlights": [
+        "Avatar images not loading (root cause 1): UserProfile.attributes\" was deserialized with @SerializedName(\"attributes\") but the Azure DevOps profile API returns the key as coreAttributes. Changed to @SerializedName(\"coreAttributes\") in WorkItemModels.kt\" so avatar data is now correctly parsed.",
+        "Avatar images not loading (root cause 2): AuthInterceptor\" was adding Content-Type: application/json\" to every request including GET requests for images. Azure DevOps image endpoints return JSON error responses when they receive this header on a GET. Now only added when the request has a body (POST/PUT/PATCH).",
+        "Login network error (\"after 10000ms\"): createTempApi\" in AuthRepositoryImpl\" built a bare OkHttpClient\" with default 10-second connect timeout and no IPv4-preference DNS. On IPv6-first networks this caused login to fail immediately. Now matches the main client: 60s timeouts, 120s call timeout, and IPv4-preference DNS resolver."
+      ]
+    },
+    {
+      "version": "2.1",
+      "date": "2026-03-15",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Pull-to-refresh\" on all data screens: Home (Work Items), Dashboard, Sprints, Pipelines, Test Cases, Profile — swipe down to reload using Material3 `PullToRefreshBox`\n- **Create FAB\" on Dashboard screen — expandable floating action button matching the one on the Work Items screen; reveals Bug / Task / Story quick-create options\n- **Profile real stats\" — Work Items, Pull Requests, and Builds counts on the Profile screen are now fetched live from the Azure DevOps API instead of showing static \"—\" placeholders\n- **`CreateFab`** extracted to `ui/components/CreateFab.kt\" as a shared composable used by both Dashboard and Home screens\n- **`ProfileStats`** data class and `getProfileStats()` repository method for parallel API fetching of profile statistics"
+        },
+        {
+          "title": "Removed",
+          "content": "- **Notifications feature\" — `NotificationsScreen`, `NotificationsViewModel`, and `NotificationsOverlay\" removed; bell icon removed from all top app bars; notification route removed from navigation graph\n- **`unreadNotificationsCount`** removed from `DashboardUiState`"
+        },
+        {
+          "title": "Changed",
+          "content": "- `DashboardScreen\" top bar now shows a Refresh button instead of a bell icon\n- `HomeScreen\" top bar simplified — bell icon removed\n- `AppNavigation\" — notification overlay state and route removed; `onNavigateToCreate\" lambda added to `DashboardScreen`\n- `ProfileRepositoryImpl.getProfileStats()` fetches work items (WIQL), pull requests, and builds in parallel using `async`/`await`"
+        },
+        {
+          "title": "Documentation",
+          "content": "- `AzureDevOps_App_Design_Spec.md\" updated to v2.1 — notifications sections removed, pull-to-refresh documented per screen, CreateFab spec added, Profile stats sources documented, API endpoints table updated\n- `plan.md\" updated to v2.1 — Test Cases sprint marked complete, notifications removed from feature list, Future Enhancements and Tech Debt backlog restored to pending\n\n---"
+        }
+      ],
+      "highlights": [
+        "Pull-to-refresh\" on all data screens: Home (Work Items), Dashboard, Sprints, Pipelines, Test Cases, Profile — swipe down to reload using Material3 PullToRefreshBox",
+        "Create FAB\" on Dashboard screen — expandable floating action button matching the one on the Work Items screen; reveals Bug / Task / Story quick-create options",
+        "Profile real stats\" — Work Items, Pull Requests, and Builds counts on the Profile screen are now fetched live from the Azure DevOps API instead of showing static \"—\" placeholders"
+      ]
+    },
+    {
+      "version": "2.0",
+      "date": "2026-03-14",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- **Test Cases screen\" — browse test plans and suites, view test cases list with filtering (state, automation status) and search\n- **Test Case detail screen\" — full detail view with test steps, test points, comments, and attachments\n- **`TestCaseListItem`** component with left accent strip, state chip, automation status, and assignee avatar\n- **`TestCaseDetailViewModel`** with parallel loading of test case fields, steps, points, comments, and attachments\n- **`TestRepository\" interface and `TestRepositoryImpl\" covering `getTestCases`, `getTestCaseById`, and `getTestPoints`\n- Test case navigation route `testcase_detail/{testCaseId}` added to `AppNavigation`\n- `getTestCasesInSuite`, `getTestPlans`, `getTestSuites\" endpoints added to `AzureDevOpsApi`"
+        },
+        {
+          "title": "Changed",
+          "content": "- `TestCasesViewModel\" updated with `isRefreshing`, `viewMode\" (MY_CASES / BROWSE), filtering, and sorting logic\n- `DetailScreen\" detects Test Case work item type and renders test-step-aware UI\n\n---"
+        }
+      ],
+      "highlights": [
+        "Test Cases screen\" — browse test plans and suites, view test cases list with filtering (state, automation status) and search",
+        "Test Case detail screen\" — full detail view with test steps, test points, comments, and attachments",
+        "TestCaseListItem component with left accent strip, state chip, automation status, and assignee avatar"
+      ]
+    },
+    {
+      "version": "1.0",
+      "date": "2026-03-01",
+      "sections": [
+        {
+          "title": "Added",
+          "content": "- Initial release\n- Authentication with Azure DevOps PAT tokens\n- Work Items screen with filter chips (All, Bugs, Stories, Tasks, Active, New, Assigned to Me)\n- Work Item detail screen — state management, comments (add/edit/delete/react), follow/unfollow, linked items, attachments\n- Create Work Item screen (Bug, Task, Product Backlog Item)\n- Search screen\n- Sprints screen with burndown chart and team progress\n- Pipelines screen with spinning running-build animation\n- Profile screen with gradient avatar and team info\n- Bottom navigation (5 tabs: Home, Work, Sprint, Pipelines, Profile)\n- Hilt dependency injection, Repository pattern, Room database, EncryptedSharedPreferences"
+        }
+      ],
+      "highlights": [
+        "Initial release",
+        "Authentication with Azure DevOps PAT tokens",
+        "Work Items screen with filter chips (All, Bugs, Stories, Tasks, Active, New, Assigned to Me)"
+      ]
+    }
+  ]
+}

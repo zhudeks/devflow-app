@@ -289,6 +289,7 @@
         <a href="#pricing" class="text-sm text-slate-300 hover:text-white transition-colors">Pricing</a>
         <a href="#faq" class="text-sm text-slate-300 hover:text-white transition-colors">FAQ</a>
         <a href="#security" class="text-sm text-slate-300 hover:text-white transition-colors">Security</a>
+        <a href="changelog.html" class="text-sm text-slate-300 hover:text-white transition-colors">Changelog</a>
         <a href="#download" class="text-sm text-slate-300 hover:text-white transition-colors">Download</a>
         <a href="https://play.google.com/store/apps/details?id=com.devflow.client&amp;utm_source=devflow_website&amp;utm_campaign=navbar"
            target="_blank" rel="noopener"
@@ -312,6 +313,7 @@
       <a href="#pricing" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Pricing</a>
       <a href="#faq" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">FAQ</a>
       <a href="#security" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Security</a>
+      <a href="changelog.html" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Changelog</a>
       <a href="#download" class="text-slate-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Download</a>
       <a href="https://play.google.com/store/apps/details?id=com.devflow.client&amp;utm_source=devflow_website&amp;utm_campaign=navbar"
          target="_blank" rel="noopener"
@@ -445,6 +447,28 @@
       </div>
     </div>
     <p id="play-metrics-date" hidden class="text-center text-xs text-slate-500 mt-4"></p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     PAST RELEASES
+════════════════════════════════════ -->
+<section id="recent-updates" class="py-20 px-4 border-b border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-10">
+      <p class="text-[#22B8DD] text-sm font-mono uppercase tracking-widest mb-3">Release archive</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Past releases</h2>
+      <p class="text-slate-400">A few recent updates. The full archive includes published versions only.</p>
+    </div>
+    <p id="recent-releases-status" role="status" class="text-center text-slate-500 text-sm mb-6">
+      Loading release history…
+    </p>
+    <div id="recent-releases" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+    <div class="text-center mt-8">
+      <a href="changelog.html" class="text-[#22B8DD] hover:text-white font-semibold transition-colors">
+        View all updates →
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1254,6 +1278,7 @@
         <a href="https://play.google.com/store/apps/details?id=com.devflow.client&amp;utm_source=devflow_website&amp;utm_campaign=footer"
            target="_blank" rel="noopener"
            class="text-sm text-slate-400 hover:text-white transition-colors">Google Play</a>
+        <a href="changelog.html" class="text-sm text-slate-400 hover:text-white transition-colors">Changelog</a>
         <a href="https://zhudeks.github.io/devflow-privacy/" target="_blank" rel="noopener" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
         <a href="https://github.com/zhudeks" target="_blank" rel="noopener"
            class="text-sm text-slate-400 hover:text-white transition-colors">GitHub</a>
@@ -1371,6 +1396,75 @@
     }
   }
   showLatestPlayVersion();
+
+  async function showRecentChangelog() {
+    const status = document.getElementById('recent-releases-status');
+    const list = document.getElementById('recent-releases');
+    const compareVersions = (left, right) => {
+      const leftParts = left.split('.').map(Number);
+      const rightParts = right.split('.').map(Number);
+      const length = Math.max(leftParts.length, rightParts.length);
+      for (let index = 0; index < length; index += 1) {
+        const difference = (leftParts[index] || 0) - (rightParts[index] || 0);
+        if (difference !== 0) return difference;
+      }
+      return 0;
+    };
+    try {
+      const [versionResponse, changelogResponse] = await Promise.all([
+        fetch('app-version.json', { cache: 'no-store' }),
+        fetch('changelog-data.json', { cache: 'no-store' }),
+      ]);
+      if (!versionResponse.ok || !changelogResponse.ok) {
+        throw new Error('A release data file could not be loaded');
+      }
+
+      const [version, changelog] = await Promise.all([
+        versionResponse.json(),
+        changelogResponse.json(),
+      ]);
+      if (version.releaseStatus !== 'published'
+        || !/^\d+(?:\.\d+){1,2}$/.test(version.versionName)
+        || !Array.isArray(changelog.releases)) {
+        throw new Error('Release data is invalid');
+      }
+
+      const recentReleases = changelog.releases
+        .filter(release => /^\d+(?:\.\d+){1,2}$/.test(release.version)
+          && compareVersions(release.version, version.versionName) <= 0
+          && release.version !== version.versionName)
+        .slice(0, 3);
+      for (const release of recentReleases) {
+        const card = document.createElement('article');
+        card.className = 'glass rounded-2xl p-6 border border-white/5';
+
+        const heading = document.createElement('h3');
+        heading.className = 'text-lg font-bold mb-1';
+        heading.textContent = `v${release.version}`;
+        const date = document.createElement('p');
+        date.className = 'text-slate-500 text-xs mb-4';
+        date.textContent = release.date;
+        const highlights = document.createElement('ul');
+        highlights.className = 'list-disc pl-5 text-slate-300 text-sm leading-6 space-y-2';
+        for (const text of (release.highlights ?? []).slice(0, 3)) {
+          const item = document.createElement('li');
+          item.textContent = text;
+          highlights.append(item);
+        }
+
+        card.append(heading, date, highlights);
+        list.append(card);
+      }
+      status.textContent = recentReleases.length
+        ? ''
+        : 'No earlier published releases are available yet.';
+      status.hidden = recentReleases.length > 0;
+    } catch (error) {
+      console.error('Unable to load the DevFlow release history:', error);
+      status.textContent = 'Release history is temporarily unavailable.';
+    }
+  }
+  showRecentChangelog();
 
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
