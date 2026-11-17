@@ -104,6 +104,15 @@ lifetime installs. The site labels the month through which the reports are
 available. If the bucket or report access is unavailable, the workflow logs a
 warning and retains the most recent successfully synced metrics.
 
+### Website install attribution
+
+Google Play links on the website include `utm_source=devflow_website` and a
+placement-specific `utm_campaign` (for example `hero`, `faq`, or
+`pricing_free`). In Play Console, use the store listing acquisition reports
+and filter by UTM source or campaign to compare aggregate listing visits and
+acquisitions. This does not measure every website button click and does not
+add an analytics SDK or tracking cookie to the site.
+
 ## Tech
 
 Plain HTML, Tailwind CSS CDN, Vanilla JS - No build step required.
