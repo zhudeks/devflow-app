@@ -1,9 +1,9 @@
 {
-  "versionName": "7.7.0",
-  "versionCode": "69",
+  "versionName": "7.7.1",
+  "versionCode": "70",
   "releaseStatus": "published",
-  "releaseNotes": "✨ New\n• Create/delete test plans, create suites, and open test run details.\n• Create/switch/delete wikis, preview page history, and save attachments.\n• Configure board columns, WIP limits, split settings, and team preferences; view swimlanes.\n• Added a demo profile photo on Home and Profile.\n• Improved Home work item icon visibility in dark mode.",
+  "releaseNotes": "• Cleaner loading: thin progress bars replace circular page and refresh indicators.\n• Pull down to refresh instead of using separate refresh buttons.\n• Fixed excessive top spacing across screens.\n• Fixed Personal Access Token management compatibility with Azure DevOps.\n• Improved refresh support for empty lists and the wiki selector.",
   "releaseNotesLanguage": "en-US",
-  "lastUpdatedDate": "2026-11-16",
+  "lastUpdatedDate": "2026-11-18",
   "playMetrics": null
 }
